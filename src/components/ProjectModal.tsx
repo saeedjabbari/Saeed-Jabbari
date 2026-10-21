@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Project } from '../types';
-import { X, Check, Eye, Sliders, Box, Layers, ShieldCheck } from 'lucide-react';
+import { X, Check, Eye, Box, Layers } from 'lucide-react';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -20,7 +20,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 animate-fadeIn">
       <div 
-        className="bg-[#fbf9f5] text-[#141518] rounded-2xl max-w-4xl w-full overflow-hidden shadow-2xl border border-[#e6e2d8] relative my-8"
+        className="bg-white text-[#0B0D12] rounded-2xl max-w-4xl w-full overflow-hidden shadow-2xl border border-[#E2E5EC] relative my-8"
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-project-title"
@@ -49,12 +49,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
           />
 
           <div className="relative z-10">
-            <span className="inline-block px-3 py-1 bg-black/35 backdrop-blur-md rounded text-[11px] font-semibold tracking-widest text-[#cfad76] uppercase mb-3">
+            <span className="inline-block px-3 py-1 bg-black/45 backdrop-blur-md rounded text-[11px] font-bold tracking-widest text-[#FF4D1C] uppercase mb-3">
               {project.sectorLabel} • {project.year}
             </span>
             <h2
               id="modal-project-title"
-              className="font-serif text-3xl sm:text-5xl font-normal tracking-tight mb-2"
+              className="font-serif text-3xl sm:text-5xl font-bold tracking-tight mb-2"
               style={{ color: project.textColor }}
             >
               {project.bannerVisualText}
@@ -66,13 +66,13 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
         </div>
 
         {/* Interactive Tabs Header */}
-        <div className="border-b border-[#e5e1d7] bg-[#f4f1ea] px-6 sm:px-8 flex items-center gap-2 overflow-x-auto">
+        <div className="border-b border-[#E2E5EC] bg-[#F4F5F7] px-6 sm:px-8 flex items-center gap-2 overflow-x-auto">
           <button
             onClick={() => setActiveTab('overview')}
-            className={`py-3.5 px-4 text-xs font-semibold uppercase tracking-wider border-b-2 transition-colors flex items-center gap-2 whitespace-nowrap ${
+            className={`py-3.5 px-4 text-xs font-bold uppercase tracking-wider border-b-2 transition-colors flex items-center gap-2 whitespace-nowrap ${
               activeTab === 'overview'
-                ? 'border-[#a07d40] text-[#141518]'
-                : 'border-transparent text-neutral-500 hover:text-neutral-900'
+                ? 'border-[#FF4D1C] text-[#0B0D12]'
+                : 'border-transparent text-[#646B7D] hover:text-[#0B0D12]'
             }`}
           >
             <Layers className="w-4 h-4" />
@@ -81,10 +81,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
 
           <button
             onClick={() => setActiveTab('dieline')}
-            className={`py-3.5 px-4 text-xs font-semibold uppercase tracking-wider border-b-2 transition-colors flex items-center gap-2 whitespace-nowrap ${
+            className={`py-3.5 px-4 text-xs font-bold uppercase tracking-wider border-b-2 transition-colors flex items-center gap-2 whitespace-nowrap ${
               activeTab === 'dieline'
-                ? 'border-[#a07d40] text-[#141518]'
-                : 'border-transparent text-neutral-500 hover:text-neutral-900'
+                ? 'border-[#FF4D1C] text-[#0B0D12]'
+                : 'border-transparent text-[#646B7D] hover:text-[#0B0D12]'
             }`}
           >
             <Box className="w-4 h-4" />
@@ -93,10 +93,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
 
           <button
             onClick={() => setActiveTab('shelf')}
-            className={`py-3.5 px-4 text-xs font-semibold uppercase tracking-wider border-b-2 transition-colors flex items-center gap-2 whitespace-nowrap ${
+            className={`py-3.5 px-4 text-xs font-bold uppercase tracking-wider border-b-2 transition-colors flex items-center gap-2 whitespace-nowrap ${
               activeTab === 'shelf'
-                ? 'border-[#a07d40] text-[#141518]'
-                : 'border-transparent text-neutral-500 hover:text-neutral-900'
+                ? 'border-[#FF4D1C] text-[#0B0D12]'
+                : 'border-transparent text-[#646B7D] hover:text-[#0B0D12]'
             }`}
           >
             <Eye className="w-4 h-4" />
@@ -110,29 +110,29 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
             <div className="space-y-8">
               {/* Executive Summary */}
               <div>
-                <h3 className="font-serif text-2xl font-normal text-[#141518] mb-2">
+                <h3 className="font-serif text-2xl font-bold text-[#0B0D12] mb-2">
                   {project.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-[#595a5f]">
+                <p className="text-sm leading-relaxed text-[#4A5060]">
                   {project.description}
                 </p>
               </div>
 
               {/* Challenge & Strategic Solution */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-6 rounded-xl border border-[#e8e4da]">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-[#F4F5F7] p-6 rounded-xl border border-[#E2E5EC]">
                 <div>
-                  <h4 className="text-[11px] font-bold tracking-[0.2em] text-[#a07d40] uppercase mb-2">
+                  <h4 className="text-[11px] font-bold tracking-[0.2em] text-[#FF4D1C] uppercase mb-2">
                     The Commercial Challenge
                   </h4>
-                  <p className="text-xs sm:text-[13px] leading-relaxed text-[#595a5f]">
+                  <p className="text-xs sm:text-[13px] leading-relaxed text-[#4A5060]">
                     {project.challenge}
                   </p>
                 </div>
                 <div>
-                  <h4 className="text-[11px] font-bold tracking-[0.2em] text-[#a07d40] uppercase mb-2">
+                  <h4 className="text-[11px] font-bold tracking-[0.2em] text-[#FF4D1C] uppercase mb-2">
                     The Creative Architecture
                   </h4>
-                  <p className="text-xs sm:text-[13px] leading-relaxed text-[#595a5f]">
+                  <p className="text-xs sm:text-[13px] leading-relaxed text-[#4A5060]">
                     {project.solution}
                   </p>
                 </div>
@@ -140,42 +140,42 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
 
               {/* Technical Specifications Matrix */}
               <div>
-                <h4 className="text-[11px] font-bold tracking-[0.2em] text-[#141518] uppercase mb-4">
+                <h4 className="text-[11px] font-bold tracking-[0.2em] text-[#0B0D12] uppercase mb-4">
                   Factory & Print Production Specifications
                 </h4>
 
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                  <div className="bg-white p-4 rounded-lg border border-[#e8e4da]">
-                    <div className="text-[10px] text-neutral-400 uppercase font-semibold">Mechanical Tolerance</div>
-                    <div className="font-mono text-sm font-semibold text-[#141518] mt-1">{project.tolerance}</div>
+                  <div className="bg-white p-4 rounded-lg border border-[#E2E5EC]">
+                    <div className="text-[10px] text-[#646B7D] uppercase font-semibold">Mechanical Tolerance</div>
+                    <div className="font-mono text-sm font-bold text-[#0B0D12] mt-1">{project.tolerance}</div>
                   </div>
 
-                  <div className="bg-white p-4 rounded-lg border border-[#e8e4da]">
-                    <div className="text-[10px] text-neutral-400 uppercase font-semibold">Outer Dimensions</div>
-                    <div className="font-mono text-xs font-semibold text-[#141518] mt-1">{project.dimensions}</div>
+                  <div className="bg-white p-4 rounded-lg border border-[#E2E5EC]">
+                    <div className="text-[10px] text-[#646B7D] uppercase font-semibold">Outer Dimensions</div>
+                    <div className="font-mono text-xs font-bold text-[#0B0D12] mt-1">{project.dimensions}</div>
                   </div>
 
-                  <div className="bg-white p-4 rounded-lg border border-[#e8e4da]">
-                    <div className="text-[10px] text-neutral-400 uppercase font-semibold">Substrate Caliper</div>
-                    <div className="text-xs font-semibold text-[#141518] mt-1 truncate">{project.dielineSpecs.caliper}</div>
+                  <div className="bg-white p-4 rounded-lg border border-[#E2E5EC]">
+                    <div className="text-[10px] text-[#646B7D] uppercase font-semibold">Substrate Caliper</div>
+                    <div className="text-xs font-bold text-[#0B0D12] mt-1 truncate">{project.dielineSpecs.caliper}</div>
                   </div>
 
-                  <div className="bg-white p-4 rounded-lg border border-[#e8e4da]">
-                    <div className="text-[10px] text-neutral-400 uppercase font-semibold">Press Run Method</div>
-                    <div className="text-xs font-semibold text-[#141518] mt-1 truncate">{project.pressMethod}</div>
+                  <div className="bg-white p-4 rounded-lg border border-[#E2E5EC]">
+                    <div className="text-[10px] text-[#646B7D] uppercase font-semibold">Press Run Method</div>
+                    <div className="text-xs font-bold text-[#0B0D12] mt-1 truncate">{project.pressMethod}</div>
                   </div>
                 </div>
               </div>
 
               {/* Highlights List */}
-              <div className="bg-[#f4f1ea] p-6 rounded-xl border border-[#e5e1d7]">
-                <h4 className="text-[11px] font-bold tracking-[0.2em] text-[#a07d40] uppercase mb-3">
-                  Key Production Milestones
+              <div className="bg-[#F4F5F7] p-6 rounded-xl border border-[#E2E5EC]">
+                <h4 className="text-[11px] font-bold tracking-[0.2em] text-[#FF4D1C] uppercase mb-3">
+                  Key Commercial & Production Milestones
                 </h4>
                 <ul className="space-y-2.5">
                   {project.highlights.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 text-xs text-[#595a5f]">
-                      <Check className="w-4 h-4 text-[#a07d40] shrink-0 mt-0.5" />
+                    <li key={idx} className="flex items-start gap-2.5 text-xs text-[#4A5060]">
+                      <Check className="w-4 h-4 text-[#FF4D1C] shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -187,14 +187,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
           {activeTab === 'dieline' && (
             <div className="space-y-6">
               {/* Controls bar */}
-              <div className="flex flex-wrap items-center justify-between gap-4 bg-white p-4 rounded-xl border border-[#e8e4da]">
+              <div className="flex flex-wrap items-center justify-between gap-4 bg-[#F4F5F7] p-4 rounded-xl border border-[#E2E5EC]">
                 <div className="flex items-center gap-4 text-xs">
                   <label className="flex items-center gap-1.5 cursor-pointer">
                     <input
                       type="checkbox"
                       checked={showFoldLines}
                       onChange={(e) => setShowFoldLines(e.target.checked)}
-                      className="rounded accent-[#cfad76]"
+                      className="rounded accent-[#FF4D1C]"
                     />
                     <span>Crease / Folds (Dotted)</span>
                   </label>
@@ -203,7 +203,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
                       type="checkbox"
                       checked={showBleed}
                       onChange={(e) => setShowBleed(e.target.checked)}
-                      className="rounded accent-[#cfad76]"
+                      className="rounded accent-[#FF4D1C]"
                     />
                     <span>3mm Bleed Line</span>
                   </label>
@@ -212,19 +212,19 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
                       type="checkbox"
                       checked={showDimensions}
                       onChange={(e) => setShowDimensions(e.target.checked)}
-                      className="rounded accent-[#cfad76]"
+                      className="rounded accent-[#FF4D1C]"
                     />
                     <span>Dimension Callouts</span>
                   </label>
                 </div>
 
-                <div className="text-[11px] font-mono text-[#a07d40] font-semibold">
+                <div className="text-[11px] font-mono text-[#FF4D1C] font-bold">
                   CAD ACCURACY: ±0.15mm TOLERANCE
                 </div>
               </div>
 
               {/* Interactive SVG Dieline Schematic */}
-              <div className="bg-[#111317] rounded-xl p-8 border border-neutral-800 flex flex-col items-center justify-center relative overflow-hidden min-h-[320px]">
+              <div className="bg-[#090a0d] rounded-xl p-8 border border-[#222631] flex flex-col items-center justify-center relative overflow-hidden min-h-[320px]">
                 {/* SVG Blueprint */}
                 <svg
                   viewBox="0 0 600 300"
@@ -247,21 +247,21 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
                       width="520"
                       height="220"
                       fill="none"
-                      stroke="#4f46e5"
+                      stroke="#38BDF8"
                       strokeWidth="1.5"
                       strokeDasharray="4 4"
                     />
                   )}
 
-                  {/* Outer Cut Line (Solid Red/Cyan) */}
+                  {/* Outer Cut Line */}
                   <path
                     d="M 50,70 L 150,70 L 150,50 L 250,50 L 250,70 L 450,70 L 450,50 L 550,50 L 550,230 L 450,230 L 450,250 L 250,250 L 250,230 L 50,230 Z"
-                    fill="rgba(207, 173, 118, 0.08)"
-                    stroke="#cfad76"
+                    fill="rgba(255, 77, 28, 0.08)"
+                    stroke="#FF4D1C"
                     strokeWidth="2"
                   />
 
-                  {/* Crease Fold Lines (Dashed Green/White) */}
+                  {/* Crease Fold Lines */}
                   {showFoldLines && (
                     <>
                       <line x1="150" y1="70" x2="150" y2="230" stroke="#10b981" strokeWidth="1.5" strokeDasharray="3 3" />
@@ -274,13 +274,13 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
                   )}
 
                   {/* Panel Typography / Labels */}
-                  <text x="200" y="155" fill="#f7f4ee" fontSize="12" fontFamily="monospace" textAnchor="middle">
+                  <text x="200" y="155" fill="#ffffff" fontSize="12" fontFamily="monospace" textAnchor="middle">
                     FRONT FACE
                   </text>
-                  <text x="300" y="155" fill="#f7f4ee" fontSize="12" fontFamily="monospace" textAnchor="middle">
+                  <text x="300" y="155" fill="#ffffff" fontSize="12" fontFamily="monospace" textAnchor="middle">
                     SPINE
                   </text>
-                  <text x="400" y="155" fill="#f7f4ee" fontSize="12" fontFamily="monospace" textAnchor="middle">
+                  <text x="400" y="155" fill="#ffffff" fontSize="12" fontFamily="monospace" textAnchor="middle">
                     REAR PANEL
                   </text>
 
@@ -302,7 +302,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
                 {/* Substrate Legend */}
                 <div className="mt-4 flex flex-wrap items-center justify-center gap-4 text-[11px] text-neutral-400">
                   <span className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#cfad76]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#FF4D1C]" />
                     <span>Cut Line</span>
                   </span>
                   <span className="flex items-center gap-1.5">
@@ -310,25 +310,25 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
                     <span>Crease Rule</span>
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#4f46e5]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#38BDF8]" />
                     <span>Bleed Boundary</span>
                   </span>
                 </div>
               </div>
 
               {/* Substrate specs breakdown */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs bg-white p-5 rounded-xl border border-[#e8e4da]">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs bg-[#F4F5F7] p-5 rounded-xl border border-[#E2E5EC]">
                 <div>
-                  <span className="text-neutral-400 font-semibold block uppercase text-[10px]">Overprint Varnish</span>
-                  <span className="font-medium text-[#141518] mt-0.5 block">{project.dielineSpecs.varnish}</span>
+                  <span className="text-[#646B7D] font-semibold block uppercase text-[10px]">Overprint Varnish</span>
+                  <span className="font-bold text-[#0B0D12] mt-0.5 block">{project.dielineSpecs.varnish}</span>
                 </div>
                 <div>
-                  <span className="text-neutral-400 font-semibold block uppercase text-[10px]">Emboss / Deboss</span>
-                  <span className="font-medium text-[#141518] mt-0.5 block">{project.dielineSpecs.embossDepth}</span>
+                  <span className="text-[#646B7D] font-semibold block uppercase text-[10px]">Emboss / Deboss</span>
+                  <span className="font-bold text-[#0B0D12] mt-0.5 block">{project.dielineSpecs.embossDepth}</span>
                 </div>
                 <div>
-                  <span className="text-neutral-400 font-semibold block uppercase text-[10px]">Color Consistency</span>
-                  <span className="font-medium text-[#141518] mt-0.5 block">{project.colorSystem}</span>
+                  <span className="text-[#646B7D] font-semibold block uppercase text-[10px]">Color Consistency</span>
+                  <span className="font-bold text-[#0B0D12] mt-0.5 block">{project.colorSystem}</span>
                 </div>
               </div>
             </div>
@@ -340,52 +340,52 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
               <div className="flex items-center justify-center gap-3">
                 <button
                   onClick={() => setShelfState('before')}
-                  className={`px-5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all ${
+                  className={`px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all ${
                     shelfState === 'before'
-                      ? 'bg-neutral-800 text-white shadow-sm'
-                      : 'bg-[#e9e5dc] text-neutral-600 hover:text-neutral-900'
+                      ? 'bg-[#090a0d] text-white shadow-sm'
+                      : 'bg-[#ECEEF2] text-[#4A5060] hover:text-[#0B0D12]'
                   }`}
                 >
                   Previous Packaging
                 </button>
                 <button
                   onClick={() => setShelfState('after')}
-                  className={`px-5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all ${
+                  className={`px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all ${
                     shelfState === 'after'
-                      ? 'bg-[#cfad76] text-[#0d0f12] shadow-sm font-bold'
-                      : 'bg-[#e9e5dc] text-neutral-600 hover:text-neutral-900'
+                      ? 'bg-[#FF4D1C] text-white shadow-sm'
+                      : 'bg-[#ECEEF2] text-[#4A5060] hover:text-[#0B0D12]'
                   }`}
                 >
-                  Calibrated Shelf System (Saeed Jabbari)
+                  High-Impact System (Saeed Jabbari)
                 </button>
               </div>
 
               {/* Comparison Visual Block */}
-              <div className="bg-white rounded-xl p-8 border border-[#e8e4da] text-center">
+              <div className="bg-white rounded-xl p-8 border border-[#E2E5EC] text-center">
                 <div className="max-w-md mx-auto">
                   <div className="mb-4">
-                    <span className="inline-block px-3 py-1 bg-[#f4f1ea] text-[#a07d40] rounded text-[11px] font-bold uppercase tracking-wider mb-2">
-                      {shelfState === 'before' ? 'The Vulnerability' : 'The Commercial Advantage'}
+                    <span className="inline-block px-3 py-1 bg-[#FF4D1C]/10 text-[#FF4D1C] rounded text-[11px] font-bold uppercase tracking-wider mb-2">
+                      {shelfState === 'before' ? 'The Bottleneck' : 'The Commercial Advantage'}
                     </span>
-                    <h4 className="font-serif text-2xl font-normal text-[#141518]">
+                    <h4 className="font-serif text-2xl font-bold text-[#0B0D12]">
                       {shelfState === 'before'
-                        ? 'Fragmented Retail Presence'
+                        ? 'Fragmented Market Presence'
                         : 'Dominant Category Shelf Leadership'}
                     </h4>
                   </div>
 
-                  <p className="text-xs sm:text-[13px] leading-relaxed text-[#595a5f] mb-8">
+                  <p className="text-xs sm:text-[13px] leading-relaxed text-[#4A5060] mb-8">
                     {shelfState === 'before'
                       ? project.shelfImpact.beforeDesc
                       : project.shelfImpact.afterDesc}
                   </p>
 
                   {/* Commercial Result Metric */}
-                  <div className="p-6 bg-[#f7f5f0] rounded-xl border border-[#e5e1d7]">
-                    <div className="font-serif text-4xl sm:text-5xl text-[#141518] font-normal mb-1">
+                  <div className="p-6 bg-[#F4F5F7] rounded-xl border border-[#E2E5EC]">
+                    <div className="font-serif text-4xl sm:text-5xl text-[#0B0D12] font-bold mb-1">
                       {project.shelfImpact.metric}
                     </div>
-                    <div className="text-[11px] font-bold tracking-[0.2em] text-[#a07d40] uppercase">
+                    <div className="text-[11px] font-bold tracking-[0.2em] text-[#FF4D1C] uppercase">
                       {project.shelfImpact.metricLabel}
                     </div>
                   </div>
@@ -396,15 +396,15 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
         </div>
 
         {/* Modal Footer */}
-        <div className="border-t border-[#e5e1d7] bg-[#f4f1ea] px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="text-xs text-[#787671]">
-            <span>Need a similar packaging architecture for your brand?</span>
+        <div className="border-t border-[#E2E5EC] bg-[#F4F5F7] px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="text-xs text-[#4A5060] font-medium">
+            <span>Need a similar brand & packaging system for your business?</span>
           </div>
 
           <div className="flex items-center gap-3 w-full sm:w-auto">
             <button
               onClick={onClose}
-              className="px-5 py-2.5 border border-[#d5d0c4] hover:bg-[#eae6dc] text-[#141518] text-xs font-semibold tracking-wider uppercase rounded-md transition-colors w-full sm:w-auto"
+              className="px-5 py-2.5 border border-[#D4D8E2] hover:bg-[#E2E5EC] text-[#0B0D12] text-xs font-bold tracking-wider uppercase rounded-md transition-colors w-full sm:w-auto"
             >
               CLOSE
             </button>
@@ -413,9 +413,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
                 onClose();
                 onOpenBrief();
               }}
-              className="px-6 py-2.5 bg-[#cfad76] hover:bg-[#dfbd86] text-[#0d0f12] text-xs font-bold tracking-wider uppercase rounded-md transition-colors w-full sm:w-auto text-center"
+              className="px-6 py-2.5 bg-[#FF4D1C] hover:bg-[#FF6438] text-white text-xs font-bold tracking-wider uppercase rounded-md transition-colors w-full sm:w-auto text-center shadow-sm"
             >
-              COMMISSION PROJECT →
+              START A PROJECT →
             </button>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ARTICLES } from '../data/content';
 import { Article } from '../types';
-import { BookOpen, Clock, ArrowRight, X, Bookmark } from 'lucide-react';
+import { Clock, ArrowRight, X, Bookmark } from 'lucide-react';
 
 interface ArticlesViewProps {
   onOpenBrief: () => void;
@@ -19,18 +19,18 @@ export const ArticlesView: React.FC<ArticlesViewProps> = ({ onOpenBrief }) => {
   };
 
   return (
-    <div className="bg-[#f7f5f0] min-h-screen py-16 sm:py-24 text-[#141518]">
+    <div className="bg-[#F4F5F7] min-h-screen py-16 sm:py-24 text-[#0B0D12]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mb-16">
-          <span className="block text-[11px] font-bold tracking-[0.24em] text-[#a07d40] uppercase mb-3">
-            STUDIO INTELLIGENCE & FIELD NOTES
+          <span className="block text-[11px] font-bold tracking-[0.24em] text-[#FF4D1C] uppercase mb-3">
+            COMMERCIAL INTELLIGENCE & FIELD NOTES
           </span>
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-[52px] font-normal leading-tight text-[#141518] mb-4">
-            Field Notes on Packaging & Brand Architecture
+          <h1 className="font-serif text-4xl sm:text-5xl lg:text-[52px] font-bold tracking-tight leading-tight text-[#0B0D12] mb-4">
+            Field Notes on Brand Visibility & Sales Velocity
           </h1>
-          <p className="text-sm sm:text-[15px] leading-relaxed text-[#595a5f]">
-            Rigorous observations from the intersection of consumer cognitive psychology, structural factory tolerances, and high-velocity retail commercial strategy.
+          <p className="text-sm sm:text-[15px] leading-relaxed text-[#4A5060]">
+            Practical observations from the intersection of shopper attention psychology, packaging clarity, and high-converting commercial brand architecture.
           </p>
         </div>
 
@@ -42,11 +42,11 @@ export const ArticlesView: React.FC<ArticlesViewProps> = ({ onOpenBrief }) => {
               <div
                 key={art.id}
                 onClick={() => setSelectedArticle(art)}
-                className="bg-white rounded-xl p-8 border border-[#e4ded3] shadow-[0_3px_14px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_28px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group"
+                className="bg-white rounded-xl p-8 border border-[#E2E5EC] shadow-[0_3px_14px_rgba(11,13,18,0.03)] hover:shadow-[0_10px_28px_rgba(11,13,18,0.08)] hover:border-[#FF4D1C]/40 hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group"
               >
                 <div>
-                  <div className="flex items-center justify-between text-[11px] text-[#787671] mb-3">
-                    <span className="font-bold tracking-wider text-[#a07d40] uppercase">
+                  <div className="flex items-center justify-between text-[11px] text-[#646B7D] mb-3">
+                    <span className="font-bold tracking-wider text-[#FF4D1C] uppercase">
                       {art.sector}
                     </span>
                     <div className="flex items-center gap-3">
@@ -56,24 +56,24 @@ export const ArticlesView: React.FC<ArticlesViewProps> = ({ onOpenBrief }) => {
                       </span>
                       <button
                         onClick={(e) => toggleBookmark(art.id, e)}
-                        className="p-1 hover:text-[#cfad76] transition-colors"
+                        className="p-1 hover:text-[#FF4D1C] transition-colors"
                         aria-label="Bookmark article"
                       >
-                        <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'fill-[#cfad76] text-[#cfad76]' : ''}`} />
+                        <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'fill-[#FF4D1C] text-[#FF4D1C]' : ''}`} />
                       </button>
                     </div>
                   </div>
 
-                  <h3 className="font-serif text-2xl font-normal text-[#141518] mb-3 leading-snug group-hover:text-[#a07d40] transition-colors">
+                  <h3 className="font-serif text-2xl font-bold text-[#0B0D12] mb-3 leading-snug group-hover:text-[#FF4D1C] transition-colors">
                     {art.title}
                   </h3>
 
-                  <p className="text-xs sm:text-[13px] leading-relaxed text-[#595a5f] mb-6">
+                  <p className="text-xs sm:text-[13px] leading-relaxed text-[#4A5060] mb-6">
                     {art.excerpt}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-[#f0ede6] flex items-center justify-between text-xs font-semibold text-[#141518] group-hover:text-[#a07d40] transition-colors">
+                <div className="pt-4 border-t border-[#E2E5EC] flex items-center justify-between text-xs font-bold text-[#0B0D12] group-hover:text-[#FF4D1C] transition-colors">
                   <span className="tracking-wide uppercase text-[11px]">Read Complete Essay</span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </div>
@@ -86,57 +86,57 @@ export const ArticlesView: React.FC<ArticlesViewProps> = ({ onOpenBrief }) => {
         {selectedArticle && (
           <div className="fixed inset-0 z-50 overflow-y-auto bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 animate-fadeIn">
             <div
-              className="bg-[#fbf9f5] text-[#141518] rounded-2xl max-w-3xl w-full overflow-hidden shadow-2xl border border-[#e6e2d8] relative my-8"
+              className="bg-white text-[#0B0D12] rounded-2xl max-w-3xl w-full overflow-hidden shadow-2xl border border-[#E2E5EC] relative my-8"
               role="dialog"
               aria-modal="true"
             >
-              <div className="p-6 sm:p-10 border-b border-[#e5e1d7] flex items-start justify-between gap-4">
+              <div className="p-6 sm:p-10 border-b border-[#E2E5EC] flex items-start justify-between gap-4">
                 <div>
-                  <span className="text-[10px] font-bold tracking-[0.24em] text-[#a07d40] uppercase block mb-2">
+                  <span className="text-[10px] font-bold tracking-[0.24em] text-[#FF4D1C] uppercase block mb-2">
                     {selectedArticle.sector} • {selectedArticle.date} • {selectedArticle.readTime}
                   </span>
-                  <h2 className="font-serif text-2xl sm:text-4xl font-normal leading-tight text-[#141518]">
+                  <h2 className="font-serif text-2xl sm:text-4xl font-bold leading-tight text-[#0B0D12]">
                     {selectedArticle.title}
                   </h2>
                 </div>
 
                 <button
                   onClick={() => setSelectedArticle(null)}
-                  className="w-9 h-9 rounded-full bg-neutral-200 hover:bg-neutral-300 text-neutral-700 flex items-center justify-center shrink-0 transition-colors"
+                  className="w-9 h-9 rounded-full bg-[#ECEEF2] hover:bg-[#E2E5EC] text-[#0B0D12] flex items-center justify-center shrink-0 transition-colors"
                   aria-label="Close Article"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
 
-              <div className="p-6 sm:p-10 max-h-[65vh] overflow-y-auto space-y-5 text-sm sm:text-base leading-relaxed text-[#3b3d42]">
+              <div className="p-6 sm:p-10 max-h-[65vh] overflow-y-auto space-y-5 text-sm sm:text-base leading-relaxed text-[#323744]">
                 {selectedArticle.content.map((p, idx) => (
                   <p key={idx}>{p}</p>
                 ))}
 
                 {/* Pull Quote / Key Takeaway */}
-                <div className="my-8 p-6 bg-[#f4f1ea] rounded-xl border-l-2 border-[#cfad76]">
-                  <span className="text-[10px] font-bold tracking-[0.2em] text-[#a07d40] uppercase block mb-1">
-                    EXECUTIVE TAKEAWAY
+                <div className="my-8 p-6 bg-[#F4F5F7] rounded-xl border-l-4 border-[#FF4D1C]">
+                  <span className="text-[10px] font-bold tracking-[0.2em] text-[#FF4D1C] uppercase block mb-1">
+                    COMMERCIAL TAKEAWAY
                   </span>
-                  <p className="font-serif text-lg sm:text-xl text-[#141518] italic font-normal">
+                  <p className="font-serif text-lg sm:text-xl text-[#0B0D12] font-bold">
                     "{selectedArticle.keyTakeaway}"
                   </p>
                 </div>
               </div>
 
-              <div className="p-6 sm:p-8 bg-[#f4f1ea] border-t border-[#e5e1d7] flex flex-col sm:flex-row items-center justify-between gap-4">
-                <span className="text-xs text-[#595a5f]">
-                  Written by Saeed Jabbari • Istanbul Studio
+              <div className="p-6 sm:p-8 bg-[#F4F5F7] border-t border-[#E2E5EC] flex flex-col sm:flex-row items-center justify-between gap-4">
+                <span className="text-xs text-[#4A5060] font-medium">
+                  Written by Saeed Jabbari • Commercial Branding & Packaging Studio
                 </span>
                 <button
                   onClick={() => {
                     setSelectedArticle(null);
                     onOpenBrief();
                   }}
-                  className="px-6 py-2.5 bg-[#cfad76] hover:bg-[#dfbd86] text-[#0d0f12] text-xs font-bold tracking-wider uppercase rounded-md transition-colors"
+                  className="px-6 py-2.5 bg-[#FF4D1C] hover:bg-[#FF6438] text-white text-xs font-bold tracking-wider uppercase rounded-md transition-colors shadow-sm"
                 >
-                  DISCUSS PACKAGING STRATEGY →
+                  DISCUSS BRANDING STRATEGY →
                 </button>
               </div>
             </div>

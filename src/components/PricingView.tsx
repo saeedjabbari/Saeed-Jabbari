@@ -41,18 +41,18 @@ export const PricingView: React.FC<PricingViewProps> = ({
   const { total, weeks } = calculateEstimate();
 
   return (
-    <div className="bg-[#f7f5f0] min-h-screen py-16 sm:py-24 text-[#141518]">
+    <div className="bg-[#f4f5f7] min-h-screen py-16 sm:py-24 text-[#0b0d12]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mb-16">
-          <span className="block text-[11px] font-bold tracking-[0.24em] text-[#a07d40] uppercase mb-3">
+          <span className="block font-mono text-[11px] font-bold tracking-[0.24em] text-[#e03e10] uppercase mb-3">
             ENGAGEMENT MODELS & RATES
           </span>
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-[52px] font-normal leading-tight text-[#141518] mb-4">
-            Direct Principal Engagement
+          <h1 className="font-serif text-4xl sm:text-5xl lg:text-[50px] font-semibold leading-tight text-[#0b0d12] mb-4">
+            Direct Commercial Engagement
           </h1>
-          <p className="text-sm sm:text-[15px] leading-relaxed text-[#595a5f]">
-            Transparent pricing without agency overhead bloat. You work directly with principal creative director Saeed Jabbari on every strategic decision and press run.
+          <p className="text-sm sm:text-[15px] leading-relaxed text-[#525866]">
+            Transparent pricing focused on commercial impact. You collaborate directly with Saeed Jabbari on every strategic and visual decision.
           </p>
         </div>
 
@@ -66,27 +66,27 @@ export const PricingView: React.FC<PricingViewProps> = ({
                 key={plan.id}
                 className={`bg-white rounded-2xl p-8 sm:p-10 border ${
                   isHighlighted
-                    ? 'border-[#cfad76] shadow-[0_12px_40px_rgba(207,173,118,0.18)] ring-1 ring-[#cfad76]'
-                    : 'border-[#e4ded3] shadow-[0_3px_14px_rgba(0,0,0,0.03)]'
+                    ? 'border-[#FF4D1C] shadow-[0_12px_40px_rgba(255,77,28,0.16)] ring-1 ring-[#FF4D1C]'
+                    : 'border-[#dfe3ea] shadow-[0_3px_14px_rgba(9,10,13,0.03)]'
                 } flex flex-col justify-between`}
               >
                 <div>
-                  <div className="text-[10px] font-bold tracking-[0.2em] text-[#8e6c38] uppercase mb-2">
+                  <div className="font-mono text-[10px] font-bold tracking-[0.2em] text-[#e03e10] uppercase mb-2">
                     {plan.badge}
                   </div>
 
-                  <h3 className="font-serif text-3xl font-normal text-[#141518] mb-2">
+                  <h3 className="font-serif text-3xl font-semibold text-[#0b0d12] mb-2">
                     {plan.name}
                   </h3>
 
                   <div className="flex items-baseline gap-2 mb-4">
-                    <span className="font-serif text-4xl sm:text-5xl font-light text-[#141518]">
+                    <span className="font-serif text-4xl sm:text-5xl font-semibold text-[#0b0d12]">
                       {plan.price}
                     </span>
                     <span className="text-xs text-neutral-500 font-medium">{plan.cadence}</span>
                   </div>
 
-                  <p className="text-xs sm:text-[13px] leading-relaxed text-[#595a5f] font-normal mb-8 pb-6 border-b border-[#f0ede6]">
+                  <p className="text-xs sm:text-[13px] leading-relaxed text-[#525866] font-normal mb-8 pb-6 border-b border-[#eceef2]">
                     {plan.description}
                   </p>
 
@@ -96,8 +96,8 @@ export const PricingView: React.FC<PricingViewProps> = ({
                       Included Deliverables:
                     </div>
                     {plan.deliverables.map((item, idx) => (
-                      <div key={idx} className="flex items-start gap-2.5 text-xs text-[#595a5f] leading-snug">
-                        <Check className="w-4 h-4 text-[#cfad76] shrink-0 mt-0.5" />
+                      <div key={idx} className="flex items-start gap-2.5 text-xs text-[#525866] leading-snug">
+                        <Check className="w-4 h-4 text-[#FF4D1C] shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </div>
                     ))}
@@ -106,7 +106,7 @@ export const PricingView: React.FC<PricingViewProps> = ({
 
                 <div>
                   <div className="text-[11px] text-neutral-500 mb-4 font-mono">
-                    Timeline: <span className="text-[#141518] font-semibold">{plan.timeline}</span>
+                    Timeline: <span className="text-[#0b0d12] font-semibold">{plan.timeline}</span>
                   </div>
 
                   <button
@@ -115,10 +115,10 @@ export const PricingView: React.FC<PricingViewProps> = ({
                       else if (plan.id === 'packaging-architecture') onDiscussProject();
                       else onInquireRetainer();
                     }}
-                    className={`w-full py-4 px-6 rounded-md text-xs font-bold tracking-[0.14em] uppercase transition-all ${
+                    className={`w-full py-4 px-6 rounded-md text-xs font-bold tracking-[0.14em] uppercase transition-all cursor-pointer ${
                       isHighlighted
-                        ? 'bg-[#c8a66a] hover:bg-[#d8b880] active:bg-[#ba9657] text-[#0d0f12] shadow-md'
-                        : 'bg-[#0d0f12] hover:bg-neutral-800 text-white'
+                        ? 'bg-[#FF4D1C] hover:bg-[#ff6438] active:bg-[#e03e10] text-white shadow-md'
+                        : 'bg-[#090a0d] hover:bg-neutral-800 text-white'
                     }`}
                   >
                     {plan.buttonText}
@@ -130,22 +130,22 @@ export const PricingView: React.FC<PricingViewProps> = ({
         </div>
 
         {/* Interactive Scope & Cost Calculator */}
-        <div className="bg-white rounded-2xl p-8 sm:p-12 border border-[#e4ded3] shadow-lg mb-16">
+        <div className="bg-white rounded-2xl p-8 sm:p-12 border border-[#dfe3ea] shadow-lg mb-16">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-full bg-[#f4f1ea] text-[#a07d40] flex items-center justify-center">
+            <div className="w-10 h-10 rounded-md bg-[#f4f5f7] text-[#FF4D1C] flex items-center justify-center">
               <Calculator className="w-5 h-5" />
             </div>
             <div>
-              <span className="text-[10px] font-bold tracking-[0.24em] text-[#a07d40] uppercase block">
+              <span className="font-mono text-[10px] font-bold tracking-[0.24em] text-[#e03e10] uppercase block">
                 INSTANT SCOPE ESTIMATOR
               </span>
-              <h2 className="font-serif text-2xl sm:text-3xl font-normal text-[#141518]">
-                Calculate Your Packaging Architecture Scope
+              <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-[#0b0d12]">
+                Calculate Your Branding & Packaging Scope
               </h2>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pt-6 border-t border-[#f0ede6]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pt-6 border-t border-[#eceef2]">
             {/* Input Controls */}
             <div className="lg:col-span-7 space-y-6">
               {/* Sector */}
@@ -163,10 +163,10 @@ export const PricingView: React.FC<PricingViewProps> = ({
                     <button
                       key={s.id}
                       onClick={() => setCalcSector(s.id as any)}
-                      className={`py-2 px-3 rounded-md text-xs font-semibold tracking-wide border transition-all ${
+                      className={`py-2 px-3 rounded-md text-xs font-semibold tracking-wide border transition-all cursor-pointer ${
                         calcSector === s.id
-                          ? 'bg-[#0d0f12] text-white border-[#0d0f12]'
-                          : 'bg-[#f7f5f0] text-neutral-600 border-[#e4ded3] hover:text-black'
+                          ? 'bg-[#090a0d] text-white border-[#090a0d]'
+                          : 'bg-[#f4f5f7] text-neutral-600 border-[#dfe3ea] hover:text-black'
                       }`}
                     >
                       {s.label}
@@ -181,7 +181,7 @@ export const PricingView: React.FC<PricingViewProps> = ({
                   <label className="text-xs font-semibold uppercase tracking-wider text-neutral-400">
                     Number of SKUs in Initial Family
                   </label>
-                  <span className="font-mono text-sm font-bold text-[#141518] bg-[#f7f5f0] px-3 py-1 rounded border border-[#e4ded3]">
+                  <span className="font-mono text-sm font-bold text-[#0b0d12] bg-[#f4f5f7] px-3 py-1 rounded border border-[#dfe3ea]">
                     {skuCount} {skuCount === 1 ? 'SKU' : 'SKUs'}
                   </span>
                 </div>
@@ -191,48 +191,48 @@ export const PricingView: React.FC<PricingViewProps> = ({
                   max="12"
                   value={skuCount}
                   onChange={(e) => setSkuCount(parseInt(e.target.value))}
-                  className="w-full accent-[#cfad76] cursor-pointer"
+                  className="w-full accent-[#FF4D1C] cursor-pointer"
                 />
               </div>
 
-              {/* Substrate Level */}
+              {/* Deliverable Level */}
               <div>
                 <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">
-                  Structural Packaging Architecture Level
+                  Packaging & Visual Scope Level
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {[
-                    { id: 'standard', name: 'Standard Carton', desc: 'Folding boxboard with tuck closure' },
-                    { id: 'luxury', name: 'Luxury Rigid Box', desc: 'Friction slide or magnetic presentation box' },
-                    { id: 'bespoke', name: 'Custom Vessel + Casing', desc: 'Glass/metal mold design + secondary box' }
+                    { id: 'standard', name: 'Standard Carton / Label', desc: 'Folding carton or canister label system' },
+                    { id: 'luxury', name: 'Multi-SKU System', desc: 'Complete packaging line + 3D key visuals' },
+                    { id: 'bespoke', name: 'Custom Form + Catalog', desc: '3D product form + full sales catalog' }
                   ].map((sub) => (
                     <div
                       key={sub.id}
                       onClick={() => setSubstrateLevel(sub.id as any)}
                       className={`p-3.5 rounded-lg border text-left cursor-pointer transition-all ${
                         substrateLevel === sub.id
-                          ? 'bg-[#cfad76]/15 border-[#cfad76] shadow-sm'
-                          : 'bg-[#f7f5f0] border-[#e4ded3] hover:border-neutral-400'
+                          ? 'bg-[#FF4D1C]/10 border-[#FF4D1C] shadow-sm'
+                          : 'bg-[#f4f5f7] border-[#dfe3ea] hover:border-neutral-400'
                       }`}
                     >
-                      <div className="text-xs font-bold text-[#141518]">{sub.name}</div>
-                      <div className="text-[11px] text-[#595a5f] mt-1">{sub.desc}</div>
+                      <div className="text-xs font-bold text-[#0b0d12]">{sub.name}</div>
+                      <div className="text-[11px] text-[#525866] mt-1">{sub.desc}</div>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Factory Press Check Add-on */}
-              <label className="flex items-center gap-3 p-3.5 bg-[#f7f5f0] rounded-lg border border-[#e4ded3] cursor-pointer">
+              <label className="flex items-center gap-3 p-3.5 bg-[#f4f5f7] rounded-lg border border-[#dfe3ea] cursor-pointer">
                 <input
                   type="checkbox"
                   checked={includePressCheck}
                   onChange={(e) => setIncludePressCheck(e.target.checked)}
-                  className="rounded accent-[#cfad76] w-4 h-4"
+                  className="rounded accent-[#FF4D1C] w-4 h-4"
                 />
                 <div className="text-xs">
-                  <span className="font-bold text-[#141518] block">On-site Factory Press Check & Wet-Proof Sign-off</span>
-                  <span className="text-neutral-500 text-[11px]">Direct press supervision ensuring zero color shift or foil misalignment</span>
+                  <span className="font-bold text-[#0b0d12] block">Print Supervision & Pre-Press Verification</span>
+                  <span className="text-neutral-500 text-[11px]">Direct file verification ensuring accurate color and print production</span>
                 </div>
               </label>
             </div>
@@ -240,19 +240,19 @@ export const PricingView: React.FC<PricingViewProps> = ({
             {/* Calculated Estimate Box */}
             <div className="lg:col-span-5 bg-[#090a0d] text-white p-8 rounded-xl flex flex-col justify-between">
               <div>
-                <span className="text-[10px] font-bold tracking-[0.2em] text-[#cfad76] uppercase block mb-1">
+                <span className="font-mono text-[10px] font-bold tracking-[0.2em] text-[#FF4D1C] uppercase block mb-1">
                   ESTIMATED INVESTMENT
                 </span>
-                <div className="font-serif text-4xl sm:text-5xl font-light text-white mb-2">
+                <div className="font-serif text-4xl sm:text-5xl font-semibold text-white mb-2">
                   ${total.toLocaleString()}
                 </div>
                 <div className="text-xs text-neutral-400 mb-6">
-                  Estimated Delivery: <span className="text-[#cfad76] font-semibold">{weeks} Weeks</span> to production-ready factory files
+                  Estimated Delivery: <span className="text-[#FF4D1C] font-semibold">{weeks} Weeks</span> to production-ready files
                 </div>
 
                 <div className="space-y-2 text-xs text-neutral-300 border-t border-neutral-800 pt-4 mb-8">
                   <div className="flex justify-between">
-                    <span className="text-neutral-500">Core Architecture:</span>
+                    <span className="text-neutral-500">Scope Tier:</span>
                     <span>{substrateLevel.toUpperCase()}</span>
                   </div>
                   <div className="flex justify-between">
@@ -260,7 +260,7 @@ export const PricingView: React.FC<PricingViewProps> = ({
                     <span>{skuCount} Products</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-neutral-500">Press Supervision:</span>
+                    <span className="text-neutral-500">Print Verification:</span>
                     <span>{includePressCheck ? 'Included' : 'Excluded'}</span>
                   </div>
                 </div>
@@ -268,9 +268,9 @@ export const PricingView: React.FC<PricingViewProps> = ({
 
               <button
                 onClick={onOpenBrief}
-                className="w-full py-4 bg-[#cfad76] hover:bg-[#dfbd86] text-[#0d0f12] text-xs font-bold tracking-[0.14em] uppercase rounded-md transition-all text-center flex items-center justify-center gap-2"
+                className="w-full py-4 bg-[#FF4D1C] hover:bg-[#ff6438] text-white text-xs font-bold tracking-[0.14em] uppercase rounded-md transition-all text-center flex items-center justify-center gap-2 cursor-pointer"
               >
-                <span>COMMISSION THIS ESTIMATE</span>
+                <span>REQUEST THIS SCOPE</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
@@ -278,15 +278,15 @@ export const PricingView: React.FC<PricingViewProps> = ({
         </div>
 
         {/* Retainer Availability Calendar Strip */}
-        <div className="bg-[#f0ede6] p-6 sm:p-8 rounded-xl border border-[#e4ded3] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="bg-[#eceef2] p-6 sm:p-8 rounded-xl border border-[#dfe3ea] flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <Calendar className="w-6 h-6 text-[#a07d40]" />
+            <Calendar className="w-6 h-6 text-[#FF4D1C]" />
             <div>
-              <div className="text-xs font-bold text-[#141518] uppercase tracking-wider">
-                Current Studio Capacity: Q2 & Q3 2026
+              <div className="text-xs font-bold text-[#0b0d12] uppercase tracking-wider">
+                Current Studio Availability: Q2 & Q3 2026
               </div>
-              <div className="text-xs text-[#595a5f]">
-                To maintain uncompromised principal attention, only 2 new brand architectures are onboarded each quarter.
+              <div className="text-xs text-[#525866]">
+                Direct collaboration with Saeed Jabbari for new branding, packaging, and catalog projects.
               </div>
             </div>
           </div>

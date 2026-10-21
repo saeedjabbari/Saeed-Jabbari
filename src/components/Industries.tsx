@@ -8,21 +8,18 @@ interface IndustriesProps {
 
 export const Industries: React.FC<IndustriesProps> = ({ onSelectSector }) => {
   return (
-    <section id="industries" className="bg-[#f4f1ea] text-[#141518] py-24 sm:py-28 border-b border-[#e5e1d7]">
+    <section id="industries" className="bg-[#eceef2] text-[#0b0d12] py-24 sm:py-28 border-b border-[#dfe3ea]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-14">
-          <span className="block text-[11px] font-bold tracking-[0.24em] text-[#a07d40] uppercase mb-3">
+          <span className="block font-mono text-[11px] font-bold tracking-[0.24em] text-[#e03e10] uppercase mb-3">
             SECTOR EXPERTISE
           </span>
-          <h2
-            style={{ fontFamily: 'Georgia, serif' }}
-            className="font-serif text-3xl sm:text-4xl lg:text-[44px] font-normal leading-tight text-[#141518] mb-3"
-          >
-            Industries We Serve
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] font-semibold leading-tight text-[#0b0d12] mb-3">
+            Industries We Help Stand Out & Sell
           </h2>
-          <p className="text-sm sm:text-[15px] leading-relaxed text-[#595a5f] font-normal">
-            Specialized creative direction calibrated for the commercial realities and aesthetics of each sector.
+          <p className="text-sm sm:text-[15px] leading-relaxed text-[#525866] font-normal">
+            Specialized branding and product presentation tailored to the buying psychology and commercial competition of each market.
           </p>
         </div>
 
@@ -32,36 +29,33 @@ export const Industries: React.FC<IndustriesProps> = ({ onSelectSector }) => {
             <div
               key={sector.id}
               onClick={() => onSelectSector(sector.id)}
-              className="bg-white rounded-xl overflow-hidden border border-[#e4ded3] shadow-[0_3px_14px_rgba(0,0,0,0.035)] hover:shadow-[0_10px_28px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 transition-all duration-200 cursor-pointer flex flex-col group"
+              className="bg-white rounded-xl overflow-hidden border border-[#dfe3ea] shadow-[0_3px_14px_rgba(9,10,13,0.035)] hover:shadow-[0_14px_32px_rgba(9,10,13,0.09)] hover:border-[#FF4D1C]/50 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer flex flex-col group"
             >
               {/* Colored Header Banner */}
               <div
                 className="px-8 py-7 text-white transition-opacity group-hover:opacity-95"
                 style={{ backgroundColor: sector.headerBg }}
               >
-                <h3
-                  style={{ fontFamily: 'Georgia, serif' }}
-                  className="font-serif text-2xl sm:text-[26px] font-normal text-white mb-1.5 tracking-wide"
-                >
+                <h3 className="font-serif text-2xl sm:text-[25px] font-semibold text-white mb-1.5 tracking-tight">
                   {sector.name}
                 </h3>
-                <p className="text-xs sm:text-[13px] text-white/80 font-normal tracking-wide">
+                <p className="text-xs sm:text-[13px] text-white/85 font-normal tracking-wide">
                   {sector.subtitle}
                 </p>
               </div>
 
               {/* White Body */}
               <div className="p-8 flex-1 flex flex-col justify-between">
-                <p className="text-xs sm:text-[13px] leading-relaxed text-[#595a5f] font-normal mb-8">
+                <p className="text-xs sm:text-[13px] leading-relaxed text-[#525866] font-normal mb-8">
                   {sector.description}
                 </p>
 
-                {/* Substrate & Architecture Pills */}
-                <div className="flex flex-wrap gap-2 pt-4 border-t border-[#f0ede6]">
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 pt-4 border-t border-[#eceef2]">
                   {sector.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="inline-block px-3 py-1 bg-[#f7f5f0] text-[#63615b] rounded text-[11px] font-medium tracking-wide border border-[#e6e2d8]"
+                      className="inline-block px-3 py-1 bg-[#f4f5f7] text-[#474d59] rounded text-[11px] font-medium tracking-wide border border-[#dfe3ea]"
                     >
                       {tag}
                     </span>

@@ -62,7 +62,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#090a0d] text-[#141518] selection:bg-[#cfad76] selection:text-black">
+    <div className="min-h-screen flex flex-col bg-[#090a0d] text-[#0b0d12] selection:bg-[#FF4D1C] selection:text-white">
       {/* Header with Home, Work, Services, Process, Insights & Start a Project */}
       <Header
         currentPage={currentPage}

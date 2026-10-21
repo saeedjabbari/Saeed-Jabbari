@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowDown, ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowDown, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { HERO_SLIDES } from '../data/content';
 
@@ -11,13 +11,12 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({
   onExploreWorks,
-  onOpenAudit,
-  onExploreServices
+  onOpenAudit
 }) => {
   const [activeSlideIdx, setActiveSlideIdx] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
-  // Slow, ultra-luxurious 8-second rotation as requested to prevent distraction
+  // Calm 8-second rotation across core commercial industries
   useEffect(() => {
     if (isPaused) return;
     const interval = setInterval(() => {
@@ -33,14 +32,14 @@ export const Hero: React.FC<HeroProps> = ({
     <section
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      className="relative min-h-[calc(100vh-5rem)] flex flex-col justify-between bg-[#06080b] text-[#f7f4ee] pt-8 md:pt-12 pb-8 border-b border-neutral-800/80 overflow-hidden select-none"
+      className="relative min-h-[calc(100vh-5rem)] flex flex-col justify-between bg-[#090a0d] text-[#f4f5f7] pt-8 md:pt-12 pb-8 border-b border-white/10 overflow-hidden select-none"
     >
-      {/* Background Images with Slow Luxurious 1.4s Crossfade */}
+      {/* Background Images with Smooth 1.4s Crossfade */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none" aria-hidden="true">
         <AnimatePresence initial={false}>
           <motion.div
             key={currentSlide.id}
-            initial={{ opacity: 0, scale: 1.05 }}
+            initial={{ opacity: 0, scale: 1.04 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.98 }}
             transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
@@ -49,22 +48,23 @@ export const Hero: React.FC<HeroProps> = ({
             <img
               src={currentSlide.image}
               alt={currentSlide.industryLabel}
-              className="w-full h-full object-cover object-center saturate-[0.75] contrast-[1.08] brightness-[0.72]"
+              referrerPolicy="no-referrer"
+              className="w-full h-full object-cover object-center saturate-[0.85] contrast-[1.08] brightness-[0.68]"
             />
           </motion.div>
         </AnimatePresence>
 
-        {/* Balanced Luxury Scrims: Expansive negative space on the right, high contrast for typography on the left */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#06080b]/92 via-[#06080b]/60 to-[#06080b]/25" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#06080b] via-transparent to-[#06080b]/60" />
+        {/* Studio Carbon Scrims: High contrast for typography on the left, clear product view on the right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#090a0d]/95 via-[#090a0d]/65 to-[#090a0d]/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#090a0d] via-transparent to-[#090a0d]/60" />
       </div>
 
       {/* Main Content Area */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto">
         <div className="max-w-4xl pt-4 md:pt-6">
-          {/* Minimal 4-Industry Switcher Bar */}
+          {/* 4-Industry Switcher Bar */}
           <div className="mb-6 sm:mb-8">
-            <div className="flex flex-wrap items-center gap-2 sm:gap-3" aria-label="Core Industries">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-2.5" aria-label="Core Industries">
               {HERO_SLIDES.map((slide, idx) => {
                 const isActive = idx === activeSlideIdx;
                 return (
@@ -72,15 +72,15 @@ export const Hero: React.FC<HeroProps> = ({
                     key={slide.id}
                     type="button"
                     onClick={() => setActiveSlideIdx(idx)}
-                    className={`relative px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-[11px] sm:text-xs tracking-wider uppercase font-mono transition-all duration-500 cursor-pointer flex items-center gap-2 ${
+                    className={`relative px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-md text-[11px] sm:text-xs tracking-wider uppercase font-mono transition-all duration-300 cursor-pointer flex items-center gap-2 ${
                       isActive
-                        ? 'bg-[#cfad76] text-[#08090c] font-bold shadow-lg shadow-[#cfad76]/20'
-                        : 'bg-black/40 hover:bg-black/60 text-neutral-300 hover:text-white border border-white/10 hover:border-white/25 backdrop-blur-md'
+                        ? 'bg-[#FF4D1C] text-white font-semibold shadow-lg shadow-[#FF4D1C]/25'
+                        : 'bg-black/45 hover:bg-black/70 text-neutral-300 hover:text-white border border-white/12 hover:border-white/30 backdrop-blur-md'
                     }`}
                   >
                     <span>{slide.industryLabel}</span>
                     {isActive && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#08090c] animate-pulse" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
                     )}
                   </button>
                 );
@@ -88,7 +88,7 @@ export const Hero: React.FC<HeroProps> = ({
             </div>
           </div>
 
-          {/* Dynamic Typographic H1 — Smooth Calm Entrance per Industry */}
+          {/* Dynamic Typographic H1 — Modern Commercial Agency Display */}
           <div className="min-h-[140px] sm:min-h-[160px] lg:min-h-[190px] flex items-center mb-4">
             <AnimatePresence mode="wait">
               <motion.div
@@ -96,29 +96,26 @@ export const Hero: React.FC<HeroProps> = ({
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -16 }}
-                transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               >
-                <h1
-                  style={{ fontFamily: 'Georgia, serif' }}
-                  className="font-serif text-[32px] xs:text-[38px] sm:text-[48px] md:text-[56px] lg:text-[68px] leading-[1.12] sm:leading-[1.08] font-normal tracking-[-0.025em] text-[#fbf9f5] drop-shadow-sm max-w-4xl"
-                >
+                <h1 className="font-serif text-[32px] xs:text-[38px] sm:text-[48px] md:text-[56px] lg:text-[66px] leading-[1.08] sm:leading-[1.05] font-semibold tracking-[-0.03em] text-white drop-shadow-sm max-w-4xl">
                   {/* Desktop version (2 clean lines) */}
                   <span className="hidden sm:block">
                     <span className="block">{currentSlide.headlineDesktop[0]}</span>
-                    <span className="block text-[#ebdcc2]">{currentSlide.headlineDesktop[1]}</span>
+                    <span className="block text-[#FF5A2C]">{currentSlide.headlineDesktop[1]}</span>
                   </span>
                   {/* Mobile version (3 clean lines) */}
                   <span className="block sm:hidden">
                     <span className="block">{currentSlide.headlineMobile[0]}</span>
                     <span className="block">{currentSlide.headlineMobile[1]}</span>
-                    <span className="block text-[#ebdcc2]">{currentSlide.headlineMobile[2]}</span>
+                    <span className="block text-[#FF5A2C]">{currentSlide.headlineMobile[2]}</span>
                   </span>
                 </h1>
               </motion.div>
             </AnimatePresence>
           </div>
 
-          {/* Dynamic Subtitle — Calm Transition */}
+          {/* Dynamic Subtitle */}
           <div className="min-h-[48px] sm:min-h-[56px] mb-8 max-w-2xl">
             <AnimatePresence mode="wait">
               <motion.p
@@ -126,8 +123,8 @@ export const Hero: React.FC<HeroProps> = ({
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.6, ease: 'easeOut' }}
-                className="text-sm sm:text-base text-neutral-300 font-light leading-relaxed"
+                transition={{ duration: 0.55, ease: 'easeOut' }}
+                className="text-sm sm:text-base text-neutral-300 font-normal leading-relaxed"
               >
                 {currentSlide.subtitle}
               </motion.p>
@@ -143,7 +140,7 @@ export const Hero: React.FC<HeroProps> = ({
           >
             <button
               onClick={onExploreWorks}
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#cfad76] hover:bg-[#dfbd86] active:bg-[#c29e67] text-[#0d0f12] text-xs font-bold tracking-[0.14em] uppercase rounded-md transition-all shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white group cursor-pointer"
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#FF4D1C] hover:bg-[#ff6438] active:bg-[#e03e10] text-white text-xs font-bold tracking-[0.14em] uppercase rounded-md transition-all shadow-lg shadow-[#FF4D1C]/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white group cursor-pointer"
             >
               <span>EXPLORE SELECTED WORKS</span>
               <ArrowDown className="w-4 h-4 transition-transform group-hover:translate-y-0.5" />
@@ -151,9 +148,9 @@ export const Hero: React.FC<HeroProps> = ({
 
             <button
               onClick={onOpenAudit}
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-black/45 hover:bg-neutral-900/80 backdrop-blur-md border border-neutral-700/80 hover:border-neutral-500 text-white text-xs font-bold tracking-[0.14em] uppercase rounded-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cfad76] group cursor-pointer"
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/5 hover:bg-white/12 backdrop-blur-md border border-white/20 hover:border-white/40 text-white text-xs font-bold tracking-[0.14em] uppercase rounded-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4D1C] group cursor-pointer"
             >
-              <span>1:1 BRAND AUDIT</span>
+              <span>1:1 BRAND & SALES AUDIT</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
             </button>
           </motion.div>
@@ -163,32 +160,32 @@ export const Hero: React.FC<HeroProps> = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.25 }}
-            className="grid grid-cols-3 gap-6 sm:gap-12 max-w-lg pt-4 border-t border-white/15"
+            className="grid grid-cols-3 gap-6 sm:gap-12 max-w-lg pt-5 border-t border-white/15"
           >
             <div>
-              <div className="font-serif text-3xl sm:text-4xl text-[#fbf9f5] font-light tracking-tight tabular-nums">
-                12<span className="text-[#cfad76]">+</span>
+              <div className="font-serif text-3xl sm:text-4xl text-white font-semibold tracking-tight tabular-nums">
+                12<span className="text-[#FF4D1C]">+</span>
               </div>
-              <div className="text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] uppercase text-neutral-300 mt-1 font-mono">
+              <div className="text-[10px] sm:text-[11px] font-semibold tracking-[0.18em] uppercase text-neutral-400 mt-1 font-mono">
                 YEARS IN PRACTICE
               </div>
             </div>
 
             <div>
-              <div className="font-serif text-3xl sm:text-4xl text-[#fbf9f5] font-light tracking-tight tabular-nums">
-                80<span className="text-[#cfad76]">+</span>
+              <div className="font-serif text-3xl sm:text-4xl text-white font-semibold tracking-tight tabular-nums">
+                80<span className="text-[#FF4D1C]">+</span>
               </div>
-              <div className="text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] uppercase text-neutral-300 mt-1 font-mono">
-                BRANDS LAUNCHED
+              <div className="text-[10px] sm:text-[11px] font-semibold tracking-[0.18em] uppercase text-neutral-400 mt-1 font-mono">
+                BRANDS SCALED
               </div>
             </div>
 
             <div>
-              <div className="font-serif text-3xl sm:text-4xl text-[#fbf9f5] font-light tracking-tight tabular-nums">
+              <div className="font-serif text-3xl sm:text-4xl text-white font-semibold tracking-tight tabular-nums">
                 4
               </div>
-              <div className="text-[10px] sm:text-[11px] font-semibold tracking-[0.2em] uppercase text-neutral-300 mt-1 font-mono">
-                CORE INDUSTRIES
+              <div className="text-[10px] sm:text-[11px] font-semibold tracking-[0.18em] uppercase text-neutral-400 mt-1 font-mono">
+                CORE SECTORS
               </div>
             </div>
           </motion.div>
@@ -199,11 +196,11 @@ export const Hero: React.FC<HeroProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 pt-4 pb-2 flex items-center justify-between">
         <button
           onClick={onExploreWorks}
-          className="flex items-center gap-3 text-neutral-400 hover:text-neutral-200 text-[10px] tracking-[0.25em] uppercase font-semibold transition-colors group cursor-pointer focus-visible:outline-none"
+          className="flex items-center gap-3 text-neutral-400 hover:text-white text-[10px] tracking-[0.25em] uppercase font-semibold transition-colors group cursor-pointer focus-visible:outline-none"
         >
-          <div className="w-10 h-[1px] bg-neutral-700 group-hover:bg-neutral-500 transition-colors" aria-hidden="true" />
-          <span>SCROLL TO DISCOVER</span>
-          <ArrowDown className="w-3.5 h-3.5 text-neutral-400 group-hover:text-[#cfad76] animate-bounce" />
+          <div className="w-10 h-[1px] bg-neutral-700 group-hover:bg-[#FF4D1C] transition-colors" aria-hidden="true" />
+          <span>SCROLL TO CASE STUDIES</span>
+          <ArrowDown className="w-3.5 h-3.5 text-neutral-400 group-hover:text-[#FF4D1C] animate-bounce" />
         </button>
 
         {/* Minimal Progress Dots */}
@@ -215,7 +212,7 @@ export const Hero: React.FC<HeroProps> = ({
               onClick={() => setActiveSlideIdx(i)}
               className={`h-1.5 rounded-full transition-all duration-500 cursor-pointer ${
                 i === activeSlideIdx
-                  ? 'w-8 bg-[#cfad76]'
+                  ? 'w-8 bg-[#FF4D1C]'
                   : 'w-2 bg-white/20 hover:bg-white/40'
               }`}
               aria-label={`Go to slide ${i + 1}`}

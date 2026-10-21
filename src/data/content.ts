@@ -95,64 +95,64 @@ export const HERO_SLIDES: HeroSlide[] = [
     industryLabel: 'Cosmetics & Skincare',
     image: asset('hero/hero-cosmetics.jpg'),
     headlineMobile: [
-      'Sculpting desire for',
-      'modern skincare &',
-      'botanical cosmetics.'
+      'Visual branding that',
+      'makes skincare products',
+      'stand out and sell.'
     ],
     headlineDesktop: [
-      'Sculpting desire for modern',
-      'skincare and botanical cosmetics.'
+      'Visual branding that makes skincare',
+      'products stand out and sell.'
     ],
     subtitle:
-      'Warm lighting, natural textures, and calm editorial compositions crafted into cohesive packaging and content systems.'
+      'Strategic packaging and cohesive social content systems designed to capture attention, build buyer trust, and drive repeat sales.'
   },
   {
     id: 'fmcg',
     industryLabel: 'FMCG & Food',
     image: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/7e88ef255777339.6aac614ea6a76.jpg',
     headlineMobile: [
-      'Sensory identity that',
-      'redefines choice on',
+      'Packaging solutions that',
+      'win attention on',
       'the crowded shelf.'
     ],
     headlineDesktop: [
-      'Sensory identity that redefines',
-      'choice on the crowded shelf.'
+      'Packaging solutions that win',
+      'attention on the crowded shelf.'
     ],
     subtitle:
-      'Conceptual FMCG packaging systems and expressive brand characters that connect flavor, mood, and consumer ritual.'
+      'Distinctive FMCG concepts, packaging architecture, and brand characters that turn everyday products into the customer’s first choice.'
   },
   {
     id: 'b2b',
     industryLabel: 'B2B & Corporate',
     image: asset('hero/hero-b2b.jpg'),
     headlineMobile: [
-      'Make your brand',
+      'Make your business',
       'easier to recognize',
       'and harder to replace.'
     ],
     headlineDesktop: [
-      'Make your brand easier to recognize',
+      'Make your business easier to recognize',
       'and harder to replace.'
     ],
     subtitle:
-      'Context is key, margin is freedom — geometric identity systems and authoritative visual language for modern enterprises.'
+      'Clear, authoritative brand identity systems and visual communication that help growing businesses win high-value clients.'
   },
   {
     id: 'automotive',
     industryLabel: 'Automotive & Heavy Industry',
     image: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/bacbe8256435067.6abc2ee740e6a.jpg',
     headlineMobile: [
-      'Quiet strength and',
-      'precision catalogs for',
-      'global transport.'
+      'Present technical products',
+      'with clarity that',
+      'drives global sales.'
     ],
     headlineDesktop: [
-      'Quiet strength and precision',
-      'catalogs for global transport.'
+      'Present technical products with',
+      'clarity that drives global sales.'
     ],
     subtitle:
-      'Engineering sometimes does not speak; it simply works. Editorial catalogs, 3D cutaways, and packaging for heavy industry.'
+      'Structured product catalogs, 3D technical visuals, and industrial packaging that help manufacturers sell complex products faster.'
   }
 ];
 
@@ -166,7 +166,7 @@ export const PROJECTS: Project[] = [
     client: 'The Nuvé (Türkiye)',
     year: '2026',
     behanceUrl: 'https://www.behance.net/gallery/254816385/The-Nuv-Skincare-Social-Media-Content-Design',
-    tagline: 'Warm lighting, natural skin textures, and calm compositions aligned with The Nuvé’s luxury skincare world.',
+    tagline: 'Warm lighting, natural skin textures, and cohesive compositions built to strengthen brand recognition and product conversion.',
     description: 'Ongoing monthly creative collaboration with The Nuvé, a Türkiye-based skincare brand, encompassing concept development, creative direction, product staging, and editorial carousel design for shimmering body care.',
     heroColor: '#6d4c3d',
     textColor: '#f7f2ed',
@@ -222,14 +222,14 @@ export const PROJECTS: Project[] = [
     colorSystem: 'Warm Terracotta / Golden Skin Glow / Espresso Brown',
     highlights: [
       'Built a consistent, scalable visual system that works across monthly content series',
-      'Preserved product character through warm lighting, organic materials, and calm compositions',
-      'Seamless carousel storytelling uniting product packaging with aspirational lifestyle imagery'
+      'Preserved product character through warm lighting, organic materials, and clear compositions',
+      'Seamless carousel storytelling uniting product packaging with high-converting lifestyle imagery'
     ],
     challenge: 'Projects like this involve much more than creating visually appealing images. The challenge is to build a consistent visual system that works across different content pieces while preserving the character of the product and the brand’s communication language.',
     solution: 'Warm lighting, natural skin textures, organic materials, and calm compositions were used to create an unmistakable visual atmosphere aligned with The Nuvé’s brand world.',
     shelfImpact: {
       beforeDesc: 'Isolated single-post visuals without a cohesive brand narrative or recognizable atmosphere.',
-      afterDesc: 'A unified, luxurious visual content system that elevates product desirability across every touchpoint.',
+      afterDesc: 'A unified, high-converting visual content system that elevates product visibility across every touchpoint.',
       metric: 'Monthly',
       metricLabel: 'Ongoing Brand Collaboration'
     },
@@ -377,7 +377,7 @@ export const PROJECTS: Project[] = [
       'Generous negative space engineered for seamless website slider and trade booth integration'
     ],
     challenge: 'Heavy commercial vehicle components are typically presented in cluttered, low-contrast warehouse catalogs that fail to communicate engineering prestige.',
-    solution: 'We isolated each axle assembly and suspension component in a pitch-black luxury studio environment, using dramatic rim lighting and minimalist typography.',
+    solution: 'We isolated each axle assembly and suspension component in a pitch-black high-contrast commercial studio environment, using dramatic rim lighting and bold technical typography.',
     shelfImpact: {
       beforeDesc: 'Conventional industrial product listings lacking emotional or visual authority.',
       afterDesc: 'A commanding flagship presence for RST Purchasing at Automechanika Istanbul 2026.',

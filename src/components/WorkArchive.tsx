@@ -126,20 +126,17 @@ export const WorkArchive: React.FC<WorkArchiveProps> = ({
   };
 
   return (
-    <div className="bg-[#06070a] min-h-screen text-[#f4f1ea] pt-16 sm:pt-24 pb-40 overflow-x-hidden selection:bg-[#cfad76] selection:text-black">
+    <div className="bg-[#090a0d] min-h-screen text-[#f4f5f7] pt-16 sm:pt-24 pb-40 overflow-x-hidden selection:bg-[#FF4D1C] selection:text-white">
       {/* Top Editorial Header with Vast Negative Space */}
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-14">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 pb-16 mb-24 sm:mb-36 border-b border-white/10">
           <div className="max-w-2xl">
-            <div className="flex items-center gap-3 font-mono text-[11px] tracking-[0.28em] text-[#cfad76] uppercase mb-5">
+            <div className="flex items-center gap-3 font-mono text-[11px] tracking-[0.28em] text-[#FF4D1C] uppercase mb-5">
               <span>BEHANCE SYNCHRONIZED ARCHIVE</span>
               <span aria-hidden="true">·</span>
               <span className="text-neutral-500">{filteredProjects.length} SELECTED WORKS</span>
             </div>
-            <h1
-              style={{ fontFamily: 'Georgia, serif' }}
-              className="font-serif text-5xl sm:text-7xl lg:text-[84px] font-normal tracking-[-0.03em] text-white leading-[0.98]"
-            >
+            <h1 className="font-serif text-5xl sm:text-7xl lg:text-[80px] font-semibold tracking-[-0.03em] text-white leading-[0.98]">
               Visual Works
             </h1>
           </div>
@@ -154,7 +151,7 @@ export const WorkArchive: React.FC<WorkArchiveProps> = ({
                   onClick={() => setSelectedSector(tab.value)}
                   className={`relative py-1.5 text-xs tracking-[0.16em] uppercase font-mono transition-colors cursor-pointer ${
                     isActive
-                      ? 'text-[#cfad76] font-semibold'
+                      ? 'text-[#FF4D1C] font-semibold'
                       : 'text-neutral-500 hover:text-neutral-200'
                   }`}
                 >
@@ -162,7 +159,7 @@ export const WorkArchive: React.FC<WorkArchiveProps> = ({
                   {isActive && (
                     <motion.span
                       layoutId="archiveFilterUnderline"
-                      className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#cfad76]"
+                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#FF4D1C]"
                     />
                   )}
                 </button>
@@ -202,7 +199,7 @@ export const WorkArchive: React.FC<WorkArchiveProps> = ({
                   <div
                     className={`relative w-full ${layout.aspect} overflow-hidden ${
                       layout.isFullBleed ? 'rounded-none border-y' : 'rounded-lg border'
-                    } bg-[#0e1015] border-white/10 group-hover:border-[#cfad76]/50 transition-colors duration-700`}
+                    } bg-[#0e1015] border-white/10 group-hover:border-[#FF4D1C]/60 transition-colors duration-700`}
                   >
                     <motion.img
                       src={proj.heroImage}
@@ -215,7 +212,7 @@ export const WorkArchive: React.FC<WorkArchiveProps> = ({
                       className="w-full h-full object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-105"
                     />
 
-                    {/* Subtle Dark Luxury Vignette */}
+                    {/* Subtle Dark Studio Vignette */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-75 group-hover:opacity-55 transition-opacity duration-700" />
 
                     {/* Secondary Behance Plate Peek on Hover (Desktop) */}
@@ -224,6 +221,7 @@ export const WorkArchive: React.FC<WorkArchiveProps> = ({
                         <img
                           src={secondaryPreview}
                           alt=""
+                          referrerPolicy="no-referrer"
                           className="w-full h-full object-cover object-center"
                         />
                       </div>
@@ -235,7 +233,7 @@ export const WorkArchive: React.FC<WorkArchiveProps> = ({
                         layout.isFullBleed ? 'right-6 sm:right-12 lg:right-20' : 'right-6'
                       } z-10`}
                     >
-                      <div className="w-12 h-12 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-white flex items-center justify-center group-hover:bg-[#cfad76] group-hover:text-black group-hover:border-[#cfad76] group-hover:scale-105 transition-all duration-300">
+                      <div className="w-12 h-12 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-white flex items-center justify-center group-hover:bg-[#FF4D1C] group-hover:text-white group-hover:border-[#FF4D1C] group-hover:scale-105 transition-all duration-300">
                         <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                       </div>
                     </div>
@@ -244,17 +242,14 @@ export const WorkArchive: React.FC<WorkArchiveProps> = ({
                     {layout.isFullBleed && (
                       <div className="absolute bottom-8 sm:bottom-12 left-0 right-0 z-10 max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-14 flex items-end justify-between gap-6">
                         <div>
-                          <div className="flex items-center gap-3 font-mono text-[11px] tracking-[0.22em] uppercase text-[#cfad76] mb-2">
+                          <div className="flex items-center gap-3 font-mono text-[11px] tracking-[0.22em] uppercase text-[#FF4D1C] mb-2">
                             <span>{indexNumber}</span>
                             <span aria-hidden="true">—</span>
                             <span>{proj.sectorLabel}</span>
                             <span aria-hidden="true">·</span>
                             <span className="text-white/70">{proj.galleryImages.length} Plates</span>
                           </div>
-                          <h2
-                            style={{ fontFamily: 'Georgia, serif' }}
-                            className="font-serif text-3xl sm:text-5xl lg:text-6xl text-white font-normal tracking-tight leading-[1.06] drop-shadow-sm"
-                          >
+                          <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-white font-semibold tracking-tight leading-[1.06] drop-shadow-sm">
                             {proj.title}
                           </h2>
                         </div>
@@ -270,16 +265,13 @@ export const WorkArchive: React.FC<WorkArchiveProps> = ({
                     <div className="mt-6 flex items-start justify-between gap-6">
                       <div>
                         <div className="flex items-center gap-2.5 font-mono text-[10px] tracking-[0.22em] uppercase text-neutral-400 mb-2">
-                          <span className="text-[#cfad76]">{indexNumber}</span>
+                          <span className="text-[#FF4D1C]">{indexNumber}</span>
                           <span aria-hidden="true">—</span>
                           <span>{proj.sectorLabel}</span>
                           <span aria-hidden="true">·</span>
                           <span className="text-neutral-500">{proj.galleryImages.length} Plates</span>
                         </div>
-                        <h2
-                          style={{ fontFamily: 'Georgia, serif' }}
-                          className="font-serif text-2xl sm:text-3xl lg:text-[34px] text-white group-hover:text-[#cfad76] transition-colors duration-300 font-normal tracking-tight leading-snug"
-                        >
+                        <h2 className="font-serif text-2xl sm:text-3xl lg:text-[32px] text-white group-hover:text-[#FF4D1C] transition-colors duration-300 font-semibold tracking-tight leading-snug">
                           {proj.title}
                         </h2>
                       </div>
@@ -305,14 +297,14 @@ export const WorkArchive: React.FC<WorkArchiveProps> = ({
               href="https://www.behance.net/saeedjabbari"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#cfad76] transition-colors flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider"
+              className="hover:text-[#FF4D1C] transition-colors flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider"
             >
               <span>Behance / saeedjabbari</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
             <a
               href="mailto:saeedjabbari21@gmail.com"
-              className="hover:text-[#cfad76] transition-colors flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider"
+              className="hover:text-[#FF4D1C] transition-colors flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider"
             >
               <span>saeedjabbari21@gmail.com</span>
               <ArrowUpRight className="w-3.5 h-3.5" />

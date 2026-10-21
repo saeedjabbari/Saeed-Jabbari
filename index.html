@@ -3,35 +3,184 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Saeed Jabbari — Branding & Creative Direction</title>
-    <meta name="description" content="Independent creative practice specializing in brand identity, packaging design, print collateral, and advertising campaigns for cosmetics, FMCG, automotive, and B2B brands." />
-    <meta property="og:title" content="Saeed Jabbari — Branding & Creative Direction" />
-    <meta property="og:description" content="Independent creative practice specializing in brand identity, packaging design, print collateral, and advertising campaigns for cosmetics, FMCG, automotive, and B2B brands." />
+    <title>Saeed Jabbari — Branding & Commercial Design Solutions</title>
+    <meta name="description" content="Strategic branding, packaging design, technical catalogs, and visual campaigns engineered to help businesses stand out, communicate clearly, and sell more." />
+    <meta property="og:title" content="Saeed Jabbari — Branding & Commercial Design Solutions" />
+    <meta property="og:description" content="Strategic branding, packaging design, technical catalogs, and visual campaigns engineered to help businesses stand out, communicate clearly, and sell more." />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --font-serif: 'Space Grotesk', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        --font-mono: 'JetBrains Mono', monospace;
+      }
+      body {
+        font-family: var(--font-sans);
+        background-color: #090a0d;
+        color: #f4f5f7;
+        margin: 0;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .font-serif {
+        font-family: var(--font-serif);
+        letter-spacing: -0.025em;
+      }
+      .font-sans {
+        font-family: var(--font-sans);
+      }
+      .font-mono {
+        font-family: var(--font-mono);
+      }
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #090a0d;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #272b35;
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #FF4D1C;
+      }
+      @keyframes sj-spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
   </head>
-  <body style="background-color: #06070a; color: #f7f4ee; margin: 0;" class="bg-[#06070a] text-[#f7f4ee] antialiased selection:bg-[#cfad76] selection:text-black">
+  <body class="bg-[#090a0d] text-[#f4f5f7] antialiased selection:bg-[#FF4D1C] selection:text-white">
     <div id="root"></div>
     <script type="module" src="./src/main.tsx"></script>
     <script>
       (function () {
         var isViteDev = !!document.querySelector('script[src*="@vite/client"]');
         var isBuiltDist = !!document.querySelector('script[src*="assets/index"]');
-        if (!isViteDev && !isBuiltDist) {
-          window.__STATIC_ROOT_MODE__ = true;
-          var link = document.createElement('link');
-          link.rel = 'stylesheet';
-          link.href = './public/bundle/app.css';
-          document.head.appendChild(link);
+        if (isViteDev || isBuiltDist) return;
 
-          var script = document.createElement('script');
-          script.type = 'module';
-          script.src = './public/bundle/app.js';
-          document.body.appendChild(script);
+        window.__STATIC_ROOT_MODE__ = true;
+
+        var rootEl = document.getElementById('root');
+        if (rootEl && !rootEl.innerHTML.trim()) {
+          rootEl.innerHTML =
+            '<div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#090a0d;color:#f4f5f7;font-family:\'Plus Jakarta Sans\',sans-serif;gap:14px;">' +
+            '<div style="width:28px;height:28px;border:2.5px solid rgba(255,77,28,0.25);border-top-color:#FF4D1C;border-radius:50%;animation:sj-spin 0.7s linear infinite;"></div>' +
+            '<div style="font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:#949ba8;font-weight:700;">SAEED JABBARI STUDIO</div>' +
+            '</div>';
         }
+
+        var twScript = document.createElement('script');
+        twScript.src = 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4';
+        document.head.appendChild(twScript);
+
+        var modules = [
+          ['types', './src/types/index.ts'],
+          ['content', './src/data/content.ts'],
+          ['Header', './src/components/Header.tsx'],
+          ['Hero', './src/components/Hero.tsx'],
+          ['Capabilities', './src/components/Capabilities.tsx'],
+          ['Industries', './src/components/Industries.tsx'],
+          ['SelectedWork', './src/components/SelectedWork.tsx'],
+          ['EngagementModels', './src/components/EngagementModels.tsx'],
+          ['CtaBanner', './src/components/CtaBanner.tsx'],
+          ['Footer', './src/components/Footer.tsx'],
+          ['WorkArchive', './src/components/WorkArchive.tsx'],
+          ['ProjectDetailView', './src/components/ProjectDetailView.tsx'],
+          ['ProjectModal', './src/components/ProjectModal.tsx'],
+          ['ProcessView', './src/components/ProcessView.tsx'],
+          ['PricingView', './src/components/PricingView.tsx'],
+          ['ArticlesView', './src/components/ArticlesView.tsx'],
+          ['BrandAuditModal', './src/components/BrandAuditModal.tsx'],
+          ['IntakeBriefModal', './src/components/IntakeBriefModal.tsx'],
+          ['App', './src/App.tsx'],
+          ['main', './src/main.tsx']
+        ];
+
+        var externals = {
+          'react': 'https://esm.sh/react@19.0.0',
+          'react/jsx-runtime': 'https://esm.sh/react@19.0.0/jsx-runtime',
+          'react-dom': 'https://esm.sh/react-dom@19.0.0?deps=react@19.0.0',
+          'react-dom/client': 'https://esm.sh/react-dom@19.0.0/client?deps=react@19.0.0',
+          'lucide-react': 'https://esm.sh/lucide-react@0.511.0?deps=react@19.0.0',
+          'motion/react': 'https://esm.sh/motion@12.23.24/react?deps=react@19.0.0,react-dom@19.0.0'
+        };
+
+        async function loadCompiler() {
+          try {
+            var sucrase = await import('https://esm.sh/sucrase@3.35.0');
+            return function (code) {
+              return sucrase.transform(code, {
+                transforms: ['typescript', 'jsx'],
+                production: true
+              }).code;
+            };
+          } catch (e) {
+            await new Promise(function (resolve, reject) {
+              var s = document.createElement('script');
+              s.src = 'https://cdn.jsdelivr.net/npm/@babel/standalone@7.26.9/babel.min.js';
+              s.onload = resolve;
+              s.onerror = reject;
+              document.head.appendChild(s);
+            });
+            return function (code, filename) {
+              return window.Babel.transform(code, {
+                presets: ['typescript', 'react'],
+                filename: filename || 'module.tsx'
+              }).code;
+            };
+          }
+        }
+
+        Promise.all([
+          loadCompiler(),
+          Promise.all(
+            modules.map(function (entry) {
+              return fetch(entry[1]).then(function (r) {
+                if (!r.ok) throw new Error('Failed to fetch ' + entry[1]);
+                return r.text();
+              });
+            })
+          )
+        ])
+          .then(function (results) {
+            var compile = results[0];
+            var sources = results[1];
+            var blobMap = {};
+
+            for (var i = 0; i < modules.length; i++) {
+              var name = modules[i][0];
+              var filePath = modules[i][1];
+              var raw = sources[i];
+
+              raw = raw.replace(/import\s+['"][^'"]*\.css['"];?/g, '');
+              if (!/import\s+React/.test(raw)) {
+                raw = 'import React from "react";\n' + raw;
+              }
+
+              var js = compile(raw, filePath);
+              js = js.replace(/(\bimport\s+[\s\S]*?\bfrom\s*)(['"])([^'"]+)\2/g, function (_, prefix, q, spec) {
+                if (externals[spec]) return prefix + q + externals[spec] + q;
+                var base = spec.split('/').pop().replace(/\.(tsx|ts|js)$/, '');
+                if (blobMap[base]) return prefix + q + blobMap[base] + q;
+                return prefix + q + spec + q;
+              });
+
+              blobMap[name] = URL.createObjectURL(
+                new Blob([js + '\nexport {};'], { type: 'text/javascript' })
+              );
+            }
+
+            return import(blobMap['main']);
+          })
+          .catch(function (err) {
+            console.error('Static runtime bootstrap error:', err);
+          });
       })();
     </script>
   </body>

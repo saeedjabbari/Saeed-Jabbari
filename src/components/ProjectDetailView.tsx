@@ -68,13 +68,13 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
   };
 
   return (
-    <div className="bg-[#06070a] min-h-screen text-[#f5f2eb] pb-32 overflow-x-hidden selection:bg-[#cfad76] selection:text-black">
+    <div className="bg-[#090a0d] min-h-screen text-[#f4f5f7] pb-32 overflow-x-hidden selection:bg-[#FF4D1C] selection:text-white">
       {/* Sub-Header Navigation Bar */}
-      <div className="sticky top-20 z-30 bg-[#06070a]/90 backdrop-blur-md border-b border-white/10">
+      <div className="sticky top-20 z-30 bg-[#090a0d]/90 backdrop-blur-md border-b border-white/10">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-14 py-4 flex items-center justify-between gap-4">
           <button
             onClick={onBackToArchive}
-            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-neutral-300 hover:text-[#cfad76] transition-colors cursor-pointer group"
+            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-neutral-300 hover:text-[#FF4D1C] transition-colors cursor-pointer group"
           >
             <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
             <span>Back to All Works</span>
@@ -83,7 +83,7 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
           <div className="hidden md:flex items-center gap-2.5 font-mono text-[11px] text-neutral-500 uppercase tracking-wider">
             <span>{project.sectorLabel}</span>
             <span aria-hidden="true">·</span>
-            <span className="text-[#cfad76]">{project.title}</span>
+            <span className="text-[#FF4D1C]">{project.title}</span>
           </div>
 
           <div className="flex items-center gap-3">
@@ -92,7 +92,7 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
                 href={project.behanceUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 border border-white/15 hover:border-[#cfad76] text-neutral-200 hover:text-[#cfad76] text-[11px] font-mono tracking-wider uppercase rounded transition-colors"
+                className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 border border-white/15 hover:border-[#FF4D1C] text-neutral-200 hover:text-[#FF4D1C] text-[11px] font-mono tracking-wider uppercase rounded transition-colors"
               >
                 <span>Behance</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
@@ -100,7 +100,7 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
             )}
             <button
               onClick={onOpenBrief}
-              className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-[#cfad76] hover:bg-[#dfbd86] text-[#08090c] text-[11px] font-bold tracking-wider uppercase rounded transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-[#FF4D1C] hover:bg-[#ff6438] text-white text-[11px] font-bold tracking-wider uppercase rounded transition-colors cursor-pointer"
             >
               <span>Inquire Similar</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -118,7 +118,7 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
           className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end mb-16 sm:mb-24"
         >
           <div className="lg:col-span-8">
-            <div className="flex flex-wrap items-center gap-3 font-mono text-xs tracking-[0.22em] uppercase text-[#cfad76] mb-5">
+            <div className="flex flex-wrap items-center gap-3 font-mono text-xs tracking-[0.22em] uppercase text-[#FF4D1C] mb-5">
               <span>{project.sectorLabel}</span>
               <span aria-hidden="true">·</span>
               <span className="text-neutral-400">{project.year}</span>
@@ -126,16 +126,13 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
               <span className="text-neutral-400">{project.client}</span>
             </div>
 
-            <h1
-              style={{ fontFamily: 'Georgia, serif' }}
-              className="font-serif text-4xl sm:text-6xl lg:text-[68px] font-normal text-white leading-[1.04] tracking-[-0.025em]"
-            >
+            <h1 className="font-serif text-4xl sm:text-6xl lg:text-[64px] font-semibold text-white leading-[1.04] tracking-[-0.025em]">
               {project.title}
             </h1>
           </div>
 
           <div className="lg:col-span-4 lg:text-right">
-            <p className="text-sm sm:text-base text-neutral-300 leading-relaxed font-light">
+            <p className="text-sm sm:text-base text-neutral-300 leading-relaxed font-normal">
               {project.tagline}
             </p>
           </div>
@@ -188,7 +185,7 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
             <span className="block font-mono text-[10px] tracking-[0.22em] text-neutral-500 uppercase mb-2">
               VISUAL PALETTE
             </span>
-            <span className="text-sm sm:text-base text-[#cfad76] font-normal">
+            <span className="text-sm sm:text-base text-[#FF4D1C] font-normal">
               {project.colorSystem}
             </span>
           </div>
@@ -201,7 +198,7 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
                 href={project.behanceUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm sm:text-base text-white hover:text-[#cfad76] transition-colors underline decoration-white/30 underline-offset-4"
+                className="inline-flex items-center gap-1.5 text-sm sm:text-base text-white hover:text-[#FF4D1C] transition-colors underline decoration-white/30 underline-offset-4"
               >
                 <span>View Full Case Study</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -221,16 +218,13 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
             transition={{ duration: 0.7 }}
             className="lg:col-span-5 space-y-6"
           >
-            <span className="block font-mono text-[10px] tracking-[0.24em] text-[#cfad76] uppercase">
+            <span className="block font-mono text-[10px] tracking-[0.24em] text-[#FF4D1C] uppercase">
               01 — PROJECT NARRATIVE
             </span>
-            <h2
-              style={{ fontFamily: 'Georgia, serif' }}
-              className="font-serif text-2xl sm:text-4xl text-white font-normal leading-snug"
-            >
+            <h2 className="font-serif text-2xl sm:text-4xl text-white font-semibold leading-snug">
               {project.subtitle}
             </h2>
-            <p className="text-sm sm:text-base text-neutral-300 leading-relaxed font-light">
+            <p className="text-sm sm:text-base text-neutral-300 leading-relaxed font-normal">
               {project.description}
             </p>
 
@@ -266,16 +260,16 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
                 <span className="block font-mono text-[10px] tracking-[0.22em] text-neutral-400 uppercase mb-3">
                   THE CHALLENGE
                 </span>
-                <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed font-light">
+                <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed font-normal">
                   {project.challenge}
                 </p>
               </div>
 
-              <div className="border-t border-[#cfad76]/50 pt-6">
-                <span className="block font-mono text-[10px] tracking-[0.22em] text-[#cfad76] uppercase mb-3">
-                  CREATIVE DIRECTION
+              <div className="border-t border-[#FF4D1C]/60 pt-6">
+                <span className="block font-mono text-[10px] tracking-[0.22em] text-[#FF4D1C] uppercase mb-3">
+                  STRATEGIC SOLUTION
                 </span>
-                <p className="text-xs sm:text-sm text-neutral-200 leading-relaxed font-light">
+                <p className="text-xs sm:text-sm text-neutral-200 leading-relaxed font-normal">
                   {project.solution}
                 </p>
               </div>
@@ -284,13 +278,13 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
             {/* Key Creative Highlights */}
             <div className="border-t border-white/10 pt-8">
               <span className="block font-mono text-[10px] tracking-[0.22em] text-neutral-400 uppercase mb-5">
-                KEY VISUAL & STRATEGIC HIGHLIGHTS
+                KEY COMMERCIAL & VISUAL HIGHLIGHTS
               </span>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {project.highlights.map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <Check className="w-4 h-4 text-[#cfad76] shrink-0 mt-0.5" />
-                    <span className="text-xs sm:text-[13px] text-neutral-300 leading-relaxed font-light">
+                    <Check className="w-4 h-4 text-[#FF4D1C] shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-[13px] text-neutral-300 leading-relaxed font-normal">
                       {item}
                     </span>
                   </div>
@@ -303,7 +297,7 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
         {/* Multi-Scale Behance Visual Gallery */}
         <div className="mb-36">
           <div className="flex items-center justify-between mb-16 pb-5 border-b border-white/10">
-            <span className="font-mono text-[11px] tracking-[0.25em] text-[#cfad76] uppercase">
+            <span className="font-mono text-[11px] tracking-[0.25em] text-[#FF4D1C] uppercase">
               02 — COMPLETE VISUAL PRESENTATION ({project.galleryImages.length} PLATES)
             </span>
             <span className="font-mono text-[11px] text-neutral-500 hidden sm:inline">
@@ -342,7 +336,7 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
                     <div
                       className={`relative w-full ${layout.aspectClass} overflow-hidden ${
                         layout.isFullBleed ? 'rounded-none border-y' : 'rounded-lg border'
-                      } border-white/10 bg-[#0d0f14] group-hover:border-[#cfad76]/50 transition-colors duration-500`}
+                      } border-white/10 bg-[#0d0f14] group-hover:border-[#FF4D1C]/60 transition-colors duration-500`}
                     >
                       <img
                         src={img.url}
@@ -362,8 +356,8 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
                         layout.isFullBleed ? 'max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-14' : ''
                       }`}
                     >
-                      <span className="font-light text-neutral-300">{img.caption}</span>
-                      <span className="font-mono text-[10px] tracking-[0.2em] text-[#cfad76] uppercase shrink-0">
+                      <span className="font-normal text-neutral-300">{img.caption}</span>
+                      <span className="font-mono text-[10px] tracking-[0.2em] text-[#FF4D1C] uppercase shrink-0">
                         {plateNum} — {img.specLabel}
                       </span>
                     </figcaption>
@@ -382,7 +376,7 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
             </span>
             <button
               onClick={onBackToArchive}
-              className="font-mono text-xs text-[#cfad76] hover:underline cursor-pointer"
+              className="font-mono text-xs text-[#FF4D1C] hover:underline cursor-pointer"
             >
               View All {PROJECTS.length} Works
             </button>
@@ -392,7 +386,7 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
             {/* Previous Project */}
             <div
               onClick={() => onSelectProject(prevProject)}
-              className="group relative h-72 rounded-xl overflow-hidden border border-white/10 hover:border-[#cfad76]/60 cursor-pointer"
+              className="group relative h-72 rounded-xl overflow-hidden border border-white/10 hover:border-[#FF4D1C]/60 cursor-pointer"
             >
               <img
                 src={prevProject.heroImage}
@@ -407,13 +401,10 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
                   <span>Previous Work</span>
                 </div>
                 <div>
-                  <span className="block font-mono text-[10px] text-[#cfad76] uppercase tracking-widest mb-1.5">
+                  <span className="block font-mono text-[10px] text-[#FF4D1C] uppercase tracking-widest mb-1.5">
                     {prevProject.sectorLabel}
                   </span>
-                  <h4
-                    style={{ fontFamily: 'Georgia, serif' }}
-                    className="font-serif text-2xl sm:text-3xl text-white font-normal"
-                  >
+                  <h4 className="font-serif text-2xl sm:text-3xl text-white font-semibold">
                     {prevProject.title}
                   </h4>
                 </div>
@@ -423,7 +414,7 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
             {/* Next Project */}
             <div
               onClick={() => onSelectProject(nextProject)}
-              className="group relative h-72 rounded-xl overflow-hidden border border-white/10 hover:border-[#cfad76]/60 cursor-pointer"
+              className="group relative h-72 rounded-xl overflow-hidden border border-white/10 hover:border-[#FF4D1C]/60 cursor-pointer"
             >
               <img
                 src={nextProject.heroImage}
@@ -438,13 +429,10 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
                   <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                 </div>
                 <div>
-                  <span className="block font-mono text-[10px] text-[#cfad76] uppercase tracking-widest mb-1.5">
+                  <span className="block font-mono text-[10px] text-[#FF4D1C] uppercase tracking-widest mb-1.5">
                     {nextProject.sectorLabel}
                   </span>
-                  <h4
-                    style={{ fontFamily: 'Georgia, serif' }}
-                    className="font-serif text-2xl sm:text-3xl text-white font-normal"
-                  >
+                  <h4 className="font-serif text-2xl sm:text-3xl text-white font-semibold">
                     {nextProject.title}
                   </h4>
                 </div>
