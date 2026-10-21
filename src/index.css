@@ -7,10 +7,18 @@
     --font-mono: 'JetBrains Mono', monospace;
   }
 
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
   body {
     font-family: var(--font-sans);
     background-color: #090a0d;
-    color: #0b0d12;
+    color: #f4f5f7;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -46,4 +54,67 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #FF4D1C;
+}
+
+/* Hide scrollbar for clean horizontal tab lists */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Moving frosted glass ambient glow animations */
+@keyframes glassGlow1 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.45;
+  }
+  33% {
+    transform: translate(70px, -50px) scale(1.18);
+    opacity: 0.65;
+  }
+  66% {
+    transform: translate(-40px, 30px) scale(0.95);
+    opacity: 0.5;
+  }
+}
+
+@keyframes glassGlow2 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.35;
+  }
+  40% {
+    transform: translate(-80px, 60px) scale(1.22);
+    opacity: 0.6;
+  }
+  75% {
+    transform: translate(50px, -30px) scale(1.05);
+    opacity: 0.4;
+  }
+}
+
+@keyframes glassGlow3 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translate(30px, 70px) scale(1.15);
+    opacity: 0.5;
+  }
+}
+
+.animate-glass-glow-1 {
+  animation: glassGlow1 16s ease-in-out infinite;
+}
+
+.animate-glass-glow-2 {
+  animation: glassGlow2 20s ease-in-out infinite;
+}
+
+.animate-glass-glow-3 {
+  animation: glassGlow3 14s ease-in-out infinite;
 }

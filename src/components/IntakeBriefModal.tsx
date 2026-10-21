@@ -52,23 +52,23 @@ export const IntakeBriefModal: React.FC<IntakeBriefModalProps> = ({ isOpen, onCl
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fadeIn">
       <div
-        className="bg-[#090a0d] text-white rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl border border-[#222631] relative my-8"
+        className="bg-[#090a0d] text-white rounded-xl sm:rounded-2xl max-w-2xl w-full max-h-[92vh] flex flex-col overflow-hidden shadow-2xl border border-[#222631] relative my-auto"
         role="dialog"
         aria-modal="true"
         aria-labelledby="intake-brief-title"
       >
         {/* Modal Header */}
-        <div className="p-6 sm:p-8 border-b border-[#222631] flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-md bg-[#FF4D1C] text-white flex items-center justify-center font-bold text-sm">
+        <div className="p-4 sm:p-6 border-b border-[#222631] flex items-center justify-between shrink-0">
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-md bg-[#FF4D1C] text-white flex items-center justify-center font-bold text-xs sm:text-sm shrink-0">
               SJ
             </div>
             <div>
-              <h3 id="intake-brief-title" className="font-serif text-2xl font-bold text-white">
-                Start a Branding & Packaging Project
+              <h3 id="intake-brief-title" className="font-serif text-lg sm:text-2xl font-bold text-white">
+                Start a Project
               </h3>
-              <p className="text-[11px] text-[#949BA8]">
-                Direct commercial inquiry with Principal Creative Director Saeed Jabbari
+              <p className="text-[10px] sm:text-[11px] text-[#949BA8]">
+                Direct commercial inquiry with Saeed Jabbari
               </p>
             </div>
           </div>
@@ -83,7 +83,7 @@ export const IntakeBriefModal: React.FC<IntakeBriefModalProps> = ({ isOpen, onCl
         </div>
 
         {/* Modal Body */}
-        <div className="p-6 sm:p-8">
+        <div className="p-4 sm:p-6 overflow-y-auto flex-1">
           {!submitted ? (
             <form onSubmit={handleNext} className="space-y-6">
               {/* Step indicator */}

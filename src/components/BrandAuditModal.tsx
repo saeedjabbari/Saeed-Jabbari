@@ -52,22 +52,22 @@ export const BrandAuditModal: React.FC<BrandAuditModalProps> = ({ isOpen, onClos
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fadeIn">
       <div
-        className="bg-[#090a0d] text-white rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl border border-[#222631] relative my-8"
+        className="bg-[#090a0d] text-white rounded-xl sm:rounded-2xl max-w-2xl w-full max-h-[92vh] flex flex-col overflow-hidden shadow-2xl border border-[#222631] relative my-auto"
         role="dialog"
         aria-modal="true"
       >
         {/* Header */}
-        <div className="p-6 sm:p-8 border-b border-[#222631] flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-md bg-[#FF4D1C] text-white flex items-center justify-center font-bold text-xs">
+        <div className="p-4 sm:p-6 border-b border-[#222631] flex items-center justify-between shrink-0">
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-md bg-[#FF4D1C] text-white flex items-center justify-center font-bold text-xs shrink-0">
               SJ
             </div>
             <div>
-              <h3 className="font-serif text-xl sm:text-2xl font-bold text-white">
-                1:1 Brand Visibility & Sales Audit
+              <h3 className="font-serif text-lg sm:text-2xl font-bold text-white">
+                1:1 Brand Visibility &amp; Sales Audit
               </h3>
-              <p className="text-[11px] text-[#949BA8]">
-                Diagnostic identifying why products blend in & how to increase shelf and market sales
+              <p className="text-[10px] sm:text-[11px] text-[#949BA8]">
+                Diagnostic identifying why products blend in &amp; how to increase shelf sales
               </p>
             </div>
           </div>
@@ -82,7 +82,7 @@ export const BrandAuditModal: React.FC<BrandAuditModalProps> = ({ isOpen, onClos
         </div>
 
         {/* Modal Body */}
-        <div className="p-6 sm:p-8">
+        <div className="p-4 sm:p-6 overflow-y-auto flex-1">
           {step === 1 && (
             <form onSubmit={handleGenerateScorecard} className="space-y-6">
               <div>

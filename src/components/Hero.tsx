@@ -32,115 +32,98 @@ export const Hero: React.FC<HeroProps> = ({
     <section
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      className="relative min-h-[calc(100vh-5rem)] flex flex-col justify-between bg-[#090a0d] text-[#f4f5f7] pt-8 md:pt-12 pb-8 border-b border-white/10 overflow-hidden select-none"
+      className="relative min-h-[85vh] sm:min-h-[calc(100vh-5rem)] flex flex-col justify-between bg-[#090a0d] text-[#f4f5f7] pt-6 sm:pt-10 md:pt-14 pb-6 sm:pb-8 border-b border-white/10 overflow-hidden select-none"
     >
-      {/* Background Images with Smooth 1.4s Crossfade */}
+      {/* 
+        Frosted Glass Dark Background with Soft Animated Orange Light 
+        Light appears as though softly moving and diffusing from beneath dark frosted glass
+      */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none" aria-hidden="true">
-        <AnimatePresence initial={false}>
-          <motion.div
-            key={currentSlide.id}
-            initial={{ opacity: 0, scale: 1.04 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.98 }}
-            transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute inset-0 w-full h-full"
-          >
-            <img
-              src={currentSlide.image}
-              alt={currentSlide.industryLabel}
-              referrerPolicy="no-referrer"
-              className="w-full h-full object-cover object-center saturate-[0.85] contrast-[1.08] brightness-[0.68]"
-            />
-          </motion.div>
-        </AnimatePresence>
+        {/* Deep base studio black */}
+        <div className="absolute inset-0 bg-[#090a0d]" />
 
-        {/* Studio Carbon Scrims: High contrast for typography on the left, clear product view on the right */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#090a0d]/95 via-[#090a0d]/65 to-[#090a0d]/25" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#090a0d] via-transparent to-[#090a0d]/60" />
+        {/* Primary Soft Orange Glass Glow Orb (Animated translation & breathing) */}
+        <div
+          className="animate-glass-glow-1 absolute -top-24 sm:-top-32 left-1/4 sm:left-1/3 -translate-x-1/2 w-[340px] sm:w-[580px] lg:w-[820px] h-[340px] sm:h-[580px] lg:h-[820px] rounded-full blur-[80px] sm:blur-[130px] lg:blur-[160px] opacity-55"
+          style={{
+            background: 'radial-gradient(circle, rgba(255, 77, 28, 0.42) 0%, rgba(255, 110, 50, 0.22) 45%, rgba(9, 10, 13, 0) 75%)'
+          }}
+        />
+
+        {/* Secondary Warm Amber Glow Orb (Counter-motion drift) */}
+        <div
+          className="animate-glass-glow-2 absolute top-1/3 sm:top-1/4 right-0 sm:right-10 w-[280px] sm:w-[480px] lg:w-[680px] h-[280px] sm:h-[480px] lg:h-[680px] rounded-full blur-[70px] sm:blur-[120px] lg:blur-[150px] opacity-40"
+          style={{
+            background: 'radial-gradient(circle, rgba(255, 122, 69, 0.38) 0%, rgba(255, 77, 28, 0.18) 50%, rgba(9, 10, 13, 0) 80%)'
+          }}
+        />
+
+        {/* Bottom-left Deep Crimson-Orange Accent Glow */}
+        <div
+          className="animate-glass-glow-3 absolute -bottom-20 left-10 w-[260px] sm:w-[420px] h-[260px] sm:h-[420px] rounded-full blur-[80px] sm:blur-[120px] opacity-30"
+          style={{
+            background: 'radial-gradient(circle, rgba(224, 62, 16, 0.32) 0%, rgba(9, 10, 13, 0) 70%)'
+          }}
+        />
+
+        {/* 
+          Architectural Frosted Glass Diffusion Surface
+          Multi-layer blur and glass refraction gradients to simulate frosted/smoked glass
+        */}
+        <div className="absolute inset-0 backdrop-blur-[60px] sm:backdrop-blur-[100px] lg:backdrop-blur-[120px] bg-gradient-to-b from-[#090a0d]/50 via-[#090a0d]/75 to-[#090a0d]/95" />
+
+        {/* Subtle glass specular sheen line */}
+        <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-white/15 to-transparent" />
       </div>
 
-      {/* Main Content Area */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto">
-        <div className="max-w-4xl pt-4 md:pt-6">
-          {/* 4-Industry Switcher Bar */}
-          <div className="mb-6 sm:mb-8">
-            <div className="flex flex-wrap items-center gap-2 sm:gap-2.5" aria-label="Core Industries">
-              {HERO_SLIDES.map((slide, idx) => {
-                const isActive = idx === activeSlideIdx;
-                return (
-                  <button
-                    key={slide.id}
-                    type="button"
-                    onClick={() => setActiveSlideIdx(idx)}
-                    className={`relative px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-md text-[11px] sm:text-xs tracking-wider uppercase font-mono transition-all duration-300 cursor-pointer flex items-center gap-2 ${
-                      isActive
-                        ? 'bg-[#FF4D1C] text-white font-semibold shadow-lg shadow-[#FF4D1C]/25'
-                        : 'bg-black/45 hover:bg-black/70 text-neutral-300 hover:text-white border border-white/12 hover:border-white/30 backdrop-blur-md'
-                    }`}
-                  >
-                    <span>{slide.industryLabel}</span>
-                    {isActive && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                    )}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Dynamic Typographic H1 — Modern Commercial Agency Display */}
-          <div className="min-h-[140px] sm:min-h-[160px] lg:min-h-[190px] flex items-center mb-4">
+      {/* Main Content Area — Expansive negative space, uncluttered and breathing */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto py-8 sm:py-14 md:py-20">
+        <div className="max-w-3xl">
+          {/* Dynamic Typographic H1 */}
+          <div className="mb-4 sm:mb-6">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentSlide.id}
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -16 }}
-                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                exit={{ opacity: 0, y: -14 }}
+                transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                className="w-full"
               >
-                <h1 className="font-serif text-[32px] xs:text-[38px] sm:text-[48px] md:text-[56px] lg:text-[66px] leading-[1.08] sm:leading-[1.05] font-semibold tracking-[-0.03em] text-white drop-shadow-sm max-w-4xl">
-                  {/* Desktop version (2 clean lines) */}
-                  <span className="hidden sm:block">
-                    <span className="block">{currentSlide.headlineDesktop[0]}</span>
-                    <span className="block text-[#FF5A2C]">{currentSlide.headlineDesktop[1]}</span>
-                  </span>
-                  {/* Mobile version (3 clean lines) */}
-                  <span className="block sm:hidden">
-                    <span className="block">{currentSlide.headlineMobile[0]}</span>
-                    <span className="block">{currentSlide.headlineMobile[1]}</span>
-                    <span className="block text-[#FF5A2C]">{currentSlide.headlineMobile[2]}</span>
-                  </span>
+                <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-[70px] leading-[1.08] sm:leading-[1.02] font-semibold tracking-[-0.035em] text-white">
+                  <span className="block">{currentSlide.headlineDesktop[0]}</span>
+                  <span className="block text-[#FF4D1C] mt-1 sm:mt-2">{currentSlide.headlineDesktop[1]}</span>
                 </h1>
               </motion.div>
             </AnimatePresence>
           </div>
 
-          {/* Dynamic Subtitle */}
-          <div className="min-h-[48px] sm:min-h-[56px] mb-8 max-w-2xl">
+          {/* Dynamic Subtitle — Concise and readable */}
+          <div className="mb-8 sm:mb-12 max-w-xl">
             <AnimatePresence mode="wait">
               <motion.p
                 key={currentSlide.id + '-sub'}
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.55, ease: 'easeOut' }}
-                className="text-sm sm:text-base text-neutral-300 font-normal leading-relaxed"
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.4, ease: 'easeOut' }}
+                className="text-sm sm:text-base md:text-lg text-neutral-300 font-normal leading-relaxed"
               >
                 {currentSlide.subtitle}
               </motion.p>
             </AnimatePresence>
           </div>
 
-          {/* Action CTAs */}
+          {/* Action CTAs — Responsive full width on mobile, inline on desktop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className="flex flex-wrap items-center gap-4 mb-12 md:mb-16"
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-10 sm:mb-16 md:mb-20 w-full sm:w-auto"
           >
             <button
               onClick={onExploreWorks}
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#FF4D1C] hover:bg-[#ff6438] active:bg-[#e03e10] text-white text-xs font-bold tracking-[0.14em] uppercase rounded-md transition-all shadow-lg shadow-[#FF4D1C]/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white group cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-7 sm:py-3.5 bg-[#FF4D1C] hover:bg-[#ff6438] active:bg-[#e03e10] text-white text-xs font-bold tracking-[0.14em] uppercase rounded-md transition-all shadow-lg shadow-[#FF4D1C]/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white group cursor-pointer w-full sm:w-auto"
             >
               <span>EXPLORE SELECTED WORKS</span>
               <ArrowDown className="w-4 h-4 transition-transform group-hover:translate-y-0.5" />
@@ -148,43 +131,43 @@ export const Hero: React.FC<HeroProps> = ({
 
             <button
               onClick={onOpenAudit}
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/5 hover:bg-white/12 backdrop-blur-md border border-white/20 hover:border-white/40 text-white text-xs font-bold tracking-[0.14em] uppercase rounded-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4D1C] group cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-7 sm:py-3.5 bg-white/5 hover:bg-white/12 backdrop-blur-md border border-white/20 hover:border-white/40 text-white text-xs font-bold tracking-[0.14em] uppercase rounded-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4D1C] group cursor-pointer w-full sm:w-auto"
             >
               <span>1:1 BRAND & SALES AUDIT</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
             </button>
           </motion.div>
 
-          {/* Proof Metrics */}
+          {/* Proof Metrics — Clean 3 columns with spacious negative space */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.25 }}
-            className="grid grid-cols-3 gap-6 sm:gap-12 max-w-lg pt-5 border-t border-white/15"
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="grid grid-cols-3 gap-3 sm:gap-6 md:gap-10 max-w-lg pt-5 sm:pt-7 border-t border-white/10"
           >
             <div>
-              <div className="font-serif text-3xl sm:text-4xl text-white font-semibold tracking-tight tabular-nums">
+              <div className="font-serif text-2xl sm:text-3xl md:text-4xl text-white font-semibold tracking-tight tabular-nums">
                 12<span className="text-[#FF4D1C]">+</span>
               </div>
-              <div className="text-[10px] sm:text-[11px] font-semibold tracking-[0.18em] uppercase text-neutral-400 mt-1 font-mono">
+              <div className="text-[9px] sm:text-[10px] md:text-[11px] font-semibold tracking-[0.14em] sm:tracking-[0.18em] uppercase text-neutral-400 mt-1 font-mono">
                 YEARS IN PRACTICE
               </div>
             </div>
 
             <div>
-              <div className="font-serif text-3xl sm:text-4xl text-white font-semibold tracking-tight tabular-nums">
+              <div className="font-serif text-2xl sm:text-3xl md:text-4xl text-white font-semibold tracking-tight tabular-nums">
                 80<span className="text-[#FF4D1C]">+</span>
               </div>
-              <div className="text-[10px] sm:text-[11px] font-semibold tracking-[0.18em] uppercase text-neutral-400 mt-1 font-mono">
+              <div className="text-[9px] sm:text-[10px] md:text-[11px] font-semibold tracking-[0.14em] sm:tracking-[0.18em] uppercase text-neutral-400 mt-1 font-mono">
                 BRANDS SCALED
               </div>
             </div>
 
             <div>
-              <div className="font-serif text-3xl sm:text-4xl text-white font-semibold tracking-tight tabular-nums">
+              <div className="font-serif text-2xl sm:text-3xl md:text-4xl text-white font-semibold tracking-tight tabular-nums">
                 4
               </div>
-              <div className="text-[10px] sm:text-[11px] font-semibold tracking-[0.18em] uppercase text-neutral-400 mt-1 font-mono">
+              <div className="text-[9px] sm:text-[10px] md:text-[11px] font-semibold tracking-[0.14em] sm:tracking-[0.18em] uppercase text-neutral-400 mt-1 font-mono">
                 CORE SECTORS
               </div>
             </div>
@@ -193,31 +176,36 @@ export const Hero: React.FC<HeroProps> = ({
       </div>
 
       {/* Bottom Row: Slide progress and scroll hint */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 pt-4 pb-2 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 pt-3 pb-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-neutral-400">
         <button
           onClick={onExploreWorks}
-          className="flex items-center gap-3 text-neutral-400 hover:text-white text-[10px] tracking-[0.25em] uppercase font-semibold transition-colors group cursor-pointer focus-visible:outline-none"
+          className="flex items-center gap-2.5 sm:gap-3 text-neutral-400 hover:text-white text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] uppercase font-semibold transition-colors group cursor-pointer focus-visible:outline-none"
         >
-          <div className="w-10 h-[1px] bg-neutral-700 group-hover:bg-[#FF4D1C] transition-colors" aria-hidden="true" />
+          <div className="w-8 sm:w-10 h-[1px] bg-neutral-700 group-hover:bg-[#FF4D1C] transition-colors" aria-hidden="true" />
           <span>SCROLL TO CASE STUDIES</span>
           <ArrowDown className="w-3.5 h-3.5 text-neutral-400 group-hover:text-[#FF4D1C] animate-bounce" />
         </button>
 
-        {/* Minimal Progress Dots */}
-        <div className="flex items-center gap-2">
-          {HERO_SLIDES.map((_, i) => (
-            <button
-              key={i}
-              type="button"
-              onClick={() => setActiveSlideIdx(i)}
-              className={`h-1.5 rounded-full transition-all duration-500 cursor-pointer ${
-                i === activeSlideIdx
-                  ? 'w-8 bg-[#FF4D1C]'
-                  : 'w-2 bg-white/20 hover:bg-white/40'
-              }`}
-              aria-label={`Go to slide ${i + 1}`}
-            />
-          ))}
+        {/* Minimal Progress Indicator with delicate negative space */}
+        <div className="flex items-center gap-2.5 self-end sm:self-auto font-mono text-xs">
+          <span className="text-[#FF4D1C] font-semibold text-[11px]">0{activeSlideIdx + 1}</span>
+          <span className="text-neutral-600 text-[11px]">/</span>
+          <span className="text-neutral-500 text-[11px]">0{HERO_SLIDES.length}</span>
+          <div className="flex items-center gap-1.5 ml-2">
+            {HERO_SLIDES.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => setActiveSlideIdx(i)}
+                className={`h-1 rounded-full transition-all duration-500 cursor-pointer ${
+                  i === activeSlideIdx
+                    ? 'w-6 bg-[#FF4D1C]'
+                    : 'w-2 bg-white/20 hover:bg-white/40'
+                }`}
+                aria-label={`Go to slide ${i + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

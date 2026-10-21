@@ -84,7 +84,7 @@ export interface HeroSlide {
   id: 'cosmetics' | 'fmcg' | 'b2b' | 'automotive';
   industryLabel: string;
   image: string;
-  headlineMobile: [string, string, string];
+  headlineMobile: string[];
   headlineDesktop: [string, string];
   subtitle: string;
 }
@@ -95,64 +95,60 @@ export const HERO_SLIDES: HeroSlide[] = [
     industryLabel: 'Cosmetics & Skincare',
     image: asset('hero/hero-cosmetics.jpg'),
     headlineMobile: [
-      'Visual branding that',
-      'makes skincare products',
-      'stand out and sell.'
+      'Design That Makes',
+      'Skincare Sell.'
     ],
     headlineDesktop: [
-      'Visual branding that makes skincare',
-      'products stand out and sell.'
+      'Design That Makes',
+      'Skincare Sell.'
     ],
     subtitle:
-      'Strategic packaging and cohesive social content systems designed to capture attention, build buyer trust, and drive repeat sales.'
+      'Strategic packaging and visual direction built to turn products into repeat sales.'
   },
   {
     id: 'fmcg',
     industryLabel: 'FMCG & Food',
     image: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/7e88ef255777339.6aac614ea6a76.jpg',
     headlineMobile: [
-      'Packaging solutions that',
-      'win attention on',
-      'the crowded shelf.'
+      'Packaging Built',
+      'To Win The Shelf.'
     ],
     headlineDesktop: [
-      'Packaging solutions that win',
-      'attention on the crowded shelf.'
+      'Packaging Built',
+      'To Win The Shelf.'
     ],
     subtitle:
-      'Distinctive FMCG concepts, packaging architecture, and brand characters that turn everyday products into the customer’s first choice.'
+      'Distinctive FMCG design and brand systems that make your product the first choice.'
   },
   {
     id: 'b2b',
     industryLabel: 'B2B & Corporate',
     image: asset('hero/hero-b2b.jpg'),
     headlineMobile: [
-      'Make your business',
-      'easier to recognize',
-      'and harder to replace.'
+      'Branding That Makes You',
+      'Hard To Replace.'
     ],
     headlineDesktop: [
-      'Make your business easier to recognize',
-      'and harder to replace.'
+      'Branding That Makes You',
+      'Hard To Replace.'
     ],
     subtitle:
-      'Clear, authoritative brand identity systems and visual communication that help growing businesses win high-value clients.'
+      'Authoritative visual systems and positioning that help ambitious businesses win.'
   },
   {
     id: 'automotive',
     industryLabel: 'Automotive & Heavy Industry',
     image: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/bacbe8256435067.6abc2ee740e6a.jpg',
     headlineMobile: [
-      'Present technical products',
-      'with clarity that',
-      'drives global sales.'
+      'Technical Clarity.',
+      'Global Impact.'
     ],
     headlineDesktop: [
-      'Present technical products with',
-      'clarity that drives global sales.'
+      'Technical Clarity.',
+      'Global Impact.'
     ],
     subtitle:
-      'Structured product catalogs, 3D technical visuals, and industrial packaging that help manufacturers sell complex products faster.'
+      'Industrial catalogs and 3D visual systems that help manufacturers sell faster.'
   }
 ];
 
