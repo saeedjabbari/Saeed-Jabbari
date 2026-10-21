@@ -19,7 +19,59 @@ import { BrandAuditModal } from './components/BrandAuditModal';
 import { IntakeBriefModal } from './components/IntakeBriefModal';
 import { ScrollToTopButton } from './components/ScrollToTopButton';
 
-export default function App() {
+interface ErrorBoundaryProps {
+  children: React.ReactNode;
+}
+
+interface ErrorBoundaryState {
+  hasError: boolean;
+  error?: Error;
+}
+
+export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
+  constructor(props: ErrorBoundaryProps) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error: Error): ErrorBoundaryState {
+    return { hasError: true, error };
+  }
+
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    console.error('Portfolio render error caught by ErrorBoundary:', error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="min-h-screen bg-[#080C14] text-[#f4f5f7] flex flex-col items-center justify-center p-6 text-center select-none">
+          <div className="w-12 h-12 rounded-lg bg-[#D4FF00] text-[#080C14] font-bold text-base flex items-center justify-center mb-6 shadow-lg shadow-[#D4FF00]/20">
+            SJ
+          </div>
+          <h1 className="font-serif text-2xl sm:text-3xl font-bold text-white mb-2">
+            Saeed Jabbari Studio
+          </h1>
+          <p className="text-sm text-neutral-400 max-w-md mb-6 leading-relaxed">
+            Commercial Branding, Packaging Design &amp; Digital Solutions.
+          </p>
+          <button
+            onClick={() => {
+              this.setState({ hasError: false });
+              window.location.reload();
+            }}
+            className="px-6 py-3 rounded bg-[#D4FF00] text-[#080C14] font-bold text-xs tracking-[0.14em] uppercase hover:bg-white transition-all cursor-pointer shadow-lg shadow-black/20"
+          >
+            Reload Studio Portfolio
+          </button>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
+function MainApp() {
   const [currentPage, setCurrentPage] = useState<NavPage>('home');
   const [selectedProject, setSelectedProject] = useState<Project>(PROJECTS[0]);
   const [isBriefModalOpen, setIsBriefModalOpen] = useState(false);
@@ -205,3 +257,12 @@ export default function App() {
     </div>
   );
 }
+
+export default function App() {
+  return (
+    <ErrorBoundary>
+      <MainApp />
+    </ErrorBoundary>
+  );
+}
+
