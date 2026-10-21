@@ -31,7 +31,7 @@ export const EngagementModels: React.FC<EngagementModelsProps> = ({
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16">
           <div className="max-w-2xl">
-            <span className="block font-mono text-[11px] font-bold tracking-[0.24em] text-[#e03e10] uppercase mb-3">
+            <span className="block font-mono text-[11px] font-bold tracking-[0.24em] text-[#D4FF00] uppercase mb-3">
               ENGAGEMENT MODELS
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] font-semibold leading-tight text-[#0b0d12] mb-3">
@@ -44,7 +44,7 @@ export const EngagementModels: React.FC<EngagementModelsProps> = ({
 
           <button
             onClick={onViewPricing}
-            className="inline-flex items-center gap-1.5 text-xs font-bold tracking-[0.16em] text-[#e03e10] hover:text-[#b8300a] uppercase transition-colors self-start sm:self-auto group cursor-pointer"
+            className="inline-flex items-center gap-1.5 text-xs font-bold tracking-[0.16em] text-[#D4FF00] hover:text-[#b8300a] uppercase transition-colors self-start sm:self-auto group cursor-pointer"
           >
             <span>VIEW PRICING & RETAINERS</span>
             <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
@@ -61,7 +61,7 @@ export const EngagementModels: React.FC<EngagementModelsProps> = ({
                 key={plan.id}
                 className={`bg-white rounded-xl p-8 border ${
                   isHighlighted
-                    ? 'border-[#FF4D1C] shadow-[0_12px_36px_rgba(255,77,28,0.14)] ring-1 ring-[#FF4D1C]/40'
+                    ? 'border-[#D4FF00] shadow-[0_12px_36px_rgba(255,77,28,0.14)] ring-1 ring-[#D4FF00]/40'
                     : 'border-[#dfe3ea] shadow-[0_3px_14px_rgba(9,10,13,0.03)]'
                 } flex flex-col justify-between hover:shadow-[0_12px_30px_rgba(9,10,13,0.08)] transition-all`}
               >
@@ -70,7 +70,7 @@ export const EngagementModels: React.FC<EngagementModelsProps> = ({
                     {plan.name}
                   </h3>
 
-                  <div className="font-mono text-[10px] font-bold tracking-[0.18em] text-[#e03e10] uppercase mb-5">
+                  <div className="font-mono text-[10px] font-bold tracking-[0.18em] text-[#D4FF00] uppercase mb-5">
                     {plan.badge}
                   </div>
 
@@ -85,8 +85,8 @@ export const EngagementModels: React.FC<EngagementModelsProps> = ({
                     onClick={() => handleAction(plan.id)}
                     className={`w-full py-3.5 px-6 rounded-md text-xs font-bold tracking-[0.14em] uppercase transition-all mb-4 cursor-pointer ${
                       isHighlighted
-                        ? 'bg-[#FF4D1C] hover:bg-[#ff6438] active:bg-[#e03e10] text-white shadow-sm'
-                        : 'bg-[#090a0d] hover:bg-neutral-800 active:bg-black text-white'
+                        ? 'bg-[#D4FF00] hover:bg-[#c2eb00] active:bg-[#D4FF00] text-[#080C14] font-bold shadow-sm'
+                        : 'bg-[#080c14] hover:bg-neutral-800 active:bg-black text-white'
                     }`}
                   >
                     {plan.buttonText}

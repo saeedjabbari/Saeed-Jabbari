@@ -17,7 +17,7 @@
 
   body {
     font-family: var(--font-sans);
-    background-color: #090a0d;
+    background-color: #070c14;
     color: #f4f5f7;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -44,16 +44,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #090a0d;
+  background: #080c14;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #272b35;
+  background: #1e293b;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #FF4D1C;
+  background: #D4FF00;
 }
 
 /* Hide scrollbar for clean horizontal tab lists */
@@ -65,7 +65,7 @@
   scrollbar-width: none;
 }
 
-/* Moving frosted glass ambient glow animations */
+/* Moving frosted glass ambient glow animations — Deep Oceanic Slate & Electric Phosphor Lime */
 @keyframes glassGlow1 {
   0%, 100% {
     transform: translate(0px, 0px) scale(1);
@@ -84,15 +84,15 @@
 @keyframes glassGlow2 {
   0%, 100% {
     transform: translate(0px, 0px) scale(1);
-    opacity: 0.35;
+    opacity: 0.3;
   }
   40% {
     transform: translate(-80px, 60px) scale(1.22);
-    opacity: 0.6;
+    opacity: 0.55;
   }
   75% {
     transform: translate(50px, -30px) scale(1.05);
-    opacity: 0.4;
+    opacity: 0.35;
   }
 }
 
@@ -103,7 +103,7 @@
   }
   50% {
     transform: translate(30px, 70px) scale(1.15);
-    opacity: 0.5;
+    opacity: 0.45;
   }
 }
 

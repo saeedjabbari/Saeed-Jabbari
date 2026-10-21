@@ -23,7 +23,7 @@ export const ArticlesView: React.FC<ArticlesViewProps> = ({ onOpenBrief }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mb-16">
-          <span className="block text-[11px] font-bold tracking-[0.24em] text-[#FF4D1C] uppercase mb-3">
+          <span className="block text-[11px] font-bold tracking-[0.24em] text-[#D4FF00] uppercase mb-3">
             COMMERCIAL INTELLIGENCE & FIELD NOTES
           </span>
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-[52px] font-bold tracking-tight leading-tight text-[#0B0D12] mb-4">
@@ -42,11 +42,11 @@ export const ArticlesView: React.FC<ArticlesViewProps> = ({ onOpenBrief }) => {
               <div
                 key={art.id}
                 onClick={() => setSelectedArticle(art)}
-                className="bg-white rounded-xl p-8 border border-[#E2E5EC] shadow-[0_3px_14px_rgba(11,13,18,0.03)] hover:shadow-[0_10px_28px_rgba(11,13,18,0.08)] hover:border-[#FF4D1C]/40 hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group"
+                className="bg-white rounded-xl p-8 border border-[#E2E5EC] shadow-[0_3px_14px_rgba(11,13,18,0.03)] hover:shadow-[0_10px_28px_rgba(11,13,18,0.08)] hover:border-[#D4FF00]/40 hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group"
               >
                 <div>
                   <div className="flex items-center justify-between text-[11px] text-[#646B7D] mb-3">
-                    <span className="font-bold tracking-wider text-[#FF4D1C] uppercase">
+                    <span className="font-bold tracking-wider text-[#D4FF00] uppercase">
                       {art.sector}
                     </span>
                     <div className="flex items-center gap-3">
@@ -56,15 +56,15 @@ export const ArticlesView: React.FC<ArticlesViewProps> = ({ onOpenBrief }) => {
                       </span>
                       <button
                         onClick={(e) => toggleBookmark(art.id, e)}
-                        className="p-1 hover:text-[#FF4D1C] transition-colors"
+                        className="p-1 hover:text-[#D4FF00] transition-colors"
                         aria-label="Bookmark article"
                       >
-                        <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'fill-[#FF4D1C] text-[#FF4D1C]' : ''}`} />
+                        <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'fill-[#D4FF00] text-[#D4FF00]' : ''}`} />
                       </button>
                     </div>
                   </div>
 
-                  <h3 className="font-serif text-2xl font-bold text-[#0B0D12] mb-3 leading-snug group-hover:text-[#FF4D1C] transition-colors">
+                  <h3 className="font-serif text-2xl font-bold text-[#0B0D12] mb-3 leading-snug group-hover:text-[#D4FF00] transition-colors">
                     {art.title}
                   </h3>
 
@@ -73,7 +73,7 @@ export const ArticlesView: React.FC<ArticlesViewProps> = ({ onOpenBrief }) => {
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-[#E2E5EC] flex items-center justify-between text-xs font-bold text-[#0B0D12] group-hover:text-[#FF4D1C] transition-colors">
+                <div className="pt-4 border-t border-[#E2E5EC] flex items-center justify-between text-xs font-bold text-[#0B0D12] group-hover:text-[#D4FF00] transition-colors">
                   <span className="tracking-wide uppercase text-[11px]">Read Complete Essay</span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </div>
@@ -92,7 +92,7 @@ export const ArticlesView: React.FC<ArticlesViewProps> = ({ onOpenBrief }) => {
             >
               <div className="p-6 sm:p-10 border-b border-[#E2E5EC] flex items-start justify-between gap-4">
                 <div>
-                  <span className="text-[10px] font-bold tracking-[0.24em] text-[#FF4D1C] uppercase block mb-2">
+                  <span className="text-[10px] font-bold tracking-[0.24em] text-[#D4FF00] uppercase block mb-2">
                     {selectedArticle.sector} • {selectedArticle.date} • {selectedArticle.readTime}
                   </span>
                   <h2 className="font-serif text-2xl sm:text-4xl font-bold leading-tight text-[#0B0D12]">
@@ -115,8 +115,8 @@ export const ArticlesView: React.FC<ArticlesViewProps> = ({ onOpenBrief }) => {
                 ))}
 
                 {/* Pull Quote / Key Takeaway */}
-                <div className="my-8 p-6 bg-[#F4F5F7] rounded-xl border-l-4 border-[#FF4D1C]">
-                  <span className="text-[10px] font-bold tracking-[0.2em] text-[#FF4D1C] uppercase block mb-1">
+                <div className="my-8 p-6 bg-[#F4F5F7] rounded-xl border-l-4 border-[#D4FF00]">
+                  <span className="text-[10px] font-bold tracking-[0.2em] text-[#D4FF00] uppercase block mb-1">
                     COMMERCIAL TAKEAWAY
                   </span>
                   <p className="font-serif text-lg sm:text-xl text-[#0B0D12] font-bold">
@@ -134,7 +134,7 @@ export const ArticlesView: React.FC<ArticlesViewProps> = ({ onOpenBrief }) => {
                     setSelectedArticle(null);
                     onOpenBrief();
                   }}
-                  className="px-6 py-2.5 bg-[#FF4D1C] hover:bg-[#FF6438] text-white text-xs font-bold tracking-wider uppercase rounded-md transition-colors shadow-sm"
+                  className="px-6 py-2.5 bg-[#D4FF00] hover:bg-[#c2eb00] text-[#080C14] font-bold text-xs font-bold tracking-wider uppercase rounded-md transition-colors shadow-sm"
                 >
                   DISCUSS BRANDING STRATEGY →
                 </button>

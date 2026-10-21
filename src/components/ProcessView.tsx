@@ -99,7 +99,7 @@ export const ProcessView: React.FC<ProcessViewProps> = ({ onOpenBrief }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mb-16">
-          <span className="block font-mono text-[11px] font-bold tracking-[0.24em] text-[#e03e10] uppercase mb-3">
+          <span className="block font-mono text-[11px] font-bold tracking-[0.24em] text-[#D4FF00] uppercase mb-3">
             METHODOLOGY & EXECUTION
           </span>
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-[50px] font-semibold leading-tight text-[#0b0d12] mb-4">
@@ -121,10 +121,10 @@ export const ProcessView: React.FC<ProcessViewProps> = ({ onOpenBrief }) => {
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="font-serif text-3xl text-[#FF4D1C] font-semibold">
+                    <span className="font-serif text-3xl text-[#D4FF00] font-semibold">
                       {step.num}
                     </span>
-                    <div className="w-10 h-10 rounded-md bg-[#f4f5f7] text-[#FF4D1C] flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-md bg-[#f4f5f7] text-[#D4FF00] flex items-center justify-center">
                       <Icon className="w-5 h-5" />
                     </div>
                   </div>
@@ -132,14 +132,14 @@ export const ProcessView: React.FC<ProcessViewProps> = ({ onOpenBrief }) => {
                   <h3 className="font-serif text-2xl font-semibold text-[#0b0d12] mb-1.5">
                     {step.title}
                   </h3>
-                  <p className="font-mono text-xs text-[#e03e10] font-semibold tracking-wide uppercase mb-6">
+                  <p className="font-mono text-xs text-[#D4FF00] font-semibold tracking-wide uppercase mb-6">
                     {step.subtitle}
                   </p>
 
                   <ul className="space-y-3 pt-4 border-t border-[#eceef2]">
                     {step.details.map((detail, idx) => (
                       <li key={idx} className="flex items-start gap-2.5 text-xs text-[#525866] leading-relaxed">
-                        <CheckCircle className="w-4 h-4 text-[#FF4D1C] shrink-0 mt-0.5" />
+                        <CheckCircle className="w-4 h-4 text-[#D4FF00] shrink-0 mt-0.5" />
                         <span>{detail}</span>
                       </li>
                     ))}
@@ -153,7 +153,7 @@ export const ProcessView: React.FC<ProcessViewProps> = ({ onOpenBrief }) => {
         {/* Interactive Substrate & Tolerance Lab */}
         <div className="bg-white rounded-2xl p-8 sm:p-12 border border-[#dfe3ea] shadow-lg mb-16">
           <div className="max-w-2xl mb-8">
-            <span className="font-mono text-[11px] font-bold tracking-[0.24em] text-[#e03e10] uppercase block mb-2">
+            <span className="font-mono text-[11px] font-bold tracking-[0.24em] text-[#D4FF00] uppercase block mb-2">
               MATERIAL & PACKAGING GUIDE
             </span>
             <h2 className="font-serif text-3xl font-semibold text-[#0b0d12]">
@@ -172,7 +172,7 @@ export const ProcessView: React.FC<ProcessViewProps> = ({ onOpenBrief }) => {
                 onClick={() => setSelectedSubstrate(idx)}
                 className={`p-3.5 rounded-lg text-left border transition-all cursor-pointer ${
                   selectedSubstrate === idx
-                    ? 'bg-[#090a0d] text-white border-[#090a0d] shadow-md'
+                    ? 'bg-[#080c14] text-white border-[#080c14] shadow-md'
                     : 'bg-[#f4f5f7] text-[#525866] border-[#dfe3ea] hover:text-[#0b0d12]'
                 }`}
               >
@@ -213,8 +213,8 @@ export const ProcessView: React.FC<ProcessViewProps> = ({ onOpenBrief }) => {
                     </div>
                   </div>
 
-                  <div className="bg-[#FF4D1C]/10 p-4 rounded-lg border border-[#FF4D1C]/30">
-                    <span className="text-[10px] text-[#e03e10] font-bold uppercase tracking-wider block">Key Production Watchout</span>
+                  <div className="bg-[#D4FF00]/10 p-4 rounded-lg border border-[#D4FF00]/30">
+                    <span className="text-[10px] text-[#D4FF00] font-bold uppercase tracking-wider block">Key Production Watchout</span>
                     <p className="text-xs text-[#0b0d12] mt-1">{current.failureRisk}</p>
                   </div>
                 </div>
@@ -224,7 +224,7 @@ export const ProcessView: React.FC<ProcessViewProps> = ({ onOpenBrief }) => {
         </div>
 
         {/* CTA Strip */}
-        <div className="bg-[#090a0d] text-white p-8 sm:p-12 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="bg-[#080c14] text-white p-8 sm:p-12 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
             <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-white mb-2">
               Ready to elevate your product packaging or catalog?
@@ -236,7 +236,7 @@ export const ProcessView: React.FC<ProcessViewProps> = ({ onOpenBrief }) => {
 
           <button
             onClick={onOpenBrief}
-            className="px-7 py-3.5 bg-[#FF4D1C] hover:bg-[#ff6438] text-white text-xs font-bold tracking-[0.14em] uppercase rounded-md transition-all shrink-0 cursor-pointer"
+            className="px-7 py-3.5 bg-[#D4FF00] hover:bg-[#c2eb00] text-[#080C14] font-bold text-xs font-bold tracking-[0.14em] uppercase rounded-md transition-all shrink-0 cursor-pointer"
           >
             START INTAKE BRIEF →
           </button>

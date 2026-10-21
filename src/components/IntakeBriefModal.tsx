@@ -52,7 +52,7 @@ export const IntakeBriefModal: React.FC<IntakeBriefModalProps> = ({ isOpen, onCl
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fadeIn">
       <div
-        className="bg-[#090a0d] text-white rounded-xl sm:rounded-2xl max-w-2xl w-full max-h-[92vh] flex flex-col overflow-hidden shadow-2xl border border-[#222631] relative my-auto"
+        className="bg-[#080c14] text-white rounded-xl sm:rounded-2xl max-w-2xl w-full max-h-[92vh] flex flex-col overflow-hidden shadow-2xl border border-[#222631] relative my-auto"
         role="dialog"
         aria-modal="true"
         aria-labelledby="intake-brief-title"
@@ -60,7 +60,7 @@ export const IntakeBriefModal: React.FC<IntakeBriefModalProps> = ({ isOpen, onCl
         {/* Modal Header */}
         <div className="p-4 sm:p-6 border-b border-[#222631] flex items-center justify-between shrink-0">
           <div className="flex items-center gap-2.5 sm:gap-3">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-md bg-[#FF4D1C] text-white flex items-center justify-center font-bold text-xs sm:text-sm shrink-0">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-md bg-[#D4FF00] text-[#080C14] font-bold flex items-center justify-center font-bold text-xs sm:text-sm shrink-0">
               SJ
             </div>
             <div>
@@ -75,7 +75,7 @@ export const IntakeBriefModal: React.FC<IntakeBriefModalProps> = ({ isOpen, onCl
 
           <button
             onClick={resetAndClose}
-            className="p-2 text-[#949BA8] hover:text-white rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#FF4D1C]"
+            className="p-2 text-[#949BA8] hover:text-white rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#D4FF00]"
             aria-label="Close Brief Modal"
           >
             <X className="w-5 h-5" />
@@ -88,11 +88,11 @@ export const IntakeBriefModal: React.FC<IntakeBriefModalProps> = ({ isOpen, onCl
             <form onSubmit={handleNext} className="space-y-6">
               {/* Step indicator */}
               <div className="flex items-center gap-2 pb-2">
-                <span className={`text-xs font-bold uppercase tracking-wider ${currentStep === 1 ? 'text-[#FF4D1C]' : 'text-neutral-500'}`}>
+                <span className={`text-xs font-bold uppercase tracking-wider ${currentStep === 1 ? 'text-[#D4FF00]' : 'text-neutral-500'}`}>
                   01. Business & Brand Scope
                 </span>
                 <span className="text-neutral-600">/</span>
-                <span className={`text-xs font-bold uppercase tracking-wider ${currentStep === 2 ? 'text-[#FF4D1C]' : 'text-neutral-500'}`}>
+                <span className={`text-xs font-bold uppercase tracking-wider ${currentStep === 2 ? 'text-[#D4FF00]' : 'text-neutral-500'}`}>
                   02. Deliverables & Timeline
                 </span>
               </div>
@@ -110,7 +110,7 @@ export const IntakeBriefModal: React.FC<IntakeBriefModalProps> = ({ isOpen, onCl
                         value={formData.fullName}
                         onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                         placeholder="e.g. Elena Rostova"
-                        className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#FF4D1C]"
+                        className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#D4FF00]"
                       />
                     </div>
 
@@ -124,7 +124,7 @@ export const IntakeBriefModal: React.FC<IntakeBriefModalProps> = ({ isOpen, onCl
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="elena@company.com"
-                        className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#FF4D1C]"
+                        className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#D4FF00]"
                       />
                     </div>
                   </div>
@@ -139,7 +139,7 @@ export const IntakeBriefModal: React.FC<IntakeBriefModalProps> = ({ isOpen, onCl
                       value={formData.companyName}
                       onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
                       placeholder="e.g. NUVE Cosmetics or RST Industrial"
-                      className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#FF4D1C]"
+                      className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#D4FF00]"
                     />
                   </div>
 
@@ -150,7 +150,7 @@ export const IntakeBriefModal: React.FC<IntakeBriefModalProps> = ({ isOpen, onCl
                     <select
                       value={formData.sector}
                       onChange={(e) => setFormData({ ...formData, sector: e.target.value })}
-                      className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-[#FF4D1C]"
+                      className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-[#D4FF00]"
                     >
                       <option value="cosmetics">Cosmetics & Skincare (Derma, Personal Care, Beauty)</option>
                       <option value="fmcg">FMCG & Food (Beverage, Confectionery, High-Velocity Retail)</option>
@@ -178,14 +178,14 @@ export const IntakeBriefModal: React.FC<IntakeBriefModalProps> = ({ isOpen, onCl
                             onClick={() => toggleProjectType(service)}
                             className={`p-3 rounded-lg border text-xs cursor-pointer transition-all flex items-center justify-between ${
                               isSelected
-                                ? 'bg-[#FF4D1C]/12 border-[#FF4D1C] text-white font-medium'
+                                ? 'bg-[#D4FF00]/12 border-[#D4FF00] text-white font-medium'
                                 : 'bg-[#12151C] border-[#222631] text-[#949BA8] hover:border-neutral-700'
                             }`}
                           >
                             <span>{service}</span>
                             <div
                               className={`w-4 h-4 rounded border flex items-center justify-center ${
-                                isSelected ? 'bg-[#FF4D1C] border-[#FF4D1C] text-white' : 'border-neutral-600'
+                                isSelected ? 'bg-[#D4FF00] border-[#D4FF00] text-white' : 'border-neutral-600'
                               }`}
                             >
                               {isSelected && <Check className="w-3 h-3 text-white" />}
@@ -199,7 +199,7 @@ export const IntakeBriefModal: React.FC<IntakeBriefModalProps> = ({ isOpen, onCl
                   <div className="pt-2">
                     <button
                       type="submit"
-                      className="w-full py-3.5 bg-[#FF4D1C] hover:bg-[#FF6438] text-white text-xs font-bold tracking-[0.14em] uppercase rounded-md transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#FF4D1C]/20"
+                      className="w-full py-3.5 bg-[#D4FF00] hover:bg-[#c2eb00] text-[#080C14] font-bold text-xs font-bold tracking-[0.14em] uppercase rounded-md transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#D4FF00]/20"
                     >
                       <span>CONTINUE TO PROJECT DETAILS</span>
                       <ArrowRight className="w-4 h-4" />
@@ -216,7 +216,7 @@ export const IntakeBriefModal: React.FC<IntakeBriefModalProps> = ({ isOpen, onCl
                       <select
                         value={formData.skuCount}
                         onChange={(e) => setFormData({ ...formData, skuCount: e.target.value })}
-                        className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-[#FF4D1C]"
+                        className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-[#D4FF00]"
                       >
                         <option value="1–2 SKUs">1–2 Hero Products / Brand Identity</option>
                         <option value="3–6 SKUs">3–6 Core Product Line</option>
@@ -232,7 +232,7 @@ export const IntakeBriefModal: React.FC<IntakeBriefModalProps> = ({ isOpen, onCl
                       <select
                         value={formData.budgetTier}
                         onChange={(e) => setFormData({ ...formData, budgetTier: e.target.value })}
-                        className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-[#FF4D1C]"
+                        className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-[#D4FF00]"
                       >
                         <option value="$12,000 – $20,000">$12,000 – $20,000 (Focused Scope)</option>
                         <option value="$25,000 – $50,000">$25,000 – $50,000 (Complete Brand & Packaging System)</option>
@@ -250,7 +250,7 @@ export const IntakeBriefModal: React.FC<IntakeBriefModalProps> = ({ isOpen, onCl
                       value={formData.primarySubstrate}
                       onChange={(e) => setFormData({ ...formData, primarySubstrate: e.target.value })}
                       placeholder="e.g. Aluminum Beverage Can, Folding Carton, or B2B Export Catalog"
-                      className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#FF4D1C]"
+                      className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#D4FF00]"
                     />
                   </div>
 
@@ -261,7 +261,7 @@ export const IntakeBriefModal: React.FC<IntakeBriefModalProps> = ({ isOpen, onCl
                     <select
                       value={formData.estimatedTimeline}
                       onChange={(e) => setFormData({ ...formData, estimatedTimeline: e.target.value })}
-                      className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-[#FF4D1C]"
+                      className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-[#D4FF00]"
                     >
                       <option value="Immediate (Next 4 weeks)">Immediate (Fast-Track Commercial Launch)</option>
                       <option value="Q2 2026">Q2 2026 Engagement Window</option>
@@ -279,7 +279,7 @@ export const IntakeBriefModal: React.FC<IntakeBriefModalProps> = ({ isOpen, onCl
                       value={formData.notes}
                       onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                       placeholder="Tell us about your target market, retail channels, competitors, or sales goals..."
-                      className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#FF4D1C]"
+                      className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#D4FF00]"
                     />
                   </div>
 
@@ -293,7 +293,7 @@ export const IntakeBriefModal: React.FC<IntakeBriefModalProps> = ({ isOpen, onCl
                     </button>
                     <button
                       type="submit"
-                      className="flex-1 py-3 bg-[#FF4D1C] hover:bg-[#FF6438] text-white text-xs font-bold tracking-[0.14em] uppercase rounded-md transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#FF4D1C]/20"
+                      className="flex-1 py-3 bg-[#D4FF00] hover:bg-[#c2eb00] text-[#080C14] font-bold text-xs font-bold tracking-[0.14em] uppercase rounded-md transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#D4FF00]/20"
                     >
                       <Send className="w-4 h-4" />
                       <span>SUBMIT PROJECT BRIEF</span>
@@ -304,11 +304,11 @@ export const IntakeBriefModal: React.FC<IntakeBriefModalProps> = ({ isOpen, onCl
             </form>
           ) : (
             <div className="text-center py-8 space-y-4">
-              <div className="w-16 h-16 bg-[#FF4D1C]/15 border border-[#FF4D1C] text-[#FF4D1C] rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-[#D4FF00]/15 border border-[#D4FF00] text-[#D4FF00] rounded-full flex items-center justify-center mx-auto mb-4">
                 <Check className="w-8 h-8" />
               </div>
 
-              <span className="text-[11px] font-bold tracking-[0.24em] text-[#FF4D1C] uppercase block">
+              <span className="text-[11px] font-bold tracking-[0.24em] text-[#D4FF00] uppercase block">
                 BRIEF LOGGED SUCCESSFULLY
               </span>
 
@@ -331,7 +331,7 @@ export const IntakeBriefModal: React.FC<IntakeBriefModalProps> = ({ isOpen, onCl
                 </div>
                 <div className="flex justify-between">
                   <span className="text-neutral-500">Target Window:</span>
-                  <span className="text-[#FF4D1C] font-semibold">{formData.estimatedTimeline}</span>
+                  <span className="text-[#D4FF00] font-semibold">{formData.estimatedTimeline}</span>
                 </div>
               </div>
 
@@ -342,7 +342,7 @@ export const IntakeBriefModal: React.FC<IntakeBriefModalProps> = ({ isOpen, onCl
               <div className="pt-6">
                 <button
                   onClick={resetAndClose}
-                  className="px-8 py-3 bg-[#FF4D1C] text-white text-xs font-bold tracking-wider uppercase rounded-md hover:bg-[#FF6438] transition-colors"
+                  className="px-8 py-3 bg-[#D4FF00] text-[#080C14] font-bold text-xs font-bold tracking-wider uppercase rounded-md hover:bg-[#c2eb00] transition-colors"
                 >
                   RETURN TO STUDIO
                 </button>

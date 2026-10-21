@@ -62,7 +62,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#090a0d] text-[#0b0d12] selection:bg-[#FF4D1C] selection:text-white">
+    <div className="min-h-screen flex flex-col bg-[#080c14] text-[#f4f5f7] selection:bg-[#D4FF00] selection:text-[#080c14]">
       {/* Main Studio Navigation Header */}
       <Header
         currentPage={currentPage}

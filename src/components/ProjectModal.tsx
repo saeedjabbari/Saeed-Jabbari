@@ -49,7 +49,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
           />
 
           <div className="relative z-10">
-            <span className="inline-block px-3 py-1 bg-black/45 backdrop-blur-md rounded text-[11px] font-bold tracking-widest text-[#FF4D1C] uppercase mb-3">
+            <span className="inline-block px-3 py-1 bg-black/45 backdrop-blur-md rounded text-[11px] font-bold tracking-widest text-[#0284C7] uppercase mb-3">
               {project.sectorLabel} • {project.year}
             </span>
             <h2
@@ -71,7 +71,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
             onClick={() => setActiveTab('overview')}
             className={`py-3.5 px-4 text-xs font-bold uppercase tracking-wider border-b-2 transition-colors flex items-center gap-2 whitespace-nowrap ${
               activeTab === 'overview'
-                ? 'border-[#FF4D1C] text-[#0B0D12]'
+                ? 'border-[#0284C7] text-[#0B0D12]'
                 : 'border-transparent text-[#646B7D] hover:text-[#0B0D12]'
             }`}
           >
@@ -83,7 +83,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
             onClick={() => setActiveTab('dieline')}
             className={`py-3.5 px-4 text-xs font-bold uppercase tracking-wider border-b-2 transition-colors flex items-center gap-2 whitespace-nowrap ${
               activeTab === 'dieline'
-                ? 'border-[#FF4D1C] text-[#0B0D12]'
+                ? 'border-[#0284C7] text-[#0B0D12]'
                 : 'border-transparent text-[#646B7D] hover:text-[#0B0D12]'
             }`}
           >
@@ -95,7 +95,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
             onClick={() => setActiveTab('shelf')}
             className={`py-3.5 px-4 text-xs font-bold uppercase tracking-wider border-b-2 transition-colors flex items-center gap-2 whitespace-nowrap ${
               activeTab === 'shelf'
-                ? 'border-[#FF4D1C] text-[#0B0D12]'
+                ? 'border-[#0284C7] text-[#0B0D12]'
                 : 'border-transparent text-[#646B7D] hover:text-[#0B0D12]'
             }`}
           >
@@ -121,7 +121,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
               {/* Challenge & Strategic Solution */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-[#F4F5F7] p-6 rounded-xl border border-[#E2E5EC]">
                 <div>
-                  <h4 className="text-[11px] font-bold tracking-[0.2em] text-[#FF4D1C] uppercase mb-2">
+                  <h4 className="text-[11px] font-bold tracking-[0.2em] text-[#0284C7] uppercase mb-2">
                     The Commercial Challenge
                   </h4>
                   <p className="text-xs sm:text-[13px] leading-relaxed text-[#4A5060]">
@@ -129,7 +129,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
                   </p>
                 </div>
                 <div>
-                  <h4 className="text-[11px] font-bold tracking-[0.2em] text-[#FF4D1C] uppercase mb-2">
+                  <h4 className="text-[11px] font-bold tracking-[0.2em] text-[#0284C7] uppercase mb-2">
                     The Creative Architecture
                   </h4>
                   <p className="text-xs sm:text-[13px] leading-relaxed text-[#4A5060]">
@@ -169,13 +169,13 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
 
               {/* Highlights List */}
               <div className="bg-[#F4F5F7] p-6 rounded-xl border border-[#E2E5EC]">
-                <h4 className="text-[11px] font-bold tracking-[0.2em] text-[#FF4D1C] uppercase mb-3">
+                <h4 className="text-[11px] font-bold tracking-[0.2em] text-[#0284C7] uppercase mb-3">
                   Key Commercial & Production Milestones
                 </h4>
                 <ul className="space-y-2.5">
                   {project.highlights.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-2.5 text-xs text-[#4A5060]">
-                      <Check className="w-4 h-4 text-[#FF4D1C] shrink-0 mt-0.5" />
+                      <Check className="w-4 h-4 text-[#0284C7] shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -194,7 +194,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
                       type="checkbox"
                       checked={showFoldLines}
                       onChange={(e) => setShowFoldLines(e.target.checked)}
-                      className="rounded accent-[#FF4D1C]"
+                      className="rounded accent-[#0284C7]"
                     />
                     <span>Crease / Folds (Dotted)</span>
                   </label>
@@ -203,7 +203,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
                       type="checkbox"
                       checked={showBleed}
                       onChange={(e) => setShowBleed(e.target.checked)}
-                      className="rounded accent-[#FF4D1C]"
+                      className="rounded accent-[#0284C7]"
                     />
                     <span>3mm Bleed Line</span>
                   </label>
@@ -212,19 +212,19 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
                       type="checkbox"
                       checked={showDimensions}
                       onChange={(e) => setShowDimensions(e.target.checked)}
-                      className="rounded accent-[#FF4D1C]"
+                      className="rounded accent-[#0284C7]"
                     />
                     <span>Dimension Callouts</span>
                   </label>
                 </div>
 
-                <div className="text-[11px] font-mono text-[#FF4D1C] font-bold">
+                <div className="text-[11px] font-mono text-[#0284C7] font-bold">
                   CAD ACCURACY: ±0.15mm TOLERANCE
                 </div>
               </div>
 
               {/* Interactive SVG Dieline Schematic */}
-              <div className="bg-[#090a0d] rounded-xl p-8 border border-[#222631] flex flex-col items-center justify-center relative overflow-hidden min-h-[320px]">
+              <div className="bg-[#070c14] rounded-xl p-8 border border-[#222631] flex flex-col items-center justify-center relative overflow-hidden min-h-[320px]">
                 {/* SVG Blueprint */}
                 <svg
                   viewBox="0 0 600 300"
@@ -257,7 +257,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
                   <path
                     d="M 50,70 L 150,70 L 150,50 L 250,50 L 250,70 L 450,70 L 450,50 L 550,50 L 550,230 L 450,230 L 450,250 L 250,250 L 250,230 L 50,230 Z"
                     fill="rgba(255, 77, 28, 0.08)"
-                    stroke="#FF4D1C"
+                    stroke="#0284C7"
                     strokeWidth="2"
                   />
 
@@ -302,7 +302,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
                 {/* Substrate Legend */}
                 <div className="mt-4 flex flex-wrap items-center justify-center gap-4 text-[11px] text-neutral-400">
                   <span className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#FF4D1C]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#0284C7]" />
                     <span>Cut Line</span>
                   </span>
                   <span className="flex items-center gap-1.5">
@@ -342,7 +342,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
                   onClick={() => setShelfState('before')}
                   className={`px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all ${
                     shelfState === 'before'
-                      ? 'bg-[#090a0d] text-white shadow-sm'
+                      ? 'bg-[#070c14] text-white shadow-sm'
                       : 'bg-[#ECEEF2] text-[#4A5060] hover:text-[#0B0D12]'
                   }`}
                 >
@@ -352,7 +352,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
                   onClick={() => setShelfState('after')}
                   className={`px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all ${
                     shelfState === 'after'
-                      ? 'bg-[#FF4D1C] text-white shadow-sm'
+                      ? 'bg-[#0284C7] text-white shadow-sm'
                       : 'bg-[#ECEEF2] text-[#4A5060] hover:text-[#0B0D12]'
                   }`}
                 >
@@ -364,7 +364,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
               <div className="bg-white rounded-xl p-8 border border-[#E2E5EC] text-center">
                 <div className="max-w-md mx-auto">
                   <div className="mb-4">
-                    <span className="inline-block px-3 py-1 bg-[#FF4D1C]/10 text-[#FF4D1C] rounded text-[11px] font-bold uppercase tracking-wider mb-2">
+                    <span className="inline-block px-3 py-1 bg-[#0284C7]/10 text-[#0284C7] rounded text-[11px] font-bold uppercase tracking-wider mb-2">
                       {shelfState === 'before' ? 'The Bottleneck' : 'The Commercial Advantage'}
                     </span>
                     <h4 className="font-serif text-2xl font-bold text-[#0B0D12]">
@@ -385,7 +385,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
                     <div className="font-serif text-4xl sm:text-5xl text-[#0B0D12] font-bold mb-1">
                       {project.shelfImpact.metric}
                     </div>
-                    <div className="text-[11px] font-bold tracking-[0.2em] text-[#FF4D1C] uppercase">
+                    <div className="text-[11px] font-bold tracking-[0.2em] text-[#0284C7] uppercase">
                       {project.shelfImpact.metricLabel}
                     </div>
                   </div>
@@ -413,7 +413,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
                 onClose();
                 onOpenBrief();
               }}
-              className="px-6 py-2.5 bg-[#FF4D1C] hover:bg-[#FF6438] text-white text-xs font-bold tracking-wider uppercase rounded-md transition-colors w-full sm:w-auto text-center shadow-sm"
+              className="px-6 py-2.5 bg-[#0284C7] hover:bg-[#0369A1] text-white text-xs font-bold tracking-wider uppercase rounded-md transition-colors w-full sm:w-auto text-center shadow-sm"
             >
               START A PROJECT →
             </button>

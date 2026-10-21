@@ -45,7 +45,7 @@ export const PricingView: React.FC<PricingViewProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mb-16">
-          <span className="block font-mono text-[11px] font-bold tracking-[0.24em] text-[#e03e10] uppercase mb-3">
+          <span className="block font-mono text-[11px] font-bold tracking-[0.24em] text-[#D4FF00] uppercase mb-3">
             ENGAGEMENT MODELS & RATES
           </span>
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-[50px] font-semibold leading-tight text-[#0b0d12] mb-4">
@@ -66,12 +66,12 @@ export const PricingView: React.FC<PricingViewProps> = ({
                 key={plan.id}
                 className={`bg-white rounded-2xl p-8 sm:p-10 border ${
                   isHighlighted
-                    ? 'border-[#FF4D1C] shadow-[0_12px_40px_rgba(255,77,28,0.16)] ring-1 ring-[#FF4D1C]'
+                    ? 'border-[#D4FF00] shadow-[0_12px_40px_rgba(255,77,28,0.16)] ring-1 ring-[#D4FF00]'
                     : 'border-[#dfe3ea] shadow-[0_3px_14px_rgba(9,10,13,0.03)]'
                 } flex flex-col justify-between`}
               >
                 <div>
-                  <div className="font-mono text-[10px] font-bold tracking-[0.2em] text-[#e03e10] uppercase mb-2">
+                  <div className="font-mono text-[10px] font-bold tracking-[0.2em] text-[#D4FF00] uppercase mb-2">
                     {plan.badge}
                   </div>
 
@@ -97,7 +97,7 @@ export const PricingView: React.FC<PricingViewProps> = ({
                     </div>
                     {plan.deliverables.map((item, idx) => (
                       <div key={idx} className="flex items-start gap-2.5 text-xs text-[#525866] leading-snug">
-                        <Check className="w-4 h-4 text-[#FF4D1C] shrink-0 mt-0.5" />
+                        <Check className="w-4 h-4 text-[#D4FF00] shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </div>
                     ))}
@@ -117,8 +117,8 @@ export const PricingView: React.FC<PricingViewProps> = ({
                     }}
                     className={`w-full py-4 px-6 rounded-md text-xs font-bold tracking-[0.14em] uppercase transition-all cursor-pointer ${
                       isHighlighted
-                        ? 'bg-[#FF4D1C] hover:bg-[#ff6438] active:bg-[#e03e10] text-white shadow-md'
-                        : 'bg-[#090a0d] hover:bg-neutral-800 text-white'
+                        ? 'bg-[#D4FF00] hover:bg-[#c2eb00] active:bg-[#D4FF00] text-[#080C14] font-bold shadow-md'
+                        : 'bg-[#080c14] hover:bg-neutral-800 text-white'
                     }`}
                   >
                     {plan.buttonText}
@@ -132,11 +132,11 @@ export const PricingView: React.FC<PricingViewProps> = ({
         {/* Interactive Scope & Cost Calculator */}
         <div className="bg-white rounded-2xl p-8 sm:p-12 border border-[#dfe3ea] shadow-lg mb-16">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-md bg-[#f4f5f7] text-[#FF4D1C] flex items-center justify-center">
+            <div className="w-10 h-10 rounded-md bg-[#f4f5f7] text-[#D4FF00] flex items-center justify-center">
               <Calculator className="w-5 h-5" />
             </div>
             <div>
-              <span className="font-mono text-[10px] font-bold tracking-[0.24em] text-[#e03e10] uppercase block">
+              <span className="font-mono text-[10px] font-bold tracking-[0.24em] text-[#D4FF00] uppercase block">
                 INSTANT SCOPE ESTIMATOR
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-[#0b0d12]">
@@ -165,7 +165,7 @@ export const PricingView: React.FC<PricingViewProps> = ({
                       onClick={() => setCalcSector(s.id as any)}
                       className={`py-2 px-3 rounded-md text-xs font-semibold tracking-wide border transition-all cursor-pointer ${
                         calcSector === s.id
-                          ? 'bg-[#090a0d] text-white border-[#090a0d]'
+                          ? 'bg-[#080c14] text-white border-[#080c14]'
                           : 'bg-[#f4f5f7] text-neutral-600 border-[#dfe3ea] hover:text-black'
                       }`}
                     >
@@ -191,7 +191,7 @@ export const PricingView: React.FC<PricingViewProps> = ({
                   max="12"
                   value={skuCount}
                   onChange={(e) => setSkuCount(parseInt(e.target.value))}
-                  className="w-full accent-[#FF4D1C] cursor-pointer"
+                  className="w-full accent-[#D4FF00] cursor-pointer"
                 />
               </div>
 
@@ -211,7 +211,7 @@ export const PricingView: React.FC<PricingViewProps> = ({
                       onClick={() => setSubstrateLevel(sub.id as any)}
                       className={`p-3.5 rounded-lg border text-left cursor-pointer transition-all ${
                         substrateLevel === sub.id
-                          ? 'bg-[#FF4D1C]/10 border-[#FF4D1C] shadow-sm'
+                          ? 'bg-[#D4FF00]/10 border-[#D4FF00] shadow-sm'
                           : 'bg-[#f4f5f7] border-[#dfe3ea] hover:border-neutral-400'
                       }`}
                     >
@@ -228,7 +228,7 @@ export const PricingView: React.FC<PricingViewProps> = ({
                   type="checkbox"
                   checked={includePressCheck}
                   onChange={(e) => setIncludePressCheck(e.target.checked)}
-                  className="rounded accent-[#FF4D1C] w-4 h-4"
+                  className="rounded accent-[#D4FF00] w-4 h-4"
                 />
                 <div className="text-xs">
                   <span className="font-bold text-[#0b0d12] block">Print Supervision & Pre-Press Verification</span>
@@ -238,16 +238,16 @@ export const PricingView: React.FC<PricingViewProps> = ({
             </div>
 
             {/* Calculated Estimate Box */}
-            <div className="lg:col-span-5 bg-[#090a0d] text-white p-8 rounded-xl flex flex-col justify-between">
+            <div className="lg:col-span-5 bg-[#080c14] text-white p-8 rounded-xl flex flex-col justify-between">
               <div>
-                <span className="font-mono text-[10px] font-bold tracking-[0.2em] text-[#FF4D1C] uppercase block mb-1">
+                <span className="font-mono text-[10px] font-bold tracking-[0.2em] text-[#D4FF00] uppercase block mb-1">
                   ESTIMATED INVESTMENT
                 </span>
                 <div className="font-serif text-4xl sm:text-5xl font-semibold text-white mb-2">
                   ${total.toLocaleString()}
                 </div>
                 <div className="text-xs text-neutral-400 mb-6">
-                  Estimated Delivery: <span className="text-[#FF4D1C] font-semibold">{weeks} Weeks</span> to production-ready files
+                  Estimated Delivery: <span className="text-[#D4FF00] font-semibold">{weeks} Weeks</span> to production-ready files
                 </div>
 
                 <div className="space-y-2 text-xs text-neutral-300 border-t border-neutral-800 pt-4 mb-8">
@@ -268,7 +268,7 @@ export const PricingView: React.FC<PricingViewProps> = ({
 
               <button
                 onClick={onOpenBrief}
-                className="w-full py-4 bg-[#FF4D1C] hover:bg-[#ff6438] text-white text-xs font-bold tracking-[0.14em] uppercase rounded-md transition-all text-center flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full py-4 bg-[#D4FF00] hover:bg-[#c2eb00] text-[#080C14] font-bold text-xs font-bold tracking-[0.14em] uppercase rounded-md transition-all text-center flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>REQUEST THIS SCOPE</span>
                 <ArrowRight className="w-4 h-4" />
@@ -280,7 +280,7 @@ export const PricingView: React.FC<PricingViewProps> = ({
         {/* Retainer Availability Calendar Strip */}
         <div className="bg-[#eceef2] p-6 sm:p-8 rounded-xl border border-[#dfe3ea] flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <Calendar className="w-6 h-6 text-[#FF4D1C]" />
+            <Calendar className="w-6 h-6 text-[#D4FF00]" />
             <div>
               <div className="text-xs font-bold text-[#0b0d12] uppercase tracking-wider">
                 Current Studio Availability: Q2 & Q3 2026

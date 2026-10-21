@@ -12,7 +12,7 @@ export const Industries: React.FC<IndustriesProps> = ({ onSelectSector }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-14">
-          <span className="block font-mono text-[11px] font-bold tracking-[0.24em] text-[#e03e10] uppercase mb-3">
+          <span className="block font-mono text-[11px] font-bold tracking-[0.24em] text-[#D4FF00] uppercase mb-3">
             SECTOR EXPERTISE
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] font-semibold leading-tight text-[#0b0d12] mb-3">
@@ -29,7 +29,7 @@ export const Industries: React.FC<IndustriesProps> = ({ onSelectSector }) => {
             <div
               key={sector.id}
               onClick={() => onSelectSector(sector.id)}
-              className="bg-white rounded-xl overflow-hidden border border-[#dfe3ea] shadow-[0_3px_14px_rgba(9,10,13,0.035)] hover:shadow-[0_14px_32px_rgba(9,10,13,0.09)] hover:border-[#FF4D1C]/50 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer flex flex-col group"
+              className="bg-white rounded-xl overflow-hidden border border-[#dfe3ea] shadow-[0_3px_14px_rgba(9,10,13,0.035)] hover:shadow-[0_14px_32px_rgba(9,10,13,0.09)] hover:border-[#D4FF00]/50 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer flex flex-col group"
             >
               {/* Colored Header Banner */}
               <div

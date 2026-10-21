@@ -29,29 +29,29 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-[#090a0d]/95 backdrop-blur-md border-b border-white/10 transition-colors">
+    <header className="sticky top-0 z-50 bg-[#080C14]/90 backdrop-blur-xl transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
         {/* Brand Lockup */}
         <button
           onClick={() => handleNavClick('home')}
-          className="flex items-center gap-2.5 sm:gap-3.5 text-left group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4D1C] shrink-0 cursor-pointer"
+          className="flex items-center gap-3 text-left group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4FF00] shrink-0 cursor-pointer"
           aria-label="Saeed Jabbari Studio Home"
         >
-          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-md bg-[#FF4D1C] text-white flex items-center justify-center font-serif font-bold text-xs sm:text-sm tracking-tight shrink-0 shadow-sm transition-transform group-hover:scale-105">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-md bg-[#D4FF00] text-[#080C14] flex items-center justify-center font-serif font-black text-xs sm:text-sm tracking-tight shrink-0 shadow-lg shadow-[#D4FF00]/25 transition-transform group-hover:scale-105">
             SJ
           </div>
           <div className="flex flex-col">
-            <span className="text-xs sm:text-sm font-bold tracking-[0.1em] sm:tracking-[0.12em] text-white uppercase transition-colors group-hover:text-[#FF4D1C] whitespace-nowrap">
+            <span className="text-xs sm:text-sm font-bold tracking-[0.14em] text-white uppercase transition-colors group-hover:text-[#D4FF00] whitespace-nowrap">
               SAEED JABBARI
             </span>
-            <span className="hidden sm:block text-[9px] sm:text-[10px] tracking-[0.18em] text-neutral-400 uppercase font-mono whitespace-nowrap">
-              BRANDING & COMMERCIAL DESIGN
+            <span className="hidden sm:block text-[9px] tracking-[0.2em] text-neutral-400 uppercase font-mono whitespace-nowrap">
+              BRANDING &amp; COMMERCIAL PACKAGING
             </span>
           </div>
         </button>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-[13px] font-medium tracking-wide text-neutral-300" aria-label="Main Navigation">
+        {/* Desktop Navigation Links — 100% Crisp High-Contrast Legibility */}
+        <nav className="hidden md:flex items-center gap-7 lg:gap-9 text-[13px] font-medium tracking-wide" aria-label="Main Navigation">
           {navItems.map((item) => {
             const isActive =
               currentPage === item.page ||
@@ -61,14 +61,14 @@ export const Header: React.FC<HeaderProps> = ({
               <button
                 key={item.page}
                 onClick={() => handleNavClick(item.page)}
-                className={`relative py-2 transition-colors whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#FF4D1C] rounded cursor-pointer ${
-                  isActive ? 'text-white font-semibold' : 'text-neutral-300 hover:text-white'
+                className={`relative py-2 transition-colors whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#D4FF00] rounded cursor-pointer ${
+                  isActive ? 'text-white font-bold' : 'text-neutral-300 hover:text-[#D4FF00]'
                 }`}
               >
                 <span>{item.label}</span>
                 {isActive && (
                   <span
-                    className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-4 h-[2px] rounded-full bg-[#FF4D1C]"
+                    className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-4 h-[2px] rounded-full bg-[#D4FF00]"
                     aria-hidden="true"
                   />
                 )}
@@ -81,14 +81,14 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           <button
             onClick={onOpenBrief}
-            className="hidden sm:inline-flex px-4 py-2 sm:px-5 sm:py-2.5 bg-[#FF4D1C] hover:bg-[#ff6438] active:bg-[#e03e10] text-white text-[11px] sm:text-xs font-bold tracking-[0.12em] uppercase rounded-md transition-all shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white whitespace-nowrap shrink-0 cursor-pointer"
+            className="hidden sm:inline-flex px-5 py-2.5 bg-[#D4FF00] hover:bg-[#c2eb00] active:bg-[#aedf00] text-[#080C14] text-xs font-bold tracking-[0.12em] uppercase rounded-md transition-all shadow-lg shadow-[#D4FF00]/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white whitespace-nowrap shrink-0 cursor-pointer"
           >
             Start a Project
           </button>
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-neutral-300 hover:text-white md:hidden rounded-md focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#FF4D1C]"
+            className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center text-white hover:text-[#D4FF00] md:hidden rounded-md focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#D4FF00]"
             aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Menu'}
             aria-expanded={mobileMenuOpen}
           >
@@ -99,7 +99,7 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-white/10 bg-[#0c0e12] px-5 py-6 space-y-4 shadow-2xl">
+        <div className="md:hidden bg-[#080C14] px-5 py-6 space-y-4 shadow-2xl">
           <nav className="flex flex-col space-y-2">
             {navItems.map((item) => {
               const isActive =
@@ -111,23 +111,23 @@ export const Header: React.FC<HeaderProps> = ({
                   key={item.page}
                   onClick={() => handleNavClick(item.page)}
                   className={`flex items-center justify-between text-left py-2.5 px-3 rounded-md text-sm font-medium tracking-wide transition-colors ${
-                    isActive ? 'text-[#FF4D1C] bg-white/5 font-semibold' : 'text-neutral-300 hover:text-white hover:bg-white/5'
+                    isActive ? 'text-[#D4FF00] bg-white/5 font-bold' : 'text-neutral-200 hover:text-white hover:bg-white/5'
                   }`}
                 >
                   <span>{item.label}</span>
-                  {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[#FF4D1C]" />}
+                  {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[#D4FF00]" />}
                 </button>
               );
             })}
           </nav>
 
-          <div className="pt-3 border-t border-white/10">
+          <div className="pt-3">
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 onOpenBrief();
               }}
-              className="w-full py-3.5 bg-[#FF4D1C] hover:bg-[#ff6438] active:bg-[#e03e10] text-white text-xs font-bold tracking-[0.14em] uppercase rounded-md text-center transition-all shadow-md"
+              className="w-full py-3.5 bg-[#D4FF00] hover:bg-[#c2eb00] text-[#080C14] text-xs font-bold tracking-[0.14em] uppercase rounded-md text-center transition-all shadow-md"
             >
               Start a Project
             </button>
