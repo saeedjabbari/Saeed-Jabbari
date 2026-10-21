@@ -18,6 +18,9 @@
         --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         --font-mono: 'JetBrains Mono', monospace;
       }
+      * {
+        box-sizing: border-box;
+      }
       body {
         font-family: var(--font-sans);
         background-color: #090a0d;
@@ -57,7 +60,7 @@
   </head>
   <body class="bg-[#090a0d] text-[#f4f5f7] antialiased selection:bg-[#FF4D1C] selection:text-white">
     <div id="root"></div>
-    <script type="module" src="./src/main.tsx"></script>
+    <script type="module" src="/src/main.tsx"></script>
     <script>
       (function () {
         var isViteDev = !!document.querySelector('script[src*="@vite/client"]');
@@ -66,121 +69,267 @@
 
         window.__STATIC_ROOT_MODE__ = true;
 
+        // Global image path fallback for GitHub Pages root (main branch)
+        window.addEventListener(
+          'error',
+          function (event) {
+            var target = event.target;
+            if (
+              target &&
+              target.tagName === 'IMG' &&
+              target.src &&
+              target.src.indexOf('/assets/') !== -1 &&
+              target.src.indexOf('/public/assets/') === -1
+            ) {
+              target.src = target.src.replace('/assets/', '/public/assets/');
+            }
+          },
+          true
+        );
+
+        // Render immediate visible commercial hero layout so the screen is NEVER black while loading
         var rootEl = document.getElementById('root');
         if (rootEl && !rootEl.innerHTML.trim()) {
           rootEl.innerHTML =
-            '<div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#090a0d;color:#f4f5f7;font-family:\'Plus Jakarta Sans\',sans-serif;gap:14px;">' +
-            '<div style="width:28px;height:28px;border:2.5px solid rgba(255,77,28,0.25);border-top-color:#FF4D1C;border-radius:50%;animation:sj-spin 0.7s linear infinite;"></div>' +
-            '<div style="font-size:11px;letter-spacing:0.24em;text-transform:uppercase;color:#949ba8;font-weight:700;">SAEED JABBARI STUDIO</div>' +
+            '<div style="min-height:100vh;background:#090a0d;color:#f4f5f7;font-family:\'Plus Jakarta Sans\',system-ui,sans-serif;display:flex;flex-direction:column;">' +
+              '<header style="height:80px;border-bottom:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:space-between;padding:0 5%;max-width:1440px;width:100%;margin:0 auto;">' +
+                '<div style="display:flex;align-items:center;gap:12px;">' +
+                  '<span style="font-family:\'Space Grotesk\',sans-serif;font-size:20px;font-weight:700;letter-spacing:0.16em;color:#fff;">SAEED JABBARI</span>' +
+                  '<span style="width:1px;height:16px;background:rgba(255,255,255,0.2);"></span>' +
+                  '<span style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#FF4D1C;font-weight:700;">BRAND &amp; PACKAGING STUDIO</span>' +
+                '</div>' +
+                '<div style="display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#949ba8;font-weight:600;">' +
+                  '<span style="width:16px;height:16px;border:2px solid rgba(255,77,28,0.3);border-top-color:#FF4D1C;border-radius:50%;display:inline-block;animation:sj-spin 0.7s linear infinite;"></span>' +
+                  '<span>Loading Studio...</span>' +
+                '</div>' +
+              '</header>' +
+              '<main style="flex:1;display:flex;align-items:center;max-width:1440px;width:100%;margin:0 auto;padding:60px 5%;">' +
+                '<div style="max-width:780px;">' +
+                  '<div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:24px;padding:6px 14px;background:rgba(255,77,28,0.12);border:1px solid rgba(255,77,28,0.35);">' +
+                    '<span style="width:8px;height:8px;border-radius:50%;background:#FF4D1C;"></span>' +
+                    '<span style="font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#FF4D1C;font-weight:700;">COMMERCIAL BRANDING &amp; PACKAGING SOLUTIONS</span>' +
+                  '</div>' +
+                  '<h1 style="font-family:\'Space Grotesk\',sans-serif;font-size:clamp(36px,5.5vw,72px);line-height:1.05;font-weight:700;color:#ffffff;margin:0 0 24px 0;letter-spacing:-0.025em;">' +
+                    'Branding &amp; Packaging Built to <span style="color:#FF4D1C;">Command Attention</span> &amp; Drive Sales.' +
+                  '</h1>' +
+                  '<p style="font-size:18px;line-height:1.65;color:#c2c7d0;margin:0 0 36px 0;max-width:640px;">' +
+                    'We engineer strategic brand identities, high-impact packaging systems, and technical product catalogs designed to help businesses stand out on the shelf and sell more.' +
+                  '</p>' +
+                '</div>' +
+              '</main>' +
             '</div>';
         }
 
-        var twScript = document.createElement('script');
-        twScript.src = 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4';
-        document.head.appendChild(twScript);
-
-        var modules = [
-          ['types', './src/types/index.ts'],
-          ['content', './src/data/content.ts'],
-          ['Header', './src/components/Header.tsx'],
-          ['Hero', './src/components/Hero.tsx'],
-          ['Capabilities', './src/components/Capabilities.tsx'],
-          ['Industries', './src/components/Industries.tsx'],
-          ['SelectedWork', './src/components/SelectedWork.tsx'],
-          ['EngagementModels', './src/components/EngagementModels.tsx'],
-          ['CtaBanner', './src/components/CtaBanner.tsx'],
-          ['Footer', './src/components/Footer.tsx'],
-          ['WorkArchive', './src/components/WorkArchive.tsx'],
-          ['ProjectDetailView', './src/components/ProjectDetailView.tsx'],
-          ['ProjectModal', './src/components/ProjectModal.tsx'],
-          ['ProcessView', './src/components/ProcessView.tsx'],
-          ['PricingView', './src/components/PricingView.tsx'],
-          ['ArticlesView', './src/components/ArticlesView.tsx'],
-          ['BrandAuditModal', './src/components/BrandAuditModal.tsx'],
-          ['IntakeBriefModal', './src/components/IntakeBriefModal.tsx'],
-          ['App', './src/App.tsx'],
-          ['main', './src/main.tsx']
-        ];
-
-        var externals = {
-          'react': 'https://esm.sh/react@19.0.0',
-          'react/jsx-runtime': 'https://esm.sh/react@19.0.0/jsx-runtime',
-          'react-dom': 'https://esm.sh/react-dom@19.0.0?deps=react@19.0.0',
-          'react-dom/client': 'https://esm.sh/react-dom@19.0.0/client?deps=react@19.0.0',
-          'lucide-react': 'https://esm.sh/lucide-react@0.511.0?deps=react@19.0.0',
-          'motion/react': 'https://esm.sh/motion@12.23.24/react?deps=react@19.0.0,react-dom@19.0.0'
-        };
-
-        async function loadCompiler() {
-          try {
-            var sucrase = await import('https://esm.sh/sucrase@3.35.0');
-            return function (code) {
-              return sucrase.transform(code, {
-                transforms: ['typescript', 'jsx'],
-                production: true
-              }).code;
-            };
-          } catch (e) {
-            await new Promise(function (resolve, reject) {
+        // Helper: load script from first available URL in list
+        function loadScriptWithFallback(urls) {
+          return new Promise(function (resolve, reject) {
+            var idx = 0;
+            function tryNext() {
+              if (idx >= urls.length) {
+                reject(new Error('All script URLs failed: ' + urls.join(', ')));
+                return;
+              }
               var s = document.createElement('script');
-              s.src = 'https://cdn.jsdelivr.net/npm/@babel/standalone@7.26.9/babel.min.js';
-              s.onload = resolve;
-              s.onerror = reject;
+              s.src = urls[idx++];
+              s.crossOrigin = 'anonymous';
+              s.onload = function () { resolve(); };
+              s.onerror = function () {
+                s.remove();
+                tryNext();
+              };
               document.head.appendChild(s);
-            });
-            return function (code, filename) {
-              return window.Babel.transform(code, {
-                presets: ['typescript', 'react'],
-                filename: filename || 'module.tsx'
-              }).code;
-            };
-          }
+            }
+            tryNext();
+          });
         }
 
-        Promise.all([
-          loadCompiler(),
-          Promise.all(
-            modules.map(function (entry) {
-              return fetch(entry[1]).then(function (r) {
-                if (!r.ok) throw new Error('Failed to fetch ' + entry[1]);
-                return r.text();
+        // Load Tailwind browser runtime with multi-CDN fallback
+        loadScriptWithFallback([
+          'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4',
+          'https://unpkg.com/@tailwindcss/browser@4'
+        ]).catch(function () {});
+
+        // Built-in SVG icon paths for all 22 Lucide icons used in the app (zero external requests)
+        var ICON_PATHS = {
+          Clock: '<path d="M12 6v6l4 2"></path><circle cx="12" cy="12" r="10"></circle>',
+          ArrowRight: '<path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path>',
+          X: '<path d="M18 6 6 18"></path><path d="m6 6 12 12"></path>',
+          Bookmark: '<path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>',
+          CheckCircle: '<path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path>',
+          ShieldAlert: '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="M12 8v4"></path><path d="M12 16h.01"></path>',
+          ArrowUpRight: '<path d="M7 7h10v10"></path><path d="M7 17 17 7"></path>',
+          Check: '<path d="M20 6 9 17l-5-5"></path>',
+          Menu: '<path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path>',
+          ArrowDown: '<path d="M12 5v14"></path><path d="m19 12-7 7-7-7"></path>',
+          Send: '<path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path>',
+          Calculator: '<rect width="16" height="20" x="4" y="2" rx="2"></rect><line x1="8" x2="16" y1="6" y2="6"></line><line x1="16" x2="16" y1="14" y2="18"></line><path d="M16 10h.01"></path><path d="M12 10h.01"></path><path d="M8 10h.01"></path><path d="M12 14h.01"></path><path d="M8 14h.01"></path><path d="M12 18h.01"></path><path d="M8 18h.01"></path>',
+          Calendar: '<path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path>',
+          ShieldCheck: '<path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path>',
+          Ruler: '<path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"></path><path d="m14.5 12.5 2-2"></path><path d="m11.5 9.5 2-2"></path><path d="m8.5 6.5 2-2"></path><path d="m17.5 15.5 2-2"></path>',
+          Palette: '<path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"></path><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle>',
+          Factory: '<path d="M12 16h.01"></path><path d="M16 16h.01"></path><path d="M3 19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5a.5.5 0 0 0-.769-.422l-4.462 2.844A.5.5 0 0 1 15 10.5v-2a.5.5 0 0 0-.769-.422L9.77 10.922A.5.5 0 0 1 9 10.5V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z"></path><path d="M8 16h.01"></path>',
+          ArrowLeft: '<path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path>',
+          Maximize2: '<path d="M15 3h6v6"></path><path d="m21 3-7 7"></path><path d="m3 21 7-7"></path><path d="M9 21H3v-6"></path>',
+          Eye: '<path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle>',
+          Box: '<path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path>',
+          Layers: '<path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path>'
+        };
+
+        (function startInMemoryCompiler() {
+          var modules = [
+            ['types', './src/types/index.ts'],
+            ['content', './src/data/content.ts'],
+            ['Header', './src/components/Header.tsx'],
+            ['Hero', './src/components/Hero.tsx'],
+            ['Capabilities', './src/components/Capabilities.tsx'],
+            ['Industries', './src/components/Industries.tsx'],
+            ['SelectedWork', './src/components/SelectedWork.tsx'],
+            ['EngagementModels', './src/components/EngagementModels.tsx'],
+            ['CtaBanner', './src/components/CtaBanner.tsx'],
+            ['Footer', './src/components/Footer.tsx'],
+            ['WorkArchive', './src/components/WorkArchive.tsx'],
+            ['ProjectDetailView', './src/components/ProjectDetailView.tsx'],
+            ['ProjectModal', './src/components/ProjectModal.tsx'],
+            ['ProcessView', './src/components/ProcessView.tsx'],
+            ['PricingView', './src/components/PricingView.tsx'],
+            ['ArticlesView', './src/components/ArticlesView.tsx'],
+            ['BrandAuditModal', './src/components/BrandAuditModal.tsx'],
+            ['IntakeBriefModal', './src/components/IntakeBriefModal.tsx'],
+            ['App', './src/App.tsx']
+          ];
+
+          Promise.all([
+            loadScriptWithFallback([
+              'https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js',
+              'https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js',
+              'https://unpkg.com/react@18.3.1/umd/react.production.min.js'
+            ]).then(function () {
+              return loadScriptWithFallback([
+                'https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js',
+                'https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js',
+                'https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js'
+              ]);
+            }),
+            loadScriptWithFallback([
+              'https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.26.9/babel.min.js',
+              'https://cdn.jsdelivr.net/npm/@babel/standalone@7.26.9/babel.min.js',
+              'https://unpkg.com/@babel/standalone@7.26.9/babel.min.js'
+            ]),
+            Promise.all(
+              modules.map(function (entry) {
+                return fetch(entry[1]).then(function (r) {
+                  if (!r.ok) throw new Error('Failed to fetch ' + entry[1]);
+                  return r.text();
+                });
+              })
+            )
+          ])
+            .then(function (results) {
+              var sources = results[2];
+              var React = window.React;
+              var ReactDOM = window.ReactDOM;
+
+              var lucideMod = { __esModule: true };
+              Object.keys(ICON_PATHS).forEach(function (iconName) {
+                lucideMod[iconName] = function (props) {
+                  var p = Object.assign({}, props);
+                  var size = p.size || 24;
+                  var strokeWidth = p.strokeWidth || 2;
+                  delete p.size;
+                  delete p.strokeWidth;
+                  return React.createElement(
+                    'svg',
+                    Object.assign(
+                      {
+                        xmlns: 'http://www.w3.org/2000/svg',
+                        width: size,
+                        height: size,
+                        viewBox: '0 0 24 24',
+                        fill: 'none',
+                        stroke: 'currentColor',
+                        strokeWidth: strokeWidth,
+                        strokeLinecap: 'round',
+                        strokeLinejoin: 'round',
+                        dangerouslySetInnerHTML: { __html: ICON_PATHS[iconName] }
+                      },
+                      p
+                    )
+                  );
+                };
               });
-            })
-          )
-        ])
-          .then(function (results) {
-            var compile = results[0];
-            var sources = results[1];
-            var blobMap = {};
 
-            for (var i = 0; i < modules.length; i++) {
-              var name = modules[i][0];
-              var filePath = modules[i][1];
-              var raw = sources[i];
+              var motionTags = ['div', 'p', 'span', 'article', 'img', 'figure', 'section', 'header', 'footer', 'button', 'h1', 'h2', 'h3'];
+              var motionObj = {};
+              motionTags.forEach(function (tag) {
+                motionObj[tag] = function (props) {
+                  var clean = Object.assign({}, props);
+                  delete clean.initial;
+                  delete clean.animate;
+                  delete clean.exit;
+                  delete clean.transition;
+                  delete clean.whileHover;
+                  delete clean.whileTap;
+                  delete clean.viewport;
+                  delete clean.whileInView;
+                  delete clean.layout;
+                  return React.createElement(tag, clean);
+                };
+              });
 
-              raw = raw.replace(/import\s+['"][^'"]*\.css['"];?/g, '');
-              if (!/import\s+React/.test(raw)) {
-                raw = 'import React from "react";\n' + raw;
+              var registry = {
+                'react': Object.assign({ __esModule: true, default: React }, React),
+                'react-dom': Object.assign({ __esModule: true, default: ReactDOM }, ReactDOM),
+                'react-dom/client': Object.assign({ __esModule: true, default: ReactDOM }, ReactDOM),
+                'lucide-react': lucideMod,
+                'motion/react': {
+                  __esModule: true,
+                  motion: motionObj,
+                  AnimatePresence: function (props) {
+                    return React.createElement(React.Fragment, null, props.children);
+                  }
+                }
+              };
+
+              function customRequire(spec) {
+                if (registry[spec]) return registry[spec];
+                var base = spec.split('/').pop().replace(/\.(tsx|ts|js)$/, '');
+                if (registry[base]) return registry[base];
+                return {};
               }
 
-              var js = compile(raw, filePath);
-              js = js.replace(/(\bimport\s+[\s\S]*?\bfrom\s*)(['"])([^'"]+)\2/g, function (_, prefix, q, spec) {
-                if (externals[spec]) return prefix + q + externals[spec] + q;
-                var base = spec.split('/').pop().replace(/\.(tsx|ts|js)$/, '');
-                if (blobMap[base]) return prefix + q + blobMap[base] + q;
-                return prefix + q + spec + q;
-              });
+              for (var i = 0; i < modules.length; i++) {
+                var name = modules[i][0];
+                var filePath = modules[i][1];
+                var raw = sources[i];
 
-              blobMap[name] = URL.createObjectURL(
-                new Blob([js + '\nexport {};'], { type: 'text/javascript' })
-              );
-            }
+                raw = raw.replace(/import\s+['"][^'"]*\.css['"];?/g, '');
+                if (!/import\s+React/.test(raw)) {
+                  raw = 'import React from "react";\n' + raw;
+                }
 
-            return import(blobMap['main']);
-          })
-          .catch(function (err) {
-            console.error('Static runtime bootstrap error:', err);
-          });
+                var js = window.Babel.transform(raw, {
+                  presets: ['env', 'typescript', 'react'],
+                  filename: filePath
+                }).code;
+
+                var mod = { exports: {} };
+                var fn = new Function('exports', 'require', 'module', 'React', js);
+                fn(mod.exports, customRequire, mod, React);
+                registry[name] = mod.exports;
+              }
+
+              var App = registry['App'].default || registry['App'];
+              var container = document.getElementById('root');
+              if (ReactDOM.createRoot) {
+                ReactDOM.createRoot(container).render(React.createElement(App));
+              } else {
+                ReactDOM.render(React.createElement(App), container);
+              }
+            })
+            .catch(function (err) {
+              console.error('Static bootstrap error:', err);
+            });
+        })();
       })();
     </script>
   </body>

@@ -63,7 +63,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#090a0d] text-[#0b0d12] selection:bg-[#FF4D1C] selection:text-white">
-      {/* Header with Home, Work, Services, Process, Insights & Start a Project */}
+      {/* Main Studio Navigation Header */}
       <Header
         currentPage={currentPage}
         onNavigate={handleNavigate}
