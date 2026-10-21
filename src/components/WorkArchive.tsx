@@ -76,9 +76,9 @@ export const WorkArchive: React.FC<WorkArchiveProps> = ({
       {/* 
         ========================================================================
         STRONG EDITORIAL RHYTHM & CONTRASTING TONAL BLOCKS
-        - Alternating Dark Obsidian & Light Paper canvases (کنتراست ریتم های روشن و تیره)
-        - Full-width monitor plates spanning 100vw (عکس های تمام عرض)
-        - ZERO border strokes around images (بدون کادر استروک)
+        - Alternating Dark Obsidian & Light Paper canvases
+        - Full-width monitor plates spanning 100vw
+        - ZERO border strokes around images
         - NO dividing white line rules
         ========================================================================
       */}
@@ -87,7 +87,7 @@ export const WorkArchive: React.FC<WorkArchiveProps> = ({
           const rhythm = idx % 5;
           const indexNumber = String(idx + 1).padStart(2, '0');
 
-          // RHYTHM 0: FULL-WIDTH CINEMATIC MONITOR PLATE (عکس کاملا عریض در تمام عرض مانیتور بدون کادر استروک)
+          // RHYTHM 0: FULL-WIDTH CINEMATIC MONITOR PLATE
           if (rhythm === 0) {
             return (
               <motion.div
@@ -134,7 +134,7 @@ export const WorkArchive: React.FC<WorkArchiveProps> = ({
             );
           }
 
-          // RHYTHM 1: CONTRASTING BRIGHT GALLERY PAPER CANVAS (بک گراند روشن و کنتراست شدید با تایپوگرافی عمیق)
+          // RHYTHM 1: CONTRASTING BRIGHT GALLERY PAPER CANVAS
           if (rhythm === 1 || rhythm === 3) {
             const isReversed = rhythm === 3;
             return (
@@ -171,7 +171,7 @@ export const WorkArchive: React.FC<WorkArchiveProps> = ({
                         {proj.title}
                       </h2>
 
-                      <p className="text-sm sm:text-base text-neutral-600 leading-relaxed font-normal">
+                      <p className="text-sm sm:text-base text-neutral-600 leading-relaxed font-normal line-clamp-2 sm:line-clamp-none">
                         {proj.description}
                       </p>
 
@@ -186,7 +186,7 @@ export const WorkArchive: React.FC<WorkArchiveProps> = ({
             );
           }
 
-          // RHYTHM 2: HIGH-CONTRAST DARK ASYMMETRIC STAGGER (بدون کادر استروک)
+          // RHYTHM 2: HIGH-CONTRAST DARK ASYMMETRIC STAGGER
           return (
             <div key={proj.id} className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-14">
               <motion.article
@@ -218,7 +218,7 @@ export const WorkArchive: React.FC<WorkArchiveProps> = ({
                       {proj.title}
                     </h2>
 
-                    <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed font-normal">
+                    <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed font-normal line-clamp-2 sm:line-clamp-none">
                       {proj.description}
                     </p>
 

@@ -12,9 +12,9 @@ export const Industries: React.FC<IndustriesProps> = ({ onSelectSector }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-14">
-          <span className="block font-mono text-[11px] font-bold tracking-[0.24em] text-[#D4FF00] uppercase mb-3">
-            SECTOR EXPERTISE
-          </span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#080C14] text-[#D4FF00] font-mono text-[10px] font-bold tracking-widest uppercase rounded mb-3">
+            <span>SECTOR EXPERTISE</span>
+          </div>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] font-semibold leading-tight text-[#0b0d12] mb-3">
             Industries We Help Stand Out & Sell
           </h2>

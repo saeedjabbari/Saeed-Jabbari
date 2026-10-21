@@ -150,10 +150,10 @@ export const Hero: React.FC<HeroProps> = ({
 
             <div>
               <div className="font-serif text-3xl sm:text-4xl md:text-5xl text-white font-semibold tracking-tight tabular-nums">
-                80<span className="text-[#D4FF00]">+</span>
+                150<span className="text-[#D4FF00]">+</span>
               </div>
               <div className="text-[9px] sm:text-[10px] md:text-[11px] font-semibold tracking-[0.14em] sm:tracking-[0.18em] uppercase text-neutral-400 mt-1 font-mono">
-                BRANDS SCALED
+                PROJECTS DELIVERED
               </div>
             </div>
 

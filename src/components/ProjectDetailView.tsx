@@ -50,9 +50,7 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
             <span className="xs:hidden">Back</span>
           </button>
 
-          <div className="hidden md:flex items-center gap-2.5 font-mono text-[11px] text-neutral-400 uppercase tracking-wider truncate">
-            <span>{project.sectorLabel}</span>
-            <span aria-hidden="true" className="text-neutral-600">·</span>
+          <div className="hidden md:flex items-center gap-2 font-mono text-xs text-neutral-400 uppercase tracking-wider truncate">
             <span className="text-white truncate font-medium">{project.title}</span>
           </div>
 
@@ -88,15 +86,13 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
           className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-end mb-8 sm:mb-12"
         >
           <div className="lg:col-span-8">
-            <div className="flex flex-wrap items-center gap-3 font-mono text-[11px] tracking-widest uppercase text-[#D4FF00] mb-3">
-              <span>{project.sectorLabel}</span>
-              <span aria-hidden="true" className="text-neutral-600">·</span>
-              <span className="text-neutral-400">{project.year}</span>
-              <span aria-hidden="true" className="text-neutral-600">·</span>
-              <span className="text-neutral-400">{project.client}</span>
+            <div className="flex items-center gap-2 font-mono text-xs tracking-wider uppercase text-neutral-400 mb-3">
+              <span className="text-[#D4FF00] font-bold">{project.client}</span>
+              <span className="text-neutral-600">/</span>
+              <span>{project.year}</span>
             </div>
 
-            <h1 className="font-serif text-4xl sm:text-6xl lg:text-[70px] font-semibold text-white leading-[1.04] tracking-[-0.03em]">
+            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-semibold text-white leading-[1.06] tracking-tight">
               {project.title}
             </h1>
           </div>
@@ -111,9 +107,8 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
 
       {/* 
         ========================================================================
-        FULL-WIDTH MONITOR HERO PLATE (عکس کاملا عریض در عرض مانیتور بدون کادر استروک)
-        Spans 100vw monitor width without horizontal scroll clipping.
-        ZERO STROKE BORDER! Completely uncropped.
+        FULL-WIDTH MONITOR HERO PLATE
+        Spans 100vw monitor width. Zero stroke border. Completely uncropped.
         ========================================================================
       */}
       <motion.div
@@ -139,7 +134,7 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
 
       {/* 
         ========================================================================
-        SECTION 01: CONTRASTING BRIGHT GALLERY PAPER CANVAS (کنتراست شدید ریتم روشن)
+        SECTION 01: CONTRASTING BRIGHT GALLERY PAPER CANVAS
         Transitions into a clean architectural off-white/paper zone for readability!
         No white line borders!
         ========================================================================
@@ -218,7 +213,7 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
                   DELIVERABLES &amp; SUBSTRATES
                 </span>
                 <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-[#080C14]">
-                  {project.substrates.map((sub, i) => (
+                  {project.substrates.map((sub) => (
                     <span key={sub} className="px-3 py-1.5 bg-[#E6EAF0] rounded font-semibold">
                       {sub}
                     </span>
@@ -279,33 +274,30 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
 
       {/* 
         ========================================================================
-        SECTION 02: CINEMATIC DARK ARCHIVAL EXHIBITION (تمام عرض و بدون کادر استروک)
-        Dynamic layouts tailored per sector:
-        - Automotive: 100vw monitor spread
-        - Cosmetics: Asymmetric monograph duo
-        - FMCG: Retail pack confrontation
-        All images are uncropped with ZERO STROKE BORDERS!
+        SECTION 02: CINEMATIC DARK ARCHIVAL EXHIBITION
+        Clean, quiet presentation without wordy alt text sentences under images.
+        Ultra-concise monospace plate numbers and minimal labels!
         ========================================================================
       */}
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-14 pt-20 sm:pt-32">
         <div className="flex items-center justify-between mb-12 sm:mb-16">
           <span className="font-mono text-[11px] tracking-widest text-[#D4FF00] uppercase font-bold">
-            02 — COMPLETE ARCHIVAL PLATES ({project.galleryImages.length} PLATES · UNCROPPED)
+            02 — ARCHIVAL PLATES ({project.galleryImages.length} PLATES · UNCROPPED)
           </span>
           <span className="font-mono text-[11px] text-neutral-400 hidden sm:inline">
-            CLICK ANY PLATE FOR ULTRA-HIGH RES EXPANSION
+            CLICK TO EXPAND
           </span>
         </div>
 
         {/* Tailored Layout Rendering */}
         {isCosmetics && (
           <div className="space-y-20 sm:space-y-32">
-            {/* Asymmetric Monograph Duo without borders */}
+            {/* Asymmetric Monograph Duo */}
             {project.galleryImages.slice(0, 2).length === 2 && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
                 <div
-                  onClick={() => setLightboxImage({ url: project.galleryImages[0].url, caption: project.galleryImages[0].caption })}
-                  className="lg:col-span-7 bg-[#0E1522] rounded-3xl p-6 sm:p-12 cursor-zoom-in group"
+                  onClick={() => setLightboxImage({ url: project.galleryImages[0].url, caption: project.title })}
+                  className="lg:col-span-7 bg-[#0E1522] rounded-xl p-6 sm:p-12 cursor-zoom-in group"
                 >
                   <img
                     src={project.galleryImages[0].url}
@@ -313,15 +305,16 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
                     referrerPolicy="no-referrer"
                     className="w-full max-h-[72vh] object-contain mx-auto transition-transform duration-500 group-hover:scale-[1.01]"
                   />
-                  <div className="mt-4 flex justify-between text-xs text-neutral-400">
-                    <span className="text-white font-medium">{project.galleryImages[0].caption}</span>
-                    <span className="font-mono text-[#D4FF00]">01 — {project.galleryImages[0].specLabel}</span>
+                  {/* Ultra-minimal plate tag, no wordy description */}
+                  <div className="mt-3 flex items-center justify-between font-mono text-[11px] text-neutral-400">
+                    <span className="tracking-widest uppercase text-neutral-500">{project.galleryImages[0].specLabel || 'PLATE 01'}</span>
+                    <span className="text-[#D4FF00] font-bold">01</span>
                   </div>
                 </div>
 
                 <div
-                  onClick={() => setLightboxImage({ url: project.galleryImages[1].url, caption: project.galleryImages[1].caption })}
-                  className="lg:col-span-5 bg-[#0E1522] rounded-3xl p-6 sm:p-12 cursor-zoom-in group"
+                  onClick={() => setLightboxImage({ url: project.galleryImages[1].url, caption: project.title })}
+                  className="lg:col-span-5 bg-[#0E1522] rounded-xl p-6 sm:p-12 cursor-zoom-in group"
                 >
                   <img
                     src={project.galleryImages[1].url}
@@ -329,9 +322,9 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
                     referrerPolicy="no-referrer"
                     className="w-full max-h-[72vh] object-contain mx-auto transition-transform duration-500 group-hover:scale-[1.01]"
                   />
-                  <div className="mt-4 flex justify-between text-xs text-neutral-400">
-                    <span className="text-white font-medium">{project.galleryImages[1].caption}</span>
-                    <span className="font-mono text-[#D4FF00]">02 — {project.galleryImages[1].specLabel}</span>
+                  <div className="mt-3 flex items-center justify-between font-mono text-[11px] text-neutral-400">
+                    <span className="tracking-widest uppercase text-neutral-500">{project.galleryImages[1].specLabel || 'PLATE 02'}</span>
+                    <span className="text-[#D4FF00] font-bold">02</span>
                   </div>
                 </div>
               </div>
@@ -343,8 +336,8 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
                 {project.galleryImages.slice(2).map((img, i) => (
                   <div
                     key={i}
-                    onClick={() => setLightboxImage({ url: img.url, caption: img.caption })}
-                    className="bg-[#0E1522] rounded-3xl p-6 cursor-zoom-in group flex flex-col justify-between"
+                    onClick={() => setLightboxImage({ url: img.url, caption: project.title })}
+                    className="bg-[#0E1522] rounded-xl p-6 cursor-zoom-in group flex flex-col justify-between"
                   >
                     <img
                       src={img.url}
@@ -352,9 +345,9 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
                       referrerPolicy="no-referrer"
                       className="w-full max-h-[52vh] object-contain mx-auto transition-transform duration-500 group-hover:scale-[1.01]"
                     />
-                    <div className="mt-4 pt-3 flex justify-between text-xs text-neutral-400">
-                      <span className="truncate pr-2 text-white">{img.caption}</span>
-                      <span className="font-mono text-[#D4FF00] shrink-0">0{i + 3}</span>
+                    <div className="mt-3 flex items-center justify-between font-mono text-[11px] text-neutral-400">
+                      <span className="tracking-widest uppercase text-neutral-500">{img.specLabel || `PLATE 0${i + 3}`}</span>
+                      <span className="text-[#D4FF00] font-bold">0{i + 3}</span>
                     </div>
                   </div>
                 ))}
@@ -365,10 +358,10 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
 
         {isAutomotive && (
           <div className="space-y-20 sm:space-y-32">
-            {/* FULL MONITOR DOUBLE-PAGE CATALOG SPREAD (عکس کاملا عریض در تمام عرض مانیتور بدون کادر استروک) */}
+            {/* FULL MONITOR DOUBLE-PAGE CATALOG SPREAD */}
             {project.galleryImages[0] && (
               <div
-                onClick={() => setLightboxImage({ url: project.galleryImages[0].url, caption: project.galleryImages[0].caption })}
+                onClick={() => setLightboxImage({ url: project.galleryImages[0].url, caption: project.title })}
                 className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] max-w-none bg-[#030509] py-10 sm:py-20 px-4 sm:px-10 cursor-zoom-in group"
               >
                 <div className="max-w-[1720px] mx-auto text-center">
@@ -378,9 +371,9 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
                     referrerPolicy="no-referrer"
                     className="w-full max-h-[88vh] object-contain mx-auto transition-transform duration-500 group-hover:scale-[1.01]"
                   />
-                  <div className="mt-4 flex items-center justify-between max-w-4xl mx-auto text-xs text-neutral-300 px-2 font-mono">
-                    <span className="text-white">{project.galleryImages[0].caption}</span>
-                    <span className="text-[#D4FF00]">TECHNICAL DOUBLE SPREAD — {project.galleryImages[0].specLabel}</span>
+                  <div className="mt-3 flex items-center justify-between max-w-4xl mx-auto font-mono text-[11px] text-neutral-400 px-2">
+                    <span className="tracking-widest uppercase text-neutral-500">{project.galleryImages[0].specLabel || 'TECHNICAL SPREAD'}</span>
+                    <span className="text-[#D4FF00] font-bold">01</span>
                   </div>
                 </div>
               </div>
@@ -391,8 +384,8 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
               {project.galleryImages.slice(1).map((img, i) => (
                 <div
                   key={i}
-                  onClick={() => setLightboxImage({ url: img.url, caption: img.caption })}
-                  className="bg-[#0E1522] rounded-3xl p-6 sm:p-10 cursor-zoom-in group"
+                  onClick={() => setLightboxImage({ url: img.url, caption: project.title })}
+                  className="bg-[#0E1522] rounded-xl p-6 sm:p-10 cursor-zoom-in group"
                 >
                   <img
                     src={img.url}
@@ -400,9 +393,9 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
                     referrerPolicy="no-referrer"
                     className="w-full max-h-[62vh] object-contain mx-auto transition-transform duration-500 group-hover:scale-[1.01]"
                   />
-                  <div className="mt-4 flex justify-between text-xs text-neutral-400 font-mono">
-                    <span className="text-white">{img.caption}</span>
-                    <span className="text-[#D4FF00]">0{i + 2} — {img.specLabel}</span>
+                  <div className="mt-3 flex items-center justify-between font-mono text-[11px] text-neutral-400">
+                    <span className="tracking-widest uppercase text-neutral-500">{img.specLabel || `PLATE 0${i + 2}`}</span>
+                    <span className="text-[#D4FF00] font-bold">0{i + 2}</span>
                   </div>
                 </div>
               ))}
@@ -419,8 +412,8 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
                 return (
                   <div
                     key={idx}
-                    onClick={() => setLightboxImage({ url: img.url, caption: img.caption })}
-                    className={`${colSpan} bg-[#0E1522] rounded-3xl p-6 sm:p-10 cursor-zoom-in group`}
+                    onClick={() => setLightboxImage({ url: img.url, caption: project.title })}
+                    className={`${colSpan} bg-[#0E1522] rounded-xl p-6 sm:p-10 cursor-zoom-in group`}
                   >
                     <img
                       src={img.url}
@@ -428,9 +421,9 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
                       referrerPolicy="no-referrer"
                       className={`w-full ${isLarge ? 'max-h-[82vh]' : 'max-h-[62vh]'} object-contain mx-auto transition-transform duration-500 group-hover:scale-[1.01]`}
                     />
-                    <div className="mt-4 flex justify-between text-xs text-neutral-400 font-mono">
-                      <span className="text-white">{img.caption}</span>
-                      <span className="text-[#D4FF00]">0{idx + 1} — {img.specLabel}</span>
+                    <div className="mt-3 flex items-center justify-between font-mono text-[11px] text-neutral-400">
+                      <span className="tracking-widest uppercase text-neutral-500">{img.specLabel || `PLATE 0${idx + 1}`}</span>
+                      <span className="text-[#D4FF00] font-bold">0{idx + 1}</span>
                     </div>
                   </div>
                 );
@@ -457,63 +450,61 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
             {/* Previous Project */}
             <div
               onClick={() => onSelectProject(prevProject)}
-              className="group relative h-60 sm:h-76 rounded-2xl overflow-hidden cursor-pointer bg-[#0E1522]"
+              className="group cursor-pointer"
             >
-              <img
-                src={prevProject.heroImage}
-                alt={prevProject.title}
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-contain p-6 transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none" />
-              <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between">
-                <div className="flex items-center gap-2 font-mono text-[10px] text-neutral-300 uppercase tracking-widest">
-                  <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1" />
-                  <span>Previous Work</span>
-                </div>
-                <div>
-                  <span className="block font-mono text-[10px] text-[#D4FF00] uppercase tracking-widest mb-1">
-                    {prevProject.sectorLabel}
+              <div className="bg-[#0E1522] rounded-xl p-6 sm:p-8 flex items-center justify-center overflow-hidden group-hover:bg-[#121B2B] transition-colors">
+                <img
+                  src={prevProject.heroImage}
+                  alt={prevProject.title}
+                  referrerPolicy="no-referrer"
+                  className="w-full max-h-56 object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+              </div>
+              <div className="mt-3.5 space-y-1">
+                <div className="flex items-center justify-between font-mono text-[11px] text-neutral-400 uppercase tracking-wider">
+                  <span className="text-[#D4FF00] font-semibold">{prevProject.sectorLabel}</span>
+                  <span className="text-neutral-500 flex items-center gap-1">
+                    <ArrowLeft className="w-3 h-3 transition-transform group-hover:-translate-x-1" />
+                    <span>PREVIOUS</span>
                   </span>
-                  <h4 className="font-serif text-2xl sm:text-3xl text-white font-semibold">
-                    {prevProject.title}
-                  </h4>
                 </div>
+                <h4 className="font-serif text-lg sm:text-xl text-white font-semibold group-hover:text-[#D4FF00] transition-colors leading-snug">
+                  {prevProject.title}
+                </h4>
               </div>
             </div>
 
             {/* Next Project */}
             <div
               onClick={() => onSelectProject(nextProject)}
-              className="group relative h-60 sm:h-76 rounded-2xl overflow-hidden cursor-pointer bg-[#0E1522]"
+              className="group cursor-pointer"
             >
-              <img
-                src={nextProject.heroImage}
-                alt={nextProject.title}
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-contain p-6 transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none" />
-              <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between text-right">
-                <div className="flex items-center justify-end gap-2 font-mono text-[10px] text-neutral-300 uppercase tracking-widest">
-                  <span>Next Work</span>
-                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-                </div>
-                <div>
-                  <span className="block font-mono text-[10px] text-[#D4FF00] uppercase tracking-widest mb-1">
-                    {nextProject.sectorLabel}
+              <div className="bg-[#0E1522] rounded-xl p-6 sm:p-8 flex items-center justify-center overflow-hidden group-hover:bg-[#121B2B] transition-colors">
+                <img
+                  src={nextProject.heroImage}
+                  alt={nextProject.title}
+                  referrerPolicy="no-referrer"
+                  className="w-full max-h-56 object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+              </div>
+              <div className="mt-3.5 space-y-1">
+                <div className="flex items-center justify-between font-mono text-[11px] text-neutral-400 uppercase tracking-wider">
+                  <span className="text-[#D4FF00] font-semibold">{nextProject.sectorLabel}</span>
+                  <span className="text-neutral-500 flex items-center gap-1">
+                    <span>NEXT</span>
+                    <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
                   </span>
-                  <h4 className="font-serif text-2xl sm:text-3xl text-white font-semibold">
-                    {nextProject.title}
-                  </h4>
                 </div>
+                <h4 className="font-serif text-lg sm:text-xl text-white font-semibold group-hover:text-[#D4FF00] transition-colors leading-snug">
+                  {nextProject.title}
+                </h4>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Fullscreen Plate Lightbox with Zero Cropping */}
+      {/* Fullscreen Plate Lightbox with Zero Cropping & Clean Minimalist Title */}
       <AnimatePresence>
         {lightboxImage && (
           <motion.div
@@ -532,11 +523,11 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
             </button>
             <img
               src={lightboxImage.url}
-              alt={lightboxImage.caption}
-              className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl"
+              alt={project.title}
+              className="max-w-full max-h-[86vh] object-contain rounded-lg shadow-2xl"
             />
-            <p className="mt-4 text-xs sm:text-sm text-neutral-300 font-mono text-center px-4">
-              {lightboxImage.caption}
+            <p className="mt-3 text-xs text-neutral-400 font-mono tracking-wider uppercase text-center px-4">
+              {project.title}
             </p>
           </motion.div>
         )}

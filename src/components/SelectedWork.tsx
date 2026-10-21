@@ -41,12 +41,12 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onViewAll, onSelectP
 
       {/* 
         ========================================================================
-        DYNAMIC EDITORIAL RHYTHM (بدون کادر استروک، عکس تمام عرض، تنوع لی اوت)
+        DYNAMIC EDITORIAL RHYTHM: Borderless, Full-Width, Diverse Layouts
         ========================================================================
       */}
       <div className="space-y-24 sm:space-y-36">
         {/* 
-          ITEM 1: FULL-WIDTH MONITOR-SPANNING PLATE (عکس تمام عرض مانیتور بدون کادر استروک)
+          ITEM 1: FULL-WIDTH MONITOR-SPANNING PLATE
         */}
         {leadProject && (
           <motion.div
@@ -91,7 +91,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onViewAll, onSelectP
         )}
 
         {/* 
-          ITEM 2: ASYMMETRIC CONTRAST SPLIT ON GALLERY LIGHT CANVAS (بدون کادر استروک)
+          ITEM 2: ASYMMETRIC CONTRAST SPLIT ON GALLERY LIGHT CANVAS
         */}
         {secondaryProject && (
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -144,7 +144,7 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onViewAll, onSelectP
         )}
 
         {/* 
-          ITEM 3: REVERSED ASYMMETRIC HORIZON (بدون کادر استروک)
+          ITEM 3: REVERSED ASYMMETRIC HORIZON
         */}
         {tertiaryProject && (
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

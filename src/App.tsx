@@ -14,8 +14,10 @@ import { ProjectDetailView } from './components/ProjectDetailView';
 import { ProcessView } from './components/ProcessView';
 import { PricingView } from './components/PricingView';
 import { ArticlesView } from './components/ArticlesView';
+import { ServicesView } from './components/ServicesView';
 import { BrandAuditModal } from './components/BrandAuditModal';
 import { IntakeBriefModal } from './components/IntakeBriefModal';
+import { ScrollToTopButton } from './components/ScrollToTopButton';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<NavPage>('home');
@@ -114,31 +116,14 @@ export default function App() {
         )}
 
         {currentPage === 'services' && (
-          <>
-            <Capabilities
-              onSelectCapability={() => {
-                setCurrentPage('process');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-            />
-            <Industries onSelectSector={handleSelectSectorFromHome} />
-            <EngagementModels
-              onViewPricing={() => {
-                setCurrentPage('pricing');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              onRequestAudit={() => setIsAuditModalOpen(true)}
-              onDiscussProject={() => setIsBriefModalOpen(true)}
-              onInquireRetainer={() => setIsBriefModalOpen(true)}
-            />
-            <CtaBanner
-              onOpenBrief={() => setIsBriefModalOpen(true)}
-              onViewPricing={() => {
-                setCurrentPage('pricing');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-            />
-          </>
+          <ServicesView
+            onOpenBrief={() => setIsBriefModalOpen(true)}
+            onSelectProject={handleOpenProjectDetail}
+            onNavigateToProcess={() => {
+              setCurrentPage('process');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          />
         )}
 
         {currentPage === 'work' && (
@@ -214,6 +199,9 @@ export default function App() {
         isOpen={isBriefModalOpen}
         onClose={() => setIsBriefModalOpen(false)}
       />
+
+      {/* Floating Back to Top Button */}
+      <ScrollToTopButton />
     </div>
   );
 }

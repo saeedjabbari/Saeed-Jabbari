@@ -45,9 +45,9 @@ export const PricingView: React.FC<PricingViewProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mb-16">
-          <span className="block font-mono text-[11px] font-bold tracking-[0.24em] text-[#D4FF00] uppercase mb-3">
-            ENGAGEMENT MODELS & RATES
-          </span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#080C14] text-[#D4FF00] font-mono text-[10px] font-bold tracking-widest uppercase rounded mb-3">
+            <span>ENGAGEMENT MODELS & RATES</span>
+          </div>
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-[50px] font-semibold leading-tight text-[#0b0d12] mb-4">
             Direct Commercial Engagement
           </h1>
@@ -71,7 +71,7 @@ export const PricingView: React.FC<PricingViewProps> = ({
                 } flex flex-col justify-between`}
               >
                 <div>
-                  <div className="font-mono text-[10px] font-bold tracking-[0.2em] text-[#D4FF00] uppercase mb-2">
+                  <div className="inline-block px-2.5 py-1 bg-[#080C14] text-[#D4FF00] font-mono text-[9px] font-bold tracking-[0.2em] uppercase rounded mb-3">
                     {plan.badge}
                   </div>
 
@@ -97,7 +97,9 @@ export const PricingView: React.FC<PricingViewProps> = ({
                     </div>
                     {plan.deliverables.map((item, idx) => (
                       <div key={idx} className="flex items-start gap-2.5 text-xs text-[#525866] leading-snug">
-                        <Check className="w-4 h-4 text-[#D4FF00] shrink-0 mt-0.5" />
+                        <div className="w-4 h-4 rounded-full bg-[#080C14] text-[#D4FF00] flex items-center justify-center shrink-0 mt-0.5">
+                          <Check className="w-2.5 h-2.5" />
+                        </div>
                         <span>{item}</span>
                       </div>
                     ))}
@@ -132,13 +134,13 @@ export const PricingView: React.FC<PricingViewProps> = ({
         {/* Interactive Scope & Cost Calculator */}
         <div className="bg-white rounded-2xl p-8 sm:p-12 border border-[#dfe3ea] shadow-lg mb-16">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-md bg-[#f4f5f7] text-[#D4FF00] flex items-center justify-center">
+            <div className="w-10 h-10 rounded-md bg-[#080c14] text-[#D4FF00] flex items-center justify-center">
               <Calculator className="w-5 h-5" />
             </div>
             <div>
-              <span className="font-mono text-[10px] font-bold tracking-[0.24em] text-[#D4FF00] uppercase block">
+              <div className="inline-block px-2 py-0.5 bg-[#080c14] text-[#D4FF00] font-mono text-[9px] font-bold tracking-[0.2em] uppercase rounded mb-1">
                 INSTANT SCOPE ESTIMATOR
-              </span>
+              </div>
               <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-[#0b0d12]">
                 Calculate Your Branding & Packaging Scope
               </h2>
