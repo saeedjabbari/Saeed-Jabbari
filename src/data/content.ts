@@ -1,5 +1,15 @@
 import { CapabilityItem, EngagementPlan, Project, SectorItem, Article } from '../types';
 
+const asset = (subpath: string): string => {
+  if (
+    typeof window !== 'undefined' &&
+    (window as unknown as { __STATIC_ROOT_MODE__?: boolean }).__STATIC_ROOT_MODE__
+  ) {
+    return `public/assets/${subpath}`;
+  }
+  return `assets/${subpath}`;
+};
+
 export const CAPABILITIES: CapabilityItem[] = [
   {
     id: 'brand-identity',
@@ -83,7 +93,7 @@ export const HERO_SLIDES: HeroSlide[] = [
   {
     id: 'cosmetics',
     industryLabel: 'Cosmetics & Skincare',
-    image: 'assets/hero/hero-cosmetics.jpg',
+    image: asset('hero/hero-cosmetics.jpg'),
     headlineMobile: [
       'Sculpting desire for',
       'modern skincare &',
@@ -115,7 +125,7 @@ export const HERO_SLIDES: HeroSlide[] = [
   {
     id: 'b2b',
     industryLabel: 'B2B & Corporate',
-    image: 'assets/hero/hero-b2b.jpg',
+    image: asset('hero/hero-b2b.jpg'),
     headlineMobile: [
       'Make your brand',
       'easier to recognize',
@@ -161,7 +171,7 @@ export const PROJECTS: Project[] = [
     heroColor: '#6d4c3d',
     textColor: '#f7f2ed',
     bannerVisualText: 'The Nuvé',
-    heroImage: 'assets/projects/the-nuve.jpg',
+    heroImage: asset('projects/the-nuve.jpg'),
     galleryImages: [
       {
         url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/db9fd8254816385.6a8e6403bd662.png',
@@ -244,7 +254,7 @@ export const PROJECTS: Project[] = [
     heroColor: '#1c1e22',
     textColor: '#f1f3f5',
     bannerVisualText: 'MOOD MINT',
-    heroImage: 'assets/projects/mood-mint.jpg',
+    heroImage: asset('projects/mood-mint.jpg'),
     galleryImages: [
       {
         url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/7e88ef255777339.6aac614ea6a76.jpg',
@@ -322,7 +332,7 @@ export const PROJECTS: Project[] = [
     heroColor: '#121419',
     textColor: '#f5f7fa',
     bannerVisualText: 'RST AXLE SYSTEMS',
-    heroImage: 'assets/projects/rst-axle.jpg',
+    heroImage: asset('projects/rst-axle.jpg'),
     galleryImages: [
       {
         url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/5963c0256435067.6abc303d7a3bb.jpg',
@@ -395,7 +405,7 @@ export const PROJECTS: Project[] = [
     heroColor: '#be3956',
     textColor: '#ffffff',
     bannerVisualText: 'RHINO ENERGY',
-    heroImage: 'assets/projects/rhino-energy.jpg',
+    heroImage: asset('projects/rhino-energy.jpg'),
     galleryImages: [
       {
         url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/1a25f8254714545.6a8bd82748c3c.png',
@@ -478,7 +488,7 @@ export const PROJECTS: Project[] = [
     heroColor: '#4d535e',
     textColor: '#ffffff',
     bannerVisualText: '45M³ LPG TANK',
-    heroImage: 'assets/projects/rst-lpg-tank.jpg',
+    heroImage: asset('projects/rst-lpg-tank.jpg'),
     galleryImages: [
       {
         url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/f7a498256434075.6abc27e6e0f60.jpg',
@@ -541,7 +551,7 @@ export const PROJECTS: Project[] = [
     heroColor: '#2b3f54',
     textColor: '#ffffff',
     bannerVisualText: 'ONE TRAILER',
-    heroImage: 'assets/projects/trailer-systems.jpg',
+    heroImage: asset('projects/trailer-systems.jpg'),
     galleryImages: [
       {
         url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/5242c6256412865.6ad4aeec798fe.png',
@@ -614,7 +624,7 @@ export const PROJECTS: Project[] = [
     heroColor: '#454952',
     textColor: '#f7f8f9',
     bannerVisualText: 'BRAKE SOLUTIONS',
-    heroImage: 'assets/projects/rst-spare-parts.jpg',
+    heroImage: asset('projects/rst-spare-parts.jpg'),
     galleryImages: [
       {
         url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9528d2256434747.6abc2e597ff97.jpg',
@@ -682,7 +692,7 @@ export const PROJECTS: Project[] = [
     heroColor: '#172230',
     textColor: '#f0f4f9',
     bannerVisualText: 'COMPLETE PARTS',
-    heroImage: 'assets/projects/semi-trailer-parts.jpg',
+    heroImage: asset('projects/semi-trailer-parts.jpg'),
     galleryImages: [
       {
         url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/e3f9c9256411105.6abbb3ee06a8a.jpg',
@@ -735,7 +745,7 @@ export const PROJECTS: Project[] = [
     heroColor: '#0b1626',
     textColor: '#e8f0fc',
     bannerVisualText: 'LPG SALES STORIES',
-    heroImage: 'assets/projects/rst-maral-moscow.jpg',
+    heroImage: asset('projects/rst-maral-moscow.jpg'),
     galleryImages: [
       {
         url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/36efa7255660131.6aa6b4a7bde53.png',
@@ -808,7 +818,7 @@ export const PROJECTS: Project[] = [
     heroColor: '#0a1a14',
     textColor: '#eef3f0',
     bannerVisualText: 'HEXAGON',
-    heroImage: 'assets/projects/hexagon-agency.jpg',
+    heroImage: asset('projects/hexagon-agency.jpg'),
     galleryImages: [
       {
         url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/2795ad182968605.65f6f92eddf79.jpg',
@@ -881,7 +891,7 @@ export const PROJECTS: Project[] = [
     heroColor: '#2b211d',
     textColor: '#f9f3ec',
     bannerVisualText: 'ECO LUBRICANT',
-    heroImage: 'assets/projects/eco-lubricant.jpg',
+    heroImage: asset('projects/eco-lubricant.jpg'),
     galleryImages: [
       {
         url: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/074402182273071.652ab4bededf7.jpg',

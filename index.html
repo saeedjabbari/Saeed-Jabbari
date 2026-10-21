@@ -13,8 +13,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   </head>
-  <body class="bg-[#06070a] text-[#f7f4ee] antialiased selection:bg-[#cfad76] selection:text-black">
+  <body style="background-color: #06070a; color: #f7f4ee; margin: 0;" class="bg-[#06070a] text-[#f7f4ee] antialiased selection:bg-[#cfad76] selection:text-black">
     <div id="root"></div>
     <script type="module" src="./src/main.tsx"></script>
+    <script>
+      (function () {
+        var isViteDev = !!document.querySelector('script[src*="@vite/client"]');
+        var isBuiltDist = !!document.querySelector('script[src*="assets/index"]');
+        if (!isViteDev && !isBuiltDist) {
+          window.__STATIC_ROOT_MODE__ = true;
+          var link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = './public/bundle/app.css';
+          document.head.appendChild(link);
+
+          var script = document.createElement('script');
+          script.type = 'module';
+          script.src = './public/bundle/app.js';
+          document.body.appendChild(script);
+        }
+      })();
+    </script>
   </body>
 </html>
