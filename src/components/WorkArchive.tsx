@@ -33,12 +33,7 @@ export const WorkArchive: React.FC<WorkArchiveProps> = ({
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-14 mb-16 sm:mb-24">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-8">
           <div className="max-w-2xl">
-            <div className="flex items-center gap-3 font-mono text-[11px] tracking-[0.24em] text-[#D4FF00] uppercase mb-4">
-              <span>BEHANCE SYNCHRONIZED ARCHIVE</span>
-              <span aria-hidden="true" className="text-neutral-600">·</span>
-              <span className="text-neutral-400 font-semibold">{filteredProjects.length} CURATED PROJECTS</span>
-            </div>
-            <h1 className="font-serif text-4xl sm:text-6xl lg:text-[78px] font-semibold tracking-[-0.035em] text-white leading-[1.0]">
+            <h1 className="font-serif text-3xl sm:text-6xl lg:text-[76px] font-semibold tracking-[-0.035em] text-white leading-[1.04] sm:leading-[1.0]">
               Visual Works
             </h1>
           </div>

@@ -2,8 +2,9 @@ import {createRoot} from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
 
-// Automatic image path fallback when GitHub Pages serves the raw repository root (main branch)
+// Flag that Vite or direct module entry point loaded successfully
 if (typeof window !== 'undefined') {
+  (window as unknown as { __VITE_LOADED__?: boolean }).__VITE_LOADED__ = true;
   window.addEventListener(
     'error',
     (event) => {

@@ -62,7 +62,7 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
                 rel="noopener noreferrer"
                 className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/5 hover:bg-white/10 text-neutral-200 hover:text-[#D4FF00] text-[11px] font-mono tracking-wider uppercase rounded transition-colors"
               >
-                <span>Behance</span>
+                <span>Full Project</span>
                 <ArrowUpRight className="w-3 h-3" />
               </a>
             )}
@@ -169,7 +169,7 @@ export const ProjectDetailView: React.FC<ProjectDetailViewProps> = ({
             </div>
             <div>
               <span className="block font-mono text-[10px] tracking-[0.2em] text-neutral-500 uppercase mb-2">
-                BEHANCE CASE STUDY
+                COMPLETE PRESENTATION
               </span>
               {project.behanceUrl ? (
                 <a

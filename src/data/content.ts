@@ -91,23 +91,24 @@ export interface HeroSlide {
 
 export const HERO_SLIDES: HeroSlide[] = [
   {
-    id: 'cosmetics',
-    industryLabel: 'Cosmetics & Skincare',
-    image: asset('hero/hero-cosmetics.jpg'),
+    id: 'b2b',
+    industryLabel: 'B2B & Corporate Branding',
+    image: asset('hero/hero-b2b.jpg'),
     headlineMobile: [
-      'Design That Makes',
-      'Skincare Sell.'
+      'Branding',
+      'That Makes You',
+      'Hard To Replace.'
     ],
     headlineDesktop: [
-      'Design That Makes',
-      'Skincare Sell.'
+      'Branding That Makes You',
+      'Hard To Replace.'
     ],
     subtitle:
-      'Strategic packaging and visual direction built to turn products into repeat sales.'
+      'Authoritative visual systems, brand strategy, and commercial positioning engineered to help businesses stand out and win.'
   },
   {
     id: 'fmcg',
-    industryLabel: 'FMCG & Food',
+    industryLabel: 'FMCG & Packaging Systems',
     image: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/7e88ef255777339.6aac614ea6a76.jpg',
     headlineMobile: [
       'Packaging Built',
@@ -118,22 +119,22 @@ export const HERO_SLIDES: HeroSlide[] = [
       'To Win The Shelf.'
     ],
     subtitle:
-      'Distinctive FMCG design and brand systems that make your product the first choice.'
+      'Distinctive FMCG design, retail packaging, and brand world architecture that make your products the customer’s first choice.'
   },
   {
-    id: 'b2b',
-    industryLabel: 'B2B & Corporate',
-    image: asset('hero/hero-b2b.jpg'),
+    id: 'cosmetics',
+    industryLabel: 'Cosmetics & Skincare',
+    image: asset('hero/hero-cosmetics.jpg'),
     headlineMobile: [
-      'Branding That Makes You',
-      'Hard To Replace.'
+      'Design That Makes',
+      'Products Sell.'
     ],
     headlineDesktop: [
-      'Branding That Makes You',
-      'Hard To Replace.'
+      'Design That Makes',
+      'Products Sell.'
     ],
     subtitle:
-      'Authoritative visual systems and positioning that help ambitious businesses win.'
+      'Strategic packaging, tactile material curation, and visual direction built to turn products into repeat sales.'
   },
   {
     id: 'automotive',
@@ -148,7 +149,7 @@ export const HERO_SLIDES: HeroSlide[] = [
       'Global Impact.'
     ],
     subtitle:
-      'Industrial catalogs and 3D visual systems that help manufacturers sell faster.'
+      'Industrial catalogs, technical sales publications, and 3D visual systems that help manufacturers sell faster.'
   }
 ];
 

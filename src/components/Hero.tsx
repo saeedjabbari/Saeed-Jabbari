@@ -84,7 +84,24 @@ export const Hero: React.FC<HeroProps> = ({
                 transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
                 className="w-full"
               >
-                <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[76px] leading-[1.06] sm:leading-[1.0] font-semibold tracking-[-0.035em] text-white">
+                {/* Mobile View: Clean rhythmic lines preventing mid-word overflow */}
+                <h1 className="sm:hidden font-serif text-[32px] xs:text-[36px] leading-[1.08] font-semibold tracking-[-0.035em] text-white">
+                  {currentSlide.headlineMobile.map((line, idx) => (
+                    <span
+                      key={idx}
+                      className={
+                        idx === currentSlide.headlineMobile.length - 1
+                          ? 'block text-[#D4FF00] mt-1'
+                          : 'block'
+                      }
+                    >
+                      {line}
+                    </span>
+                  ))}
+                </h1>
+
+                {/* Tablet & Desktop View: 2-line typographic punch */}
+                <h1 className="hidden sm:block font-serif sm:text-6xl md:text-7xl lg:text-[76px] leading-[1.0] font-semibold tracking-[-0.035em] text-white">
                   <span className="block">{currentSlide.headlineDesktop[0]}</span>
                   <span className="block text-[#D4FF00] mt-1 sm:mt-2">{currentSlide.headlineDesktop[1]}</span>
                 </h1>
