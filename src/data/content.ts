@@ -87,6 +87,8 @@ export interface HeroSlide {
   headlineMobile: string[];
   headlineDesktop: [string, string];
   subtitle: string;
+  sampleProjectTitle: string;
+  sampleDeliverables: string;
 }
 
 export const HERO_SLIDES: HeroSlide[] = [
@@ -104,7 +106,9 @@ export const HERO_SLIDES: HeroSlide[] = [
       'Hard To Replace.'
     ],
     subtitle:
-      'Authoritative visual systems, brand strategy, and commercial positioning engineered to help businesses stand out and win.'
+      'Strategic brand identity systems, shelf-dominating product packaging, and technical sales catalogs engineered to make businesses stand out and convert buyers.',
+    sampleProjectTitle: 'Diasporart — Visual Identity & Brand System',
+    sampleDeliverables: 'Corporate Logomark · Visual Architecture · Guidelines'
   },
   {
     id: 'fmcg',
@@ -112,21 +116,25 @@ export const HERO_SLIDES: HeroSlide[] = [
     image: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/7e88ef255777339.6aac614ea6a76.jpg',
     headlineMobile: [
       'Packaging Built',
-      'To Win The Shelf.'
+      'To Win',
+      'The Shelf.'
     ],
     headlineDesktop: [
       'Packaging Built',
       'To Win The Shelf.'
     ],
     subtitle:
-      'Distinctive FMCG design, retail packaging, and brand world architecture that make your products the customer’s first choice.'
+      'Distinctive FMCG packaging concepts, custom structural forms, and shelf storytelling that turn consumer products into market leaders.',
+    sampleProjectTitle: 'Master Chef — Premium Pistachio Packaging',
+    sampleDeliverables: 'Structural Box Design · Foil Stamping · Retail System'
   },
   {
     id: 'cosmetics',
     industryLabel: 'Cosmetics & Skincare',
     image: asset('hero/hero-cosmetics.jpg'),
     headlineMobile: [
-      'Design That Makes',
+      'Design',
+      'That Makes',
       'Products Sell.'
     ],
     headlineDesktop: [
@@ -134,14 +142,17 @@ export const HERO_SLIDES: HeroSlide[] = [
       'Products Sell.'
     ],
     subtitle:
-      'Strategic packaging, tactile material curation, and visual direction built to turn products into repeat sales.'
+      'Tactile bottles, skincare packaging systems, and high-converting monthly social content crafted for beauty and derma brands.',
+    sampleProjectTitle: 'The Nuvé — Skincare Visual Direction & Packaging',
+    sampleDeliverables: 'Tactile Bottle Finish · Editorial Lighting · Social System'
   },
   {
     id: 'automotive',
     industryLabel: 'Automotive & Heavy Industry',
     image: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/bacbe8256435067.6abc2ee740e6a.jpg',
     headlineMobile: [
-      'Technical Clarity.',
+      'Technical Clarity',
+      'Built For',
       'Global Impact.'
     ],
     headlineDesktop: [
@@ -149,7 +160,9 @@ export const HERO_SLIDES: HeroSlide[] = [
       'Global Impact.'
     ],
     subtitle:
-      'Industrial catalogs, technical sales publications, and 3D visual systems that help manufacturers sell faster.'
+      'Heavy-duty industrial sales catalogs, 3D cutaways, and lubricant packaging systems built for international exporters.',
+    sampleProjectTitle: 'Maral RST — 45m³ Semi-Trailer Technical Catalog',
+    sampleDeliverables: 'Technical Publications · 3D Product Visuals · Print'
   }
 ];
 

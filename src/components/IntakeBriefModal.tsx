@@ -58,50 +58,50 @@ export const IntakeBriefModal: React.FC<IntakeBriefModalProps> = ({ isOpen, onCl
         aria-labelledby="intake-brief-title"
       >
         {/* Modal Header */}
-        <div className="p-4 sm:p-6 border-b border-[#222631] flex items-center justify-between shrink-0">
-          <div className="flex items-center gap-2.5 sm:gap-3">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-md bg-[#D4FF00] text-[#080C14] font-bold flex items-center justify-center font-bold text-xs sm:text-sm shrink-0">
+        <div className="p-3 sm:p-5 border-b border-[#222631] flex items-center justify-between shrink-0">
+          <div className="flex items-center gap-2.5">
+            <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-md bg-[#D4FF00] text-[#080C14] font-bold flex items-center justify-center font-bold text-xs shrink-0">
               SJ
             </div>
             <div>
-              <h3 id="intake-brief-title" className="font-serif text-lg sm:text-2xl font-bold text-white">
+              <h3 id="intake-brief-title" className="font-serif text-base sm:text-xl font-bold text-white leading-tight">
                 Start a Project
               </h3>
-              <p className="text-[10px] sm:text-[11px] text-[#949BA8]">
-                Direct commercial inquiry with Saeed Jabbari
+              <p className="text-[10px] sm:text-[11px] text-[#949BA8] line-clamp-1">
+                Direct commercial inquiry with Saeed Jabbari Studio
               </p>
             </div>
           </div>
 
           <button
             onClick={resetAndClose}
-            className="p-2 text-[#949BA8] hover:text-white rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#D4FF00]"
+            className="p-1.5 text-[#949BA8] hover:text-white rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#D4FF00]"
             aria-label="Close Brief Modal"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        {/* Modal Body */}
-        <div className="p-4 sm:p-6 overflow-y-auto flex-1">
+        {/* Modal Body — Ultra-compact zero-scroll mobile layout */}
+        <div className="p-3 sm:p-5 overflow-y-auto flex-1">
           {!submitted ? (
-            <form onSubmit={handleNext} className="space-y-6">
+            <form onSubmit={handleNext} className="space-y-3 sm:space-y-4">
               {/* Step indicator */}
-              <div className="flex items-center gap-2 pb-2">
-                <span className={`text-xs font-bold uppercase tracking-wider ${currentStep === 1 ? 'text-[#D4FF00]' : 'text-neutral-500'}`}>
-                  01. Business & Brand Scope
+              <div className="flex items-center gap-2 pb-1">
+                <span className={`text-[10px] sm:text-xs font-bold uppercase tracking-wider ${currentStep === 1 ? 'text-[#D4FF00]' : 'text-neutral-500'}`}>
+                  01. Scope &amp; Info
                 </span>
                 <span className="text-neutral-600">/</span>
-                <span className={`text-xs font-bold uppercase tracking-wider ${currentStep === 2 ? 'text-[#D4FF00]' : 'text-neutral-500'}`}>
-                  02. Deliverables & Timeline
+                <span className={`text-[10px] sm:text-xs font-bold uppercase tracking-wider ${currentStep === 2 ? 'text-[#D4FF00]' : 'text-neutral-500'}`}>
+                  02. Timeline &amp; Budget
                 </span>
               </div>
 
               {currentStep === 1 ? (
-                <div className="space-y-5">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-2.5 sm:space-y-3.5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
                     <div>
-                      <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-2">
+                      <label className="block text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-1">
                         Your Full Name
                       </label>
                       <input
@@ -110,12 +110,12 @@ export const IntakeBriefModal: React.FC<IntakeBriefModalProps> = ({ isOpen, onCl
                         value={formData.fullName}
                         onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                         placeholder="e.g. Elena Rostova"
-                        className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#D4FF00]"
+                        className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-3 py-2 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#D4FF00]"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-2">
+                      <label className="block text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-1">
                         Direct Email Address
                       </label>
                       <input
@@ -124,71 +124,72 @@ export const IntakeBriefModal: React.FC<IntakeBriefModalProps> = ({ isOpen, onCl
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="elena@company.com"
-                        className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#D4FF00]"
+                        className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-3 py-2 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#D4FF00]"
                       />
                     </div>
                   </div>
 
-                  <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-2">
-                      Company / Brand Name
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.companyName}
-                      onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
-                      placeholder="e.g. NUVE Cosmetics or RST Industrial"
-                      className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#D4FF00]"
-                    />
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+                    <div>
+                      <label className="block text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-1">
+                        Company / Brand
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={formData.companyName}
+                        onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
+                        placeholder="e.g. NUVE Cosmetics"
+                        className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-3 py-2 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#D4FF00]"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-1">
+                        Industry Sector
+                      </label>
+                      <select
+                        value={formData.sector}
+                        onChange={(e) => setFormData({ ...formData, sector: e.target.value })}
+                        className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-3 py-2 text-xs sm:text-sm text-white focus:outline-none focus:border-[#D4FF00]"
+                      >
+                        <option value="cosmetics">Cosmetics &amp; Skincare</option>
+                        <option value="fmcg">FMCG &amp; Food / Beverage</option>
+                        <option value="b2b">B2B &amp; Corporate Export</option>
+                        <option value="automotive">Automotive &amp; Heavy Industry</option>
+                      </select>
+                    </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-2">
-                      Core Industry Sector
-                    </label>
-                    <select
-                      value={formData.sector}
-                      onChange={(e) => setFormData({ ...formData, sector: e.target.value })}
-                      className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-[#D4FF00]"
-                    >
-                      <option value="cosmetics">Cosmetics & Skincare (Derma, Personal Care, Beauty)</option>
-                      <option value="fmcg">FMCG & Food (Beverage, Confectionery, High-Velocity Retail)</option>
-                      <option value="b2b">B2B & Corporate (Export Systems, Technical Catalogs)</option>
-                      <option value="automotive">Automotive & Heavy Industry (Commercial Spares, Lubricants, OEM)</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-2">
+                    <label className="block text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-1.5">
                       Required Services (Select all that apply)
                     </label>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <div className="grid grid-cols-2 gap-1.5 sm:gap-2">
                       {[
-                        'Brand Identity & Logo System',
                         'Product Packaging Design',
-                        'B2B Catalogs, Brochures & Print',
-                        'Commercial Advertising Campaigns',
-                        'Ongoing Creative Direction Retainer'
+                        'Brand Identity & Logo',
+                        'B2B Catalogs & Print',
+                        'Campaigns & 3D Visuals'
                       ].map((service) => {
                         const isSelected = formData.projectType.includes(service);
                         return (
                           <div
                             key={service}
                             onClick={() => toggleProjectType(service)}
-                            className={`p-3 rounded-lg border text-xs cursor-pointer transition-all flex items-center justify-between ${
+                            className={`p-2 sm:p-2.5 rounded-lg border text-[11px] sm:text-xs cursor-pointer transition-all flex items-center justify-between gap-1.5 ${
                               isSelected
                                 ? 'bg-[#D4FF00]/12 border-[#D4FF00] text-white font-medium'
                                 : 'bg-[#12151C] border-[#222631] text-[#949BA8] hover:border-neutral-700'
                             }`}
                           >
-                            <span>{service}</span>
+                            <span className="truncate">{service}</span>
                             <div
-                              className={`w-4 h-4 rounded border flex items-center justify-center ${
-                                isSelected ? 'bg-[#D4FF00] border-[#D4FF00] text-white' : 'border-neutral-600'
+                              className={`w-3.5 h-3.5 rounded border flex items-center justify-center shrink-0 ${
+                                isSelected ? 'bg-[#D4FF00] border-[#D4FF00] text-[#080C14]' : 'border-neutral-600'
                               }`}
                             >
-                              {isSelected && <Check className="w-3 h-3 text-white" />}
+                              {isSelected && <Check className="w-2.5 h-2.5 text-[#080C14]" />}
                             </div>
                           </div>
                         );
@@ -196,107 +197,109 @@ export const IntakeBriefModal: React.FC<IntakeBriefModalProps> = ({ isOpen, onCl
                     </div>
                   </div>
 
-                  <div className="pt-2">
+                  <div className="pt-1">
                     <button
                       type="submit"
-                      className="w-full py-3.5 bg-[#D4FF00] hover:bg-[#c2eb00] text-[#080C14] font-bold text-xs font-bold tracking-[0.14em] uppercase rounded-md transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#D4FF00]/20"
+                      className="w-full py-2.5 sm:py-3 bg-[#D4FF00] hover:bg-[#c2eb00] text-[#080C14] font-bold text-xs tracking-[0.14em] uppercase rounded-md transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#D4FF00]/20 cursor-pointer"
                     >
-                      <span>CONTINUE TO PROJECT DETAILS</span>
-                      <ArrowRight className="w-4 h-4" />
+                      <span>CONTINUE TO DETAILS</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                   </div>
                 </div>
               ) : (
-                <div className="space-y-5">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-2.5 sm:space-y-3.5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
                     <div>
-                      <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-2">
-                        Target SKU / Deliverable Count
+                      <label className="block text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-1">
+                        SKU / Deliverable Count
                       </label>
                       <select
                         value={formData.skuCount}
                         onChange={(e) => setFormData({ ...formData, skuCount: e.target.value })}
-                        className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-[#D4FF00]"
+                        className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-3 py-2 text-xs sm:text-sm text-white focus:outline-none focus:border-[#D4FF00]"
                       >
-                        <option value="1–2 SKUs">1–2 Hero Products / Brand Identity</option>
+                        <option value="1–2 SKUs">1–2 Hero Products</option>
                         <option value="3–6 SKUs">3–6 Core Product Line</option>
-                        <option value="7–15 SKUs">7–15 Multi-Format Product Family</option>
-                        <option value="15+ SKUs">15+ Full Product Portfolio & Catalog</option>
+                        <option value="7–15 SKUs">7–15 Product Family</option>
+                        <option value="15+ SKUs">15+ Full Catalog</option>
                       </select>
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-2">
-                        Estimated Investment Range
+                      <label className="block text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-1">
+                        Estimated Investment
                       </label>
                       <select
                         value={formData.budgetTier}
                         onChange={(e) => setFormData({ ...formData, budgetTier: e.target.value })}
-                        className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-[#D4FF00]"
+                        className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-3 py-2 text-xs sm:text-sm text-white focus:outline-none focus:border-[#D4FF00]"
                       >
-                        <option value="$12,000 – $20,000">$12,000 – $20,000 (Focused Scope)</option>
-                        <option value="$25,000 – $50,000">$25,000 – $50,000 (Complete Brand & Packaging System)</option>
-                        <option value="$50,000 – $100,000+">$50,000 – $100,000+ (Multi-Market Rollout & Retainer)</option>
+                        <option value="$12,000 – $20,000">$12,000 – $20,000 (Focused)</option>
+                        <option value="$25,000 – $50,000">$25,000 – $50,000 (Complete System)</option>
+                        <option value="$50,000 – $100,000+">$50,000 – $100,000+ (Multi-Market)</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+                    <div>
+                      <label className="block text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-1">
+                        Packaging / Substrate Format
+                      </label>
+                      <input
+                        type="text"
+                        value={formData.primarySubstrate}
+                        onChange={(e) => setFormData({ ...formData, primarySubstrate: e.target.value })}
+                        placeholder="e.g. Glass Bottle, Can, or Print"
+                        className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-3 py-2 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#D4FF00]"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-1">
+                        Target Launch Window
+                      </label>
+                      <select
+                        value={formData.estimatedTimeline}
+                        onChange={(e) => setFormData({ ...formData, estimatedTimeline: e.target.value })}
+                        className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-3 py-2 text-xs sm:text-sm text-white focus:outline-none focus:border-[#D4FF00]"
+                      >
+                        <option value="Immediate (Next 4 weeks)">Immediate (Fast-Track Launch)</option>
+                        <option value="Q2 2026">Q2 2026 Window</option>
+                        <option value="Q3 2026">Q3 2026 Window</option>
+                        <option value="Q4 2026 / 2027">Q4 2026 / 2027 Planning</option>
                       </select>
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-2">
-                      Packaging Format or Deliverable Details
-                    </label>
-                    <input
-                      type="text"
-                      value={formData.primarySubstrate}
-                      onChange={(e) => setFormData({ ...formData, primarySubstrate: e.target.value })}
-                      placeholder="e.g. Aluminum Beverage Can, Folding Carton, or B2B Export Catalog"
-                      className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#D4FF00]"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-2">
-                      Target Launch Window
-                    </label>
-                    <select
-                      value={formData.estimatedTimeline}
-                      onChange={(e) => setFormData({ ...formData, estimatedTimeline: e.target.value })}
-                      className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-[#D4FF00]"
-                    >
-                      <option value="Immediate (Next 4 weeks)">Immediate (Fast-Track Commercial Launch)</option>
-                      <option value="Q2 2026">Q2 2026 Engagement Window</option>
-                      <option value="Q3 2026">Q3 2026 Launch Window</option>
-                      <option value="Q4 2026 / 2027">Q4 2026 or 2027 Strategic Planning</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-2">
-                      Commercial Goals & Sales Objectives
+                    <label className="block text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-1">
+                      Project Notes &amp; Sales Goals (Optional)
                     </label>
                     <textarea
-                      rows={3}
+                      rows={2}
                       value={formData.notes}
                       onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                      placeholder="Tell us about your target market, retail channels, competitors, or sales goals..."
-                      className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-4 py-3 text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#D4FF00]"
+                      placeholder="Brief details about your target market, competitors, or timeline..."
+                      className="w-full bg-[#12151C] border border-[#272B36] rounded-lg px-3 py-1.5 text-xs sm:text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-[#D4FF00] resize-none"
                     />
                   </div>
 
-                  <div className="flex gap-3 pt-2">
+                  <div className="flex gap-2 pt-1">
                     <button
                       type="button"
                       onClick={() => setCurrentStep(1)}
-                      className="px-5 py-3 border border-[#272B36] text-xs font-semibold uppercase tracking-wider text-neutral-300 hover:text-white rounded-md transition-colors"
+                      className="px-4 py-2.5 border border-[#272B36] text-xs font-semibold uppercase tracking-wider text-neutral-300 hover:text-white rounded-md transition-colors cursor-pointer"
                     >
                       BACK
                     </button>
                     <button
                       type="submit"
-                      className="flex-1 py-3 bg-[#D4FF00] hover:bg-[#c2eb00] text-[#080C14] font-bold text-xs font-bold tracking-[0.14em] uppercase rounded-md transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#D4FF00]/20"
+                      className="flex-1 py-2.5 bg-[#D4FF00] hover:bg-[#c2eb00] text-[#080C14] font-bold text-xs tracking-[0.14em] uppercase rounded-md transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#D4FF00]/20 cursor-pointer"
                     >
-                      <Send className="w-4 h-4" />
-                      <span>SUBMIT PROJECT BRIEF</span>
+                      <Send className="w-3.5 h-3.5" />
+                      <span>SUBMIT BRIEF</span>
                     </button>
                   </div>
                 </div>
