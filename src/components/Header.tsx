@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavPage } from '../types';
 import { Menu, X } from 'lucide-react';
 
@@ -14,6 +14,16 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenBrief
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 15);
+    };
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navItems: { label: string; page: NavPage }[] = [
     { label: 'Home', page: 'home' },
@@ -29,7 +39,14 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-[#080C14]/90 backdrop-blur-xl transition-all">
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? 'bg-[#080C14]/95 backdrop-blur-2xl border-b border-white/10 shadow-2xl shadow-black/50'
+            : 'bg-[#080C14]/90 backdrop-blur-xl border-b border-white/5'
+        }`}
+      >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
         {/* Brand Lockup */}
         <button
@@ -134,6 +151,10 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
         </div>
       )}
-    </header>
+      </header>
+
+      {/* Companion Height Spacer: Prevents page content from hiding behind the fixed header */}
+      <div className="h-16 sm:h-20 shrink-0 w-full" aria-hidden="true" />
+    </>
   );
 };
